@@ -1,0 +1,4 @@
+- [x] Integrate preloader styles, HTML elements, and JS into Main.html
+- [x] Wrap existing Main.html body content in #mainContent div with opacity:0
+- [x] Add preloader div and gifWrap elements
+- [x] Test by launching browser to Main.html

@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Arc Angle</title>
+
+  <!-- Google Fonts -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Orbitron Font -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+
+  <!-- Instrument Sans Font -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS file connect -->
+
+  <link rel="stylesheet" href="Assets/Css/main.css">
+
+
+
+  <style>
+    :root {
+
+      --bg-size: 160vmax;
+
+    }
+
+
+
+    /* FULLSCREEN PRELOADER */
+
+    #preloader {
+
+      position: fixed;
+
+      inset: 0;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      z-index: 9999;
+
+      overflow: hidden;
+
+      background: rgba(163, 13, 219, 1);
+
+
+    }
+
+
+
+    /* rotating gradient layer */
+
+    .bg {
+
+      position: absolute;
+
+      width: 200vw;
+
+      height: 400vh;
+
+      background: conic-gradient(from 90deg at 50% 50%, rgb(0, 0, 0), rgba(163, 13, 219, 1), rgb(0, 0, 0));
+
+      filter: blur(60px) saturate(120%);
+
+      transform-origin: 50% 50%;
+
+      will-change: transform;
+
+      opacity: 1;
+
+    }
+
+
+
+    /* subtle overlay to keep center in focus */
+
+    .overlay {
+
+      position: absolute;
+
+      inset: 0;
+
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0.36));
+
+      pointer-events: none;
+
+    }
+
+
+
+    .center {
+
+      position: relative;
+
+      z-index: 10;
+
+      text-align: center;
+
+      color: white;
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 28px;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      padding: 24px;
+
+      height: 90vh;
+
+    }
+
+
+
+    /* coin wrapper */
+
+    .coin {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      transform-origin: center;
+
+      will-change: transform;
+
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.45));
+
+      user-select: none;
+
+    }
+
+
+
+    /* counter slider styles */
+
+    .counter-slider {
+
+      width: 100%;
+
+      height: 4rem;
+      /* shows exactly one item */
+
+      overflow: hidden;
+
+      display: block;
+
+      margin-top: 4px;
+
+    }
+
+
+
+    .counter-list {
+
+      display: block;
+
+      will-change: transform;
+
+    }
+
+
+
+    .counter-item {
+
+      font-family: 'Orbitron', sans-serif;
+
+      font-weight: 400;
+
+      font-size: 3.5rem;
+
+      height: 4rem;
+
+      line-height: 4rem;
+
+      letter-spacing: 2px;
+
+      color: white;
+
+    }
+
+
+
+    .welcome {
+
+      font-family: 'Orbitron', sans-serif;
+
+      font-size: 3.5rem;
+
+      opacity: 0;
+
+      transform: translateY(8px);
+
+      letter-spacing: 2px;
+
+    }
+
+
+
+    /* GIF container (hidden initially) */
+
+    #gifWrap {
+
+      position: fixed;
+
+      inset: 0;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      z-index: 9998;
+
+      pointer-events: none;
+
+      opacity: 0;
+
+      visibility: hidden;
+
+    }
+
+    #gifWrap img {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      border-radius: 12px;
+
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+
+    }
+
+
+
+    /* Main content hidden behind preloader */
+
+    #mainContent {
+
+      opacity: 0;
+
+      min-height: 100vh;
+
+      transition: opacity .4s ease;
+
+    }
+
+
+
+    @media (max-width:480px) {
+
+      .coin {
+        width: 90px;
+        height: 90px;
+      }
+
+      .counter-slider {
+        width: 110px;
+        height: 36px;
+      }
+
+      .counter-item {
+        font-size: 28px;
+        height: 36px;
+        line-height: 36px;
+      }
+
+      #gifWrap img {
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+      }
+
+    }
+
+    @media screen and (min-width: 320px) and (max-width: 768px) {
+
+      .welcome {
+        font-size: 1.5rem;
+      }
+
+      .coin {
+        width: 120px;
+        height: 120px;
+      }
+
+      .center {
+        padding: 20px;
+      }
+
+      .bg {
+        width: 564vw;
+        height: 570vh;
+      }
+
+    }
+  </style>
+
+</head>
+
+<body style="background-color: black;">
+
+  <!-- Background Video -->
+
+  <video autoplay loop muted playsinline class="background-video">
+
+    <source src="https://on10.io/arc/Assets/Media/Videos/Hero.mp4" type="video/mp4">
+
+  </video>
+
+
+
+  <!-- Body Overlay -->
+
+  <div class="body-overlay"></div>
+
+
+
+  <!-- PRELOADER -->
+
+  <div id="preloader" aria-hidden="true">
+
+    <div class="bg" id="rotatingBg"></div>
+
+    <div class="overlay"></div>
+
+
+
+    <div class="center">
+
+      <!-- Welcome text -->
+
+      <div class="welcome" id="welcomeText">Welcome</div>
+
+
+
+      <!-- Coin -->
+
+      <div class="coin" id="coin" aria-hidden="true">
+
+        <!-- use your coin.png or SVG -->
+
+        <img src="https://on10.io/arc/Assets/Media/Images/coin.png" alt="coin"
+          style="width:100%;height:100%;object-fit:contain;display:block;pointer-events:none;user-select:none;">
+
+      </div>
+
+
+
+      <!-- Counter Slider (01..100) -->
+
+      <div class="counter-slider" aria-hidden="true">
+
+        <div class="counter-list" id="counterList" aria-hidden="true">
+
+          <!-- numbers will be generated by JS -->
+
+        </div>
+
+        <p>Loading...</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- GIF placeholder -->
+
+  <div id="gifWrap" aria-hidden="true">
+
+    <!-- Replace the src with your GIF later. Using your Assets path as placeholder -->
+
+    <img id="preloaderGif" src="https://on10.io/arc/Assets/Media/Videos/preloader.gif" alt="placeholder gif" />
+
+  </div>
+
+
+
+  <!-- MAIN PAGE (hidden until preloader finishes) -->
+
+  <div id="mainContent" aria-hidden="true">
+
+    <section class="hero">
+
+      <div class="hero-content">
+
+        <div class="hero-buttons">
+
+          <button id="cinematicToggle" class="btn-primary">Cinematic Mode: Off</button>
+
+          <a href="#" class="btn-primary" id="opendropBtn">Live Drop</a>
+
+        </div>
+
+        <div class="hero-main-content">
+
+          <div class="logo-wrap" id="box">
+            <img src="https://on10.io/arc/Assets/Media/Images/logo-background.png" class="layer paint" id="paint">
+            <img src="https://on10.io/arc/Assets/Media/Images/logo-arcangle.png" class="layer logo" id="logo">
+          </div>
+
+          <h1 class="neon-text">Every Arc Angel™ leaves a trace through the Maze</h1>
+
+          <p>For those who keep moving when it hurts. For those who dream louder than doubt. For those who turn scars
+            into strength and silence into song. If this is you, the Maze already knows your name.</p>
+
+          <p>Your name + clip are immortalized in the <strong>Genesis Trailer</strong>
+            you receive a <strong> custom metal Transmission Card</strong> engraved with your name, World, and
+            Transmission #.</p>
+
+          <a href="#" class="btn-secondary" onclick="document.getElementById('opendropBtn').click()">Live Drop</a>
+
+          <div id="dropModal" class="drop-modal">
+
+            <div class="drop-modal-content">
+
+              <iframe id="dropFrame" src="" frameborder="0" style="width:100%; height:100%;"></iframe>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <section class="second">
+
+      <div class="wing-container">
+
+        <img src="https://on10.io/arc/Assets/Media/Images/left wing.png" class="wing left">
+
+        <img src="https://on10.io/arc/Assets/Media/Images/right wing.png" class="wing right">
+
+      </div>
+
+      <div class="second-content">
+
+        <h2>Promise: Trailer publishes on date December 12th 3PM PST or you’re refunded. Guaranteed.</h2>
+
+        <a href="#" class="btn-secondary" id="openFormBtn">Claim Your Medallion</a>
+        <!-- Modal -->
+        <div id="formModal" class="modal">
+
+          <div class="modal-content">
+
+            <iframe id="formFrame" src="" frameborder="0" style="width:100%; height:100%;"></iframe>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <section class="third">
+
+      <div class="third-content">
+
+        <h2>ARC FIRST SIGNAL FOUNDING 100</h2>
+
+        <p>100 people. 24 hours. Be in the film. Be remembered forever.</p>
+
+        <div class="progress-containers">
+
+          <div class="progress-container">
+
+            <div class="progress-bar"></div>
+
+            <div class="progress-handle"></div>
+
+          </div>
+
+        </div>
+
+        <h6>23 / 100 claimed • 1,242 watching • Locks at 100</h6>
+
+      </div>
+
+
+
+      <div class="card-container">
+
+        <img src="https://on10.io/arc/Assets/Media/Images/top.png" class="card top">
+
+        <img src="https://on10.io/arc/Assets/Media/Images/bottom.png" class="card bottom">
+
+      </div>
+
+  </div>
+
+
+
+  </section>
+
+
+
+
+
+  <section class="fourth">
+
+    <div class="fourth-left">
+
+      <img class="statue" src="https://on10.io/arc/Assets/Media/Images/Group2.png" alt="">
+
+      <img class="statue-bg" src="https://on10.io/arc/Assets/Media/Images/statue bg.png" alt="">
+
+    </div>
+
+
+
+    <div class="fourth-right">
+
+      <h2>The Call</h2>
+
+      <p>Arc Angel™ is a title you claim, a presence you live. Step across the threshold and leave your trace. The first
+        100 receive a custom metal card, engraved with your name.</p>
+
+      <div class="neon-bar-wrapper">
+
+        <div class="neon-bar-track">
+
+          <div class="neon-bar-fill"></div>
+
+          <div class="neon-bar-handle"></div>
+
+          <div class="neon-bar-text">19 / 100 claimed</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <section class="five">
+
+    <h2>What You Get</h2>
+
+    <div class="five-content">
+
+      <div class="icon-card">
+
+        <img class="icon" src="https://on10.io/arc/Assets/Media/Images/icon-1.png" alt="">
+
+        <h3 class="icon-heading">GENESIS TRAILER <br>FRAME</h3>
+
+        <p class="icon-text">Your name + clip appear in the first cinematic cut. Publishing across TikTok, IG, YouTube.
+        </p>
+
+      </div>
+
+
+
+      <div class="icon-card2">
+
+        <img class="icon" src="https://on10.io/arc/Assets/Media/Images/icon-2.png" alt="">
+
+        <h3 class="icon-heading">TRANSMISSION CARD<br>ENGRAVING</h3>
+
+        <p class="icon-text">Custom metal card with your Name, World, and Transmission ID.</p>
+
+      </div>
+
+
+
+      <div class="icon-card">
+
+        <img class="icon" src="https://on10.io/arc/Assets/Media/Images/icon-3.png" alt="">
+
+        <h3 class="icon-heading">100 XP · MEMBER<br> SINCE 2025</h3>
+
+        <p class="icon-text">Instant XP toast and Founder status visible on profile in the ARC ecosystem.</p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+
+
+  <section class="six">
+
+    <div class="six-content">
+
+      <h2>Roadmap</h2>
+
+      <p>Founding 100 hold priority for the first 3 Medallion Maze drops. The Genesis Arc can never be repeated. Wave 2
+        opens soon.</p>
+
+    </div>
+
+  </section>
+
+
+
+
+
+  <section class="seven">
+
+    <div class="seven-main">
+
+      <div class="seven-left">
+
+        <h2>ARC FIRST SIGNAL<br>FOUNDING 100</h2>
+
+        <p>100 people. 24 hours. Be in the film.</p>
+
+        <div class="seven-content-main">
+
+          <div class="seven-content-left">
+
+            <div class="seven-content">
+
+              <h4>Why it matters</h4>
+
+              <ul>
+
+                <li>In the trailer: your name + Photo/Clip + World in the official cut.</li>
+
+                <li>Day‑one access: two founder sessions; priority on first two drops.</li>
+
+                <li>Status: “Member since 2025,” World & Transmission # on profile + metal card.</li>
+
+              </ul>
+
+            </div>
+
+          </div>
+
+          <div class="seven-content-right">
+
+            <div class="seven-content-bullet">
+
+              <h4>How it works</h4>
+
+              <ul>
+
+                <li>Pick your World → Step In.</li>
+
+                <li>Upload one photo/clip (auto overlay).</li>
+
+                <li>Tap once in 72h to activate + lock your credit.</li>
+
+              </ul>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <a href="#" class="btn-primary" id="openFormBtn" onclick="window.parent.openFormModal()">Step in</a>
+
+      </div>
+
+      <div class="seven-right">
+
+        <div class="upload-box" id="uploadBox">
+
+          <input type="file" id="fileInput" accept="image/*">
+
+          <img id="previewImage" class="upload-preview" alt="">
+
+          <div class="upload-text" id="uploadText">
+
+            <h3>Upload <span class="highlight">photo/clip</span></h3>
+
+            <p>Auto overlays your World.</p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="footer">
+
+      <div class="social-icon">
+
+        <a href="#"> <img class="social" src="https://on10.io/arc/Assets/Media/Images/facebook.png" alt=""></a>
+
+        <a href=""><img class="social" src="https://on10.io/arc/Assets/Media/Images/instagram.png" alt=""></a>
+
+        <a href=""> <img class="social" src="https://on10.io/arc/Assets/Media/Images/linkdlen.png" alt=""></a>
+
+      </div>
+
+      <h6>© 2025 Medallion Maze. The Maze is open.</h6>
+
+    </div>
+
+    </div>
+
+
+
+  </section>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <script src="https://on10.io/arc/Assets/Js/main.js"></script>
+
+
+
+  <script>
+
+    /* SETTINGS */
+
+    const TOTAL_SECONDS = 4;    // full slide duration 4s
+
+    const START_NUM = 1;
+
+    const END_NUM = 100;
+
+    const GIF_SHOW_MS = 500;    // 0.5s display for GIF
+
+
+
+    /* ELEMENTS */
+
+    const rotatingBg = document.getElementById('rotatingBg');
+
+    const welcomeEl = document.getElementById('welcomeText');
+
+    const coinEl = document.getElementById('coin');
+
+    const counterList = document.getElementById('counterList');
+
+    const preloaderEl = document.getElementById('preloader');
+
+    const gifWrap = document.getElementById('gifWrap');
+
+    const preloaderGif = document.getElementById('preloaderGif');
+
+    const mainContent = document.getElementById('mainContent');
+
+
+
+    /* UTILS */
+
+    function pad(n) { return n < 10 ? '0' + n : String(n); }
+
+
+
+    /* 1) Generate numbers (01..100) as stacked items */
+
+    for (let i = START_NUM; i <= END_NUM; i++) {
+
+      const el = document.createElement('div');
+
+      el.className = 'counter-item';
+
+      el.textContent = pad(i);
+
+      counterList.appendChild(el);
+
+    }
+
+
+
+    /* After DOM insertion, measure item height */
+
+    // Use requestAnimationFrame to ensure layout is ready
+
+    requestAnimationFrame(() => {
+
+      const first = counterList.querySelector('.counter-item');
+
+      const itemHeight = first ? first.getBoundingClientRect().height : 44; // fallback
+
+      const totalSteps = END_NUM - START_NUM; // number of moves to show last item at same position
+
+      const targetY = itemHeight * totalSteps;
+
+
+
+      // 2) Background rotation (infinite)
+
+      gsap.to(rotatingBg, { rotation: 360, duration: 8, ease: 'none', repeat: -1, transformOrigin: '50% 50%' });
+
+
+
+      // 3) Welcome text fade in
+
+      gsap.fromTo(welcomeEl, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.6, delay: 0.08, ease: 'power2.out' });
+
+
+
+      // 4) Coin bounce during the duration
+
+      // We'll make it bounce at 0.5s intervals roughly
+
+      const bounceCycles = Math.ceil(TOTAL_SECONDS / 0.5);
+
+      gsap.to(coinEl, {
+
+        y: -20,
+
+        duration: 0.45,
+
+        yoyo: true,
+
+        repeat: bounceCycles,
+
+        ease: 'power2.out'
+
+      });
+
+
+
+      // 5) Counter slide: move the counterList upward so it scrolls from 01 to 100
+
+      // Using smooth tween to negative targetY
+
+      gsap.to(counterList, {
+
+        y: -targetY,
+
+        duration: TOTAL_SECONDS,
+
+        ease: 'power1.inOut',
+
+        onComplete: preloaderFinish
+
+      });
+
+    });
+
+
+
+    /* When counter completes */
+
+    function preloaderFinish() {
+
+      // fade out preloader
+
+      gsap.to(preloaderEl, {
+
+        autoAlpha: 0,
+
+        duration: 0.6,
+
+        ease: 'power2.inOut',
+
+        onComplete: showGifThenRevealMain
+
+      });
+
+    }
+
+
+
+    /* Show GIF briefly, then reveal main content */
+
+    function showGifThenRevealMain() {
+
+      gifWrap.style.visibility = 'visible';
+
+      gsap.to(gifWrap, {
+        autoAlpha: 1, duration: 0.16, ease: 'power1.out', onComplete: () => {
+
+          gsap.delayedCall(GIF_SHOW_MS / 1000, () => {
+
+            gsap.to(gifWrap, { autoAlpha: 0, duration: 0.25, ease: 'power2.inOut', onComplete: revealMain });
+
+          });
+
+        }
+      });
+
+    }
+
+
+
+    /* Reveal main content with fade-in */
+
+    function revealMain() {
+
+      preloaderEl.style.display = 'none';
+
+      gifWrap.style.display = 'none';
+
+      mainContent.setAttribute('aria-hidden', 'false');
+
+      gsap.to(mainContent, { autoAlpha: 1, duration: 0.6, ease: 'power2.out' });
+
+    }
+
+
+
+    /* Allow skipping with Space/Enter for testing */
+
+    document.addEventListener('keydown', (e) => {
+
+      if (e.code === 'Space' || e.code === 'Enter') {
+
+        // immediately jump to end state
+
+        gsap.killTweensOf(counterList);
+
+        // set last number visible by translating to target instantly
+
+        const first = counterList.querySelector('.counter-item');
+
+        const itemHeight = first ? first.getBoundingClientRect().height : 44;
+
+        const steps = END_NUM - START_NUM;
+
+        counterList.style.transform = `translateY(-${itemHeight * steps}px)`;
+
+        preloaderFinish();
+
+      }
+
+    });
+
+    const fileInput = document.getElementById("fileInput");
+    const previewImage = document.getElementById("previewImage");
+    const uploadText = document.getElementById("uploadText");
+
+    fileInput.addEventListener("change", function () {
+      const file = this.files && this.files[0];
+      if (!file) return;
+
+      if (!file.type.startsWith("image/")) {
+        alert("Please upload only image files.");
+        this.value = "";
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const imgURL = e.target.result;
+
+        // Show preview in this page
+        previewImage.src = imgURL;
+        previewImage.style.display = "block";
+        uploadText.style.display = "none";
+
+        // ✅ Save background image in localStorage
+        localStorage.setItem("arc_card_bg", imgURL);
+
+      };
+
+      reader.readAsDataURL(file);
+    });
+
+
+  </script>
+
+</body>
+
+</html>

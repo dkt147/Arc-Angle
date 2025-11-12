@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Arc Angle</title>
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Orbitron Font -->
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap"
+      rel="stylesheet" />
+
+    <!-- Instrument Sans Font -->
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet" />
+
+    <!-- Stripe.js -->
+
+    <script src="https://js.stripe.com/v3/"></script>
+
+    <!-- CSS file connect -->
+
+    <link rel="stylesheet" href="Assets/Css/main.css" />
+
+    <!-- GSAP Library -->
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+
+      /* Additional styles for loading states */
+
+      .btn-loading {
+
+        opacity: 0.7;
+
+        pointer-events: none;
+
+      }
+
+      
+
+      .btn-loading::after {
+
+        content: '...';
+
+        animation: loading 1.5s infinite;
+
+      }
+
+      
+
+      @keyframes loading {
+
+        0%, 33% { content: '.'; }
+
+        34%, 66% { content: '..'; }
+
+        67%, 100% { content: '...'; }
+
+      }
+
+    </style>
+
+  </head>
+
+  <body style="background-color: black;">
+
+    <div class="pricing-main">
+
+      <div class="pricing-top">
+
+        <div class="pricing-button">
+
+          <button id="cinematicToggle" class="btn-primary">
+
+            Cinematic Mode: Off
+
+          </button>
+
+        </div>
+
+        <div class="pricing-logo">
+
+          <img src="https://on10.io/arc/Assets/Media/Images/logo.png" alt />
+
+        </div>
+
+        <div class="pricing-button">
+
+          <a href="#" class="btn-primary">Get Transmission Card</a>
+
+        </div>
+
+      </div>
+
+      <div class="pricing-main-content">
+
+        <h1>Access Made Real</h1>
+
+        <h6>Where fandom meets real life.</h6>
+
+        <p>
+
+          Collect a limited-edition ARC Angel card and unlock real-world perks,
+
+          exclusive invites, and unforgettable experiences across culture,
+
+          sport, fashion, and music.
+
+        </p>
+
+      </div>
+
+      <div class="pricing-card-comtainer">
+
+        <div class="pricing-main-card">
+
+          <div class="pricing-card">
+
+            <div class="pricing-card-content">
+
+              <div class="pricing-card-icon">
+
+                <img src="https://on10.io/arc/Assets/Media/Images/pricing-card-icon1.png" alt />
+
+                <h3>Common</h3>
+
+              </div>
+
+              <div class="pricing-card-price">
+
+                <h2>$75</h2>
+
+                <h3>Your everyday access card.</h3>
+
+                <p>
+
+                  Entry-level perks like early RSVP, line-skip, and local
+
+                  pop-ups. Perfect for staying connected to what's happening
+
+                  near you.
+
+                </p>
+
+              </div>
+
+            </div>
+
+            <button class="pricing-card-price-button" data-tier="common"
+              data-price="75">
+
+              Get Started
+
+            </button>
+
+          </div>
+
+          <div class="pricing-card">
+
+            <div class="pricing-card-content">
+
+              <div class="pricing-card-icon">
+
+                <img src="https://on10.io/arc/Assets/Media/Images/pricing-card-icon2.png" alt />
+
+                <h3>Rare</h3>
+
+              </div>
+
+              <div class="pricing-card-price">
+
+                <h2>$150</h2>
+
+                <h3>For limited drops and special moments.</h3>
+
+                <p>
+
+                  Timed challenges, city events, and creator-led surprises.
+
+                  Built for people who want to catch what others miss.
+
+                </p>
+
+              </div>
+
+            </div>
+
+            <button class="pricing-card-price-button" data-tier="rare"
+              data-price="150">
+
+              Get Started
+
+            </button>
+
+          </div>
+
+          <div class="pricing-card">
+
+            <div class="pricing-card-content">
+
+              <div class="pricing-card-icon">
+
+                <img src="https://on10.io/arc/Assets/Media/Images/pricing-card-icon3.png" alt />
+
+                <h3>Legendary</h3>
+
+              </div>
+
+              <div class="pricing-card-price">
+
+                <h2>$300</h2>
+
+                <h3>VIP without the guesswork.</h3>
+
+                <p>
+
+                  Guaranteed access to select shows, private hours, or launch
+
+                  previews. Premium design, limited supply, and priority
+
+                  support.
+
+                </p>
+
+              </div>
+
+            </div>
+
+            <button class="pricing-card-price-button" data-tier="legendary"
+              data-price="300">
+
+              Get Started
+
+            </button>
+
+          </div>
+
+          <div class="pricing-card">
+
+            <div class="pricing-card-content">
+
+              <div class="pricing-card-icon">
+
+                <img src="https://on10.io/arc/Assets/Media/Images/pricing-card-icon4.png" alt />
+
+                <h3>Mythic</h3>
+
+              </div>
+
+              <div class="pricing-card-price">
+
+                <h2>$500</h2>
+
+                <h3>The top tier of cultural access.</h3>
+
+                <p>
+
+                  Flagship weekends, private previews, and one-of-a-kind
+
+                  creative experiences. For those shaping what comes next.
+
+                </p>
+
+              </div>
+
+            </div>
+
+            <button class="pricing-card-price-button" data-tier="mythic"
+              data-price="500">
+
+              Get Started
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <section class="the-call-section">
+
+      <div class="the-call-right">
+
+        <h2>Why It's Different</h2>
+
+        <p>
+
+          Arc Angels blend real-world access with digital presence.<br />Every
+
+          card is proof you were there, a marker of moments lived, not just
+
+          watched.
+
+        </p>
+
+        <a
+          href="#"
+          class="cta-button"
+          id="openFormBtn"
+          onclick="window.parent.openFormModal()">Claim Your Medallion</a>
+
+        <div id="formModal" class="modal">
+
+          <div class="modal-content">
+
+            <iframe
+              id="formFrame"
+              src
+              frameborder="0"
+              style="width: 100%; height: 100%"></iframe>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="the-call-left">
+
+        <img
+          class="call-statue"
+          src="https://on10.io/arc/Assets/Media/Images/Group1.png"
+          alt="Statue" />
+
+        <img
+          class="call-statue-bg"
+          src="https://on10.io/arc/Assets/Media/Images/pricing-statue-bg.png"
+          alt="Statue Background" />
+
+      </div>
+
+    </section>
+
+    <section class="movement-section">
+
+      <div class="movement-content">
+
+        <h2>
+
+          Not a membership. A movement you <br />can touch.<br />Tap in. Show
+
+          up. Live the culture.
+
+        </h2>
+
+      </div>
+
+    </section>
+
+    <div class="pricing-footer">
+
+      <div class="pricing-main-footer">
+
+        <div class="pricing-social-icon">
+
+          <a href="#">
+
+            <img class="social" src="https://on10.io/arc/Assets/Media/Images/facebook.png"
+              alt /></a>
+
+          <a href><img class="social" src="https://on10.io/arc/Assets/Media/Images/instagram.png"
+              alt /></a>
+
+          <a href>
+
+            <img class="social" src="https://on10.io/arc/Assets/Media/Images/linkdlen.png"
+              alt /></a>
+
+        </div>
+
+        <h6>© 2025 Medallion Maze. The Maze is open.</h6>
+
+      </div>
+
+    </div>
+
+    <script src="https://on10.io/arc/Assets/Js/main.js"></script>
+
+    <script>
+      const BaseUrl = "https://on10.io/arc/api";
+      // Initialize Stripe with your publishable key
+
+      const stripe = Stripe('pk_test_51RuM3kIXzSnWUbKSNbir7DyFb6VMVaRvtRTONtLPw1PAapnxVNjhdcHdEDnb5jQQaDXRc6FHfW0yiVJxc5qkYMJ600Ft2sgKwe');
+
+
+      
+
+      // Payment handler function
+
+      async function handlePayment(tier, price, button) {
+
+        try {
+
+          // Get user data from localStorage
+
+          const savedData = localStorage.getItem("arcUserData");
+
+          const cardImageBase64 = localStorage.getItem("arcCardImage");
+
+          const userData = savedData ? JSON.parse(savedData) : {};
+
+
+            // ✅ Create FormData instead of JSON
+            const formData = new FormData();
+            formData.append('tier', tier);
+            formData.append('price', price);
+            formData.append('email', userData.email || '');
+
+            // ✅ Convert Base64 to Blob if image exists
+            if (cardImageBase64) {
+              const blob = base64ToBlob(cardImageBase64);
+              formData.append('cardImage', blob, 'card.png');
+            }
+
+          
+            // ✅ Send FormData to backend
+            const response = await fetch(`${BaseUrl}/create-checkout-session.php`, {
+              method: 'POST',
+              body: formData,
+            });
+
+          // Call PHP backend to create checkout session
+
+          // const response = await fetch(`${BaseUrl}/create-checkout-session.php`, {
+
+          //   method: 'POST',
+
+          //   headers: {
+
+          //     'Content-Type': 'application/json',
+
+          //   },
+
+          //   body: JSON.stringify({
+
+          //     tier: tier,
+
+          //     price: price,
+
+          //     userData: userData,
+
+          //     cardImage: cardImage
+
+          //   }),
+
+          // });
+
+
+
+          const result = await response.json();
+
+
+
+          if (!response.ok) {
+
+            throw new Error(result.error || 'Failed to create checkout session');
+
+          }
+
+
+
+          // Redirect to Stripe Checkout with session ID from PHP
+
+          const redirectResult = await stripe.redirectToCheckout({
+
+            sessionId: result.sessionId
+
+          });
+
+
+
+          if (redirectResult.error) {
+
+            throw new Error(redirectResult.error.message);
+
+          }
+
+
+
+        } catch (error) {
+
+          console.error('Payment processing error:', error);
+
+          alert('Error: ' + error.message);
+
+          
+
+          // Remove loading state
+
+          if (button) {
+
+            button.textContent = 'Get Started';
+
+            button.classList.remove('btn-loading');
+
+          }
+
+        }
+
+      }
+
+
+
+
+      // ✅ Helper: Convert Base64 to Blob
+      function base64ToBlob(base64Data) {
+        const parts = base64Data.split(',');
+        const byteString = atob(parts[1]);
+        const mimeString = parts[0].split(':')[1].split(';')[0];
+
+        const ab = new ArrayBuffer(byteString.length);
+        const ia = new Uint8Array(ab);
+        for (let i = 0; i < byteString.length; i++) {
+          ia[i] = byteString.charCodeAt(i);
+        }
+
+        return new Blob([ab], { type: mimeString });
+      }
+
+      // Add click event listeners to all pricing buttons
+
+      document.addEventListener('DOMContentLoaded', function() {
+
+        const pricingButtons = document.querySelectorAll('.pricing-card-price-button');
+
+        
+
+        pricingButtons.forEach(button => {
+
+          button.addEventListener('click', function() {
+
+            const tier = this.getAttribute('data-tier');
+
+            const price = parseInt(this.getAttribute('data-price'));
+
+            
+
+            // Add loading state
+
+            const originalText = this.textContent;
+
+            this.textContent = 'Processing';
+
+            this.classList.add('btn-loading');
+
+            
+
+            // Handle payment
+
+            handlePayment(tier, price, this);
+
+          });
+
+        });
+
+      });
+
+
+
+      // Load user data on page load
+
+      window.addEventListener("DOMContentLoaded", () => {
+
+        const savedData = localStorage.getItem("arcUserData");
+
+        if (savedData) {
+
+          const user = JSON.parse(savedData);
+
+          console.log('User data loaded:', user);
+
+        }
+
+      });
+
+    </script>
+
+  </body>
+
+</html>

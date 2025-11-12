@@ -1,0 +1,1807 @@
+[17-Oct-2025 12:35:21 UTC] PHP Warning:  Undefined array key "photo" in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 113
+[17-Oct-2025 12:35:21 UTC] PHP Warning:  Undefined array key "bg" in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 114
+[17-Oct-2025 12:36:14 UTC] PHP Warning:  Undefined array key "photo" in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 112
+[17-Oct-2025 12:36:14 UTC] PHP Warning:  Undefined array key "bg" in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 113
+[17-Oct-2025 12:38:03 UTC] PHP Warning:  Undefined array key "photo" in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 112
+[17-Oct-2025 12:38:03 UTC] PHP Warning:  Undefined array key "bg" in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 113
+[17-Oct-2025 12:42:14 UTC] PHP Warning:  Undefined array key "photo" in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 112
+[17-Oct-2025 12:42:14 UTC] PHP Warning:  Undefined array key "bg" in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 113
+[17-Oct-2025 12:45:41 UTC] Array
+(
+)
+
+[17-Oct-2025 12:45:48 UTC] Array
+(
+)
+
+[17-Oct-2025 12:45:48 UTC] PHP Warning:  Undefined array key "photo" in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 118
+[17-Oct-2025 12:45:48 UTC] PHP Warning:  Undefined array key "bg" in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 119
+[17-Oct-2025 12:46:33 UTC] Array
+(
+)
+
+[17-Oct-2025 12:46:39 UTC] Array
+(
+)
+
+[17-Oct-2025 12:46:39 UTC] PHP Warning:  Undefined array key "photo" in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 118
+[17-Oct-2025 12:46:39 UTC] PHP Warning:  Undefined array key "bg" in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 119
+[17-Oct-2025 12:47:58 UTC] Array
+(
+)
+
+[17-Oct-2025 12:47:58 UTC] PHP Warning:  Undefined array key "photo" in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 123
+[17-Oct-2025 12:47:58 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 41
+[17-Oct-2025 12:47:58 UTC] Upload error: 
+[17-Oct-2025 12:47:58 UTC] PHP Warning:  Undefined array key "bg" in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 124
+[17-Oct-2025 12:47:58 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 41
+[17-Oct-2025 12:47:58 UTC] Upload error: 
+[17-Oct-2025 12:49:57 UTC] Array
+(
+)
+
+[17-Oct-2025 12:50:08 UTC] Array
+(
+)
+
+[17-Oct-2025 12:50:08 UTC] PHP Warning:  Undefined variable $_FILE in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 10
+[17-Oct-2025 12:50:18 UTC] Array
+(
+)
+
+[17-Oct-2025 12:50:19 UTC] Array
+(
+)
+
+[17-Oct-2025 12:53:18 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => image (26).png
+            [full_path] => image (26).png
+            [type] => image/png
+            [tmp_name] => /tmp/phpaQaNyR
+            [error] => 0
+            [size] => 184077
+        )
+
+    [bg] => Array
+        (
+            [name] => IMG_2888.jpeg
+            [full_path] => IMG_2888.jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpVmZEdf
+            [error] => 0
+            [size] => 7837347
+        )
+
+)
+
+[17-Oct-2025 12:55:02 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => image (26).png
+            [full_path] => image (26).png
+            [type] => image/png
+            [tmp_name] => /tmp/phpd84rYt
+            [error] => 0
+            [size] => 184077
+        )
+
+    [bg] => Array
+        (
+            [name] => IMG_2888.jpeg
+            [full_path] => IMG_2888.jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpM4mjIr
+            [error] => 0
+            [size] => 7837347
+        )
+
+)
+
+[17-Oct-2025 12:55:33 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => image (26).png
+            [full_path] => image (26).png
+            [type] => image/png
+            [tmp_name] => /tmp/phpuHgBIW
+            [error] => 0
+            [size] => 184077
+        )
+
+    [bg] => Array
+        (
+            [name] => IMG_2888.jpeg
+            [full_path] => IMG_2888.jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpZJRfRB
+            [error] => 0
+            [size] => 7837347
+        )
+
+)
+
+[17-Oct-2025 12:55:46 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => image (26).png
+            [full_path] => image (26).png
+            [type] => image/png
+            [tmp_name] => /tmp/phpq8Vedq
+            [error] => 0
+            [size] => 184077
+        )
+
+    [bg] => Array
+        (
+            [name] => IMG_2888.jpeg
+            [full_path] => IMG_2888.jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpNgGMb3
+            [error] => 0
+            [size] => 7837347
+        )
+
+)
+
+[17-Oct-2025 12:56:02 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => image (26).png
+            [full_path] => image (26).png
+            [type] => image/png
+            [tmp_name] => /tmp/phpnzFz3p
+            [error] => 0
+            [size] => 184077
+        )
+
+    [bg] => Array
+        (
+            [name] => IMG_2888.jpeg
+            [full_path] => IMG_2888.jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpZwn8LT
+            [error] => 0
+            [size] => 7837347
+        )
+
+)
+
+[17-Oct-2025 13:06:43 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => image (26).png
+            [full_path] => image (26).png
+            [type] => image/png
+            [tmp_name] => /tmp/phpBNLjwS
+            [error] => 0
+            [size] => 184077
+        )
+
+    [bg] => Array
+        (
+            [name] => IMG_2888.jpeg
+            [full_path] => IMG_2888.jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpI0FOWL
+            [error] => 0
+            [size] => 7837347
+        )
+
+)
+
+[17-Oct-2025 13:07:00 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => image (26).png
+            [full_path] => image (26).png
+            [type] => image/png
+            [tmp_name] => /tmp/phpsHoom8
+            [error] => 0
+            [size] => 184077
+        )
+
+    [bg] => Array
+        (
+            [name] => IMG_2888.jpeg
+            [full_path] => IMG_2888.jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpoUnOI8
+            [error] => 0
+            [size] => 7837347
+        )
+
+)
+
+[17-Oct-2025 13:07:02 UTC] PHP Fatal error:  Uncaught Error: Class "Stripe\Stripe" not found in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php:72
+Stack trace:
+#0 /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php(197): stripePayment()
+#1 {main}
+  thrown in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 72
+[17-Oct-2025 13:17:43 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => image (26).png
+            [full_path] => image (26).png
+            [type] => image/png
+            [tmp_name] => /tmp/phpVrzzs1
+            [error] => 0
+            [size] => 184077
+        )
+
+    [bg] => Array
+        (
+            [name] => IMG_2888.jpeg
+            [full_path] => IMG_2888.jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/php6WmpTZ
+            [error] => 0
+            [size] => 7837347
+        )
+
+)
+
+[24-Oct-2025 12:47:28 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => 18D06AB3-10C9-47BA-A71F-23AE6982B6D8.png
+            [full_path] => 18D06AB3-10C9-47BA-A71F-23AE6982B6D8.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpxkUbCB
+            [error] => 0
+            [size] => 2561207
+        )
+
+    [bg] => Array
+        (
+            [name] => 445A972E-2547-4606-83BB-4614058E6744.png
+            [full_path] => 445A972E-2547-4606-83BB-4614058E6744.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpxiVCKc
+            [error] => 0
+            [size] => 3069156
+        )
+
+)
+
+[24-Oct-2025 12:47:28 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => 18D06AB3-10C9-47BA-A71F-23AE6982B6D8.png
+            [full_path] => 18D06AB3-10C9-47BA-A71F-23AE6982B6D8.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpSgEhD4
+            [error] => 0
+            [size] => 2561207
+        )
+
+    [bg] => Array
+        (
+            [name] => 445A972E-2547-4606-83BB-4614058E6744.png
+            [full_path] => 445A972E-2547-4606-83BB-4614058E6744.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpoh07Wu
+            [error] => 0
+            [size] => 3069156
+        )
+
+)
+
+[24-Oct-2025 12:51:55 UTC] Array
+(
+)
+
+[24-Oct-2025 12:52:15 UTC] Array
+(
+)
+
+[24-Oct-2025 12:52:33 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => 445A972E-2547-4606-83BB-4614058E6744.png
+            [full_path] => 445A972E-2547-4606-83BB-4614058E6744.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpvKmnsn
+            [error] => 0
+            [size] => 3069156
+        )
+
+    [bg] => Array
+        (
+            [name] => 18D06AB3-10C9-47BA-A71F-23AE6982B6D8.png
+            [full_path] => 18D06AB3-10C9-47BA-A71F-23AE6982B6D8.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpL6RBZq
+            [error] => 0
+            [size] => 2561207
+        )
+
+)
+
+[24-Oct-2025 12:55:56 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => 18D06AB3-10C9-47BA-A71F-23AE6982B6D8.png
+            [full_path] => 18D06AB3-10C9-47BA-A71F-23AE6982B6D8.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpvFRu95
+            [error] => 0
+            [size] => 2561207
+        )
+
+    [bg] => Array
+        (
+            [name] => 445A972E-2547-4606-83BB-4614058E6744.png
+            [full_path] => 445A972E-2547-4606-83BB-4614058E6744.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpcLdgA2
+            [error] => 0
+            [size] => 3069156
+        )
+
+)
+
+[24-Oct-2025 12:57:09 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => 18D06AB3-10C9-47BA-A71F-23AE6982B6D8.png
+            [full_path] => 18D06AB3-10C9-47BA-A71F-23AE6982B6D8.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpRRype6
+            [error] => 0
+            [size] => 2561207
+        )
+
+    [bg] => Array
+        (
+            [name] => 445A972E-2547-4606-83BB-4614058E6744.png
+            [full_path] => 445A972E-2547-4606-83BB-4614058E6744.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpWyqX7B
+            [error] => 0
+            [size] => 3069156
+        )
+
+)
+
+[24-Oct-2025 13:19:12 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => face 8.jpg
+            [full_path] => face 8.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/php21qOSK
+            [error] => 0
+            [size] => 85155
+        )
+
+    [bg] => Array
+        (
+            [name] => 445A972E-2547-4606-83BB-4614058E6744.png
+            [full_path] => 445A972E-2547-4606-83BB-4614058E6744.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpJEowMY
+            [error] => 0
+            [size] => 3069156
+        )
+
+)
+
+[24-Oct-2025 13:23:12 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => F3C372B8-6D39-49BF-A1E7-EB8ED270CA35.png
+            [full_path] => F3C372B8-6D39-49BF-A1E7-EB8ED270CA35.png
+            [type] => image/png
+            [tmp_name] => /tmp/phplf3lat
+            [error] => 0
+            [size] => 1161178
+        )
+
+    [bg] => Array
+        (
+            [name] => 445A972E-2547-4606-83BB-4614058E6744.png
+            [full_path] => 445A972E-2547-4606-83BB-4614058E6744.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpwj1AqZ
+            [error] => 0
+            [size] => 3069156
+        )
+
+)
+
+[26-Oct-2025 16:15:13 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => image (20).png
+            [full_path] => image (20).png
+            [type] => image/png
+            [tmp_name] => /tmp/phpeWsYIW
+            [error] => 0
+            [size] => 639251
+        )
+
+    [bg] => Array
+        (
+            [name] => 445A972E-2547-4606-83BB-4614058E6744.png
+            [full_path] => 445A972E-2547-4606-83BB-4614058E6744.png
+            [type] => image/png
+            [tmp_name] => /tmp/php2tJFld
+            [error] => 0
+            [size] => 3069156
+        )
+
+)
+
+[28-Oct-2025 18:17:33 UTC] Array
+(
+)
+
+[28-Oct-2025 18:17:33 UTC] PHP Warning:  Undefined array key "photo" in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 126
+[28-Oct-2025 18:17:33 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 44
+[28-Oct-2025 18:17:33 UTC] Upload error: 
+[28-Oct-2025 18:17:33 UTC] PHP Warning:  Undefined array key "bg" in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 127
+[28-Oct-2025 18:17:33 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 44
+[28-Oct-2025 18:17:33 UTC] Upload error: 
+[29-Oct-2025 10:27:11 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => profile img.jpg
+            [full_path] => profile img.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpxZ84Ay
+            [error] => 0
+            [size] => 9109
+        )
+
+    [bg] => Array
+        (
+            [name] => beauti.jpeg
+            [full_path] => beauti.jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/php9kH1Cf
+            [error] => 0
+            [size] => 9780
+        )
+
+)
+
+[29-Oct-2025 10:40:19 UTC] Array
+(
+    [bg] => Array
+        (
+            [name] => beauti.jpeg
+            [full_path] => beauti.jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpDPNN6I
+            [error] => 0
+            [size] => 9780
+        )
+
+)
+
+[29-Oct-2025 10:40:19 UTC] PHP Warning:  Undefined array key "photo" in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 126
+[29-Oct-2025 10:40:19 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 44
+[29-Oct-2025 10:40:19 UTC] Upload error: 
+[29-Oct-2025 10:52:58 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => profile img.jpg
+            [full_path] => profile img.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpQOW3zS
+            [error] => 0
+            [size] => 9109
+        )
+
+    [bg] => Array
+        (
+            [name] => beauti.jpeg
+            [full_path] => beauti.jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpw96PX3
+            [error] => 0
+            [size] => 9780
+        )
+
+)
+
+[29-Oct-2025 11:03:49 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => profile img.jpg
+            [full_path] => profile img.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/php6nwY46
+            [error] => 0
+            [size] => 9109
+        )
+
+    [bg] => Array
+        (
+            [name] => beauti.jpeg
+            [full_path] => beauti.jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpsYdgWz
+            [error] => 0
+            [size] => 9780
+        )
+
+)
+
+[29-Oct-2025 11:06:33 UTC] Array
+(
+)
+
+[29-Oct-2025 11:07:15 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => profile img.jpg
+            [full_path] => profile img.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpkQotjN
+            [error] => 0
+            [size] => 9109
+        )
+
+    [bg] => Array
+        (
+            [name] => beauti.jpeg
+            [full_path] => beauti.jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/php3F85oM
+            [error] => 0
+            [size] => 9780
+        )
+
+)
+
+[29-Oct-2025 11:16:39 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => profile img.jpg
+            [full_path] => profile img.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpROn5LV
+            [error] => 0
+            [size] => 9109
+        )
+
+    [bg] => Array
+        (
+            [name] => beauti.jpeg
+            [full_path] => beauti.jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpDc7cH5
+            [error] => 0
+            [size] => 9780
+        )
+
+)
+
+[29-Oct-2025 11:17:02 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => profile img.jpg
+            [full_path] => profile img.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpT6MUuC
+            [error] => 0
+            [size] => 9109
+        )
+
+    [bg] => Array
+        (
+            [name] => beauti.jpeg
+            [full_path] => beauti.jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpg0endm
+            [error] => 0
+            [size] => 9780
+        )
+
+)
+
+[29-Oct-2025 11:18:01 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => profile img.jpg
+            [full_path] => profile img.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phptMbAwX
+            [error] => 0
+            [size] => 9109
+        )
+
+    [bg] => Array
+        (
+            [name] => beauti.jpeg
+            [full_path] => beauti.jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpwUzT6M
+            [error] => 0
+            [size] => 9780
+        )
+
+)
+
+[29-Oct-2025 11:18:47 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => profile img.jpg
+            [full_path] => profile img.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpavH4oN
+            [error] => 0
+            [size] => 9109
+        )
+
+    [bg] => Array
+        (
+            [name] => beauti.jpeg
+            [full_path] => beauti.jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/php0WftEo
+            [error] => 0
+            [size] => 9780
+        )
+
+)
+
+[29-Oct-2025 11:20:00 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => profile img.jpg
+            [full_path] => profile img.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phphPEiXZ
+            [error] => 0
+            [size] => 9109
+        )
+
+    [bg] => Array
+        (
+            [name] => beauti.jpeg
+            [full_path] => beauti.jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpTjQjLk
+            [error] => 0
+            [size] => 9780
+        )
+
+)
+
+[29-Oct-2025 11:24:20 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => profile img.jpg
+            [full_path] => profile img.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phplVMEmk
+            [error] => 0
+            [size] => 9109
+        )
+
+    [bg] => Array
+        (
+            [name] => beauti.jpeg
+            [full_path] => beauti.jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpPW4I3A
+            [error] => 0
+            [size] => 9780
+        )
+
+)
+
+[29-Oct-2025 12:34:25 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => c.jpg
+            [full_path] => c.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpYK46sX
+            [error] => 0
+            [size] => 22141
+        )
+
+    [bg] => Array
+        (
+            [name] => cardboard-box-with-cargo-checklist-pencil.jpg
+            [full_path] => cardboard-box-with-cargo-checklist-pencil.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpBIO73K
+            [error] => 0
+            [size] => 644892
+        )
+
+)
+
+[29-Oct-2025 16:00:06 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => F3C372B8-6D39-49BF-A1E7-EB8ED270CA35.png
+            [full_path] => F3C372B8-6D39-49BF-A1E7-EB8ED270CA35.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpyfD875
+            [error] => 0
+            [size] => 1161178
+        )
+
+    [bg] => Array
+        (
+            [name] => Automation Website.png
+            [full_path] => Automation Website.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpYaEVby
+            [error] => 0
+            [size] => 296551
+        )
+
+)
+
+[29-Oct-2025 21:59:36 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => Screenshot 2025-09-07 at 2.51.58 AM.png
+            [full_path] => Screenshot 2025-09-07 at 2.51.58 AM.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpKqdMsV
+            [error] => 0
+            [size] => 804391
+        )
+
+    [bg] => Array
+        (
+            [name] => Screenshot 2025-08-09 at 5.40.31 PM.png
+            [full_path] => Screenshot 2025-08-09 at 5.40.31 PM.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpDyb68m
+            [error] => 0
+            [size] => 380460
+        )
+
+)
+
+[29-Oct-2025 21:59:58 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => Screenshot 2025-09-07 at 2.51.58 AM.png
+            [full_path] => Screenshot 2025-09-07 at 2.51.58 AM.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpfGKjI2
+            [error] => 0
+            [size] => 804391
+        )
+
+    [bg] => Array
+        (
+            [name] => Screenshot 2025-08-09 at 5.40.31 PM.png
+            [full_path] => Screenshot 2025-08-09 at 5.40.31 PM.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpNiPd2w
+            [error] => 0
+            [size] => 380460
+        )
+
+)
+
+[29-Oct-2025 22:00:22 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => Screenshot 2025-09-07 at 2.51.58 AM.png
+            [full_path] => Screenshot 2025-09-07 at 2.51.58 AM.png
+            [type] => image/png
+            [tmp_name] => /tmp/phproiA7S
+            [error] => 0
+            [size] => 804391
+        )
+
+    [bg] => Array
+        (
+            [name] => Screenshot 2025-08-09 at 5.40.31 PM.png
+            [full_path] => Screenshot 2025-08-09 at 5.40.31 PM.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpWgMEqD
+            [error] => 0
+            [size] => 380460
+        )
+
+)
+
+[31-Oct-2025 17:05:48 UTC] Array
+(
+)
+
+[31-Oct-2025 17:06:23 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => Screenshot 2025-09-07 at 2.51.58 AM.png
+            [full_path] => Screenshot 2025-09-07 at 2.51.58 AM.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpD3qQ6B
+            [error] => 0
+            [size] => 804391
+        )
+
+    [bg] => Array
+        (
+            [name] => Screenshot 2025-09-08 at 9.09.48 AM.png
+            [full_path] => Screenshot 2025-09-08 at 9.09.48 AM.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpQQqnYy
+            [error] => 0
+            [size] => 699924
+        )
+
+)
+
+[31-Oct-2025 17:06:59 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => Screenshot 2025-09-07 at 2.51.58 AM.png
+            [full_path] => Screenshot 2025-09-07 at 2.51.58 AM.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpMwiCU0
+            [error] => 0
+            [size] => 804391
+        )
+
+    [bg] => Array
+        (
+            [name] => Screenshot 2025-09-08 at 9.09.48 AM.png
+            [full_path] => Screenshot 2025-09-08 at 9.09.48 AM.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpegrq0h
+            [error] => 0
+            [size] => 699924
+        )
+
+)
+
+[31-Oct-2025 17:08:07 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => F3C372B8-6D39-49BF-A1E7-EB8ED270CA35.png
+            [full_path] => F3C372B8-6D39-49BF-A1E7-EB8ED270CA35.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpaCSQzA
+            [error] => 0
+            [size] => 1161178
+        )
+
+    [bg] => Array
+        (
+            [name] => image (27).png
+            [full_path] => image (27).png
+            [type] => image/png
+            [tmp_name] => /tmp/phpEudkvI
+            [error] => 0
+            [size] => 1049133
+        )
+
+)
+
+[31-Oct-2025 17:08:23 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => F3C372B8-6D39-49BF-A1E7-EB8ED270CA35.png
+            [full_path] => F3C372B8-6D39-49BF-A1E7-EB8ED270CA35.png
+            [type] => image/png
+            [tmp_name] => /tmp/php7Qd9Y9
+            [error] => 0
+            [size] => 1161178
+        )
+
+    [bg] => Array
+        (
+            [name] => image (27).png
+            [full_path] => image (27).png
+            [type] => image/png
+            [tmp_name] => /tmp/phpPL2GJ0
+            [error] => 0
+            [size] => 1049133
+        )
+
+)
+
+[08-Nov-2025 21:10:40 UTC] Array
+(
+)
+
+[08-Nov-2025 21:11:00 UTC] Array
+(
+)
+
+[09-Nov-2025 16:58:23 UTC] Array
+(
+)
+
+[09-Nov-2025 20:10:09 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => tik-tok.png
+            [full_path] => tik-tok.png
+            [type] => image/png
+            [tmp_name] => /tmp/phputbLTu
+            [error] => 0
+            [size] => 15060
+        )
+
+    [bg] => Array
+        (
+            [name] => ArcAngel_Transmission_001.png
+            [full_path] => ArcAngel_Transmission_001.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpKWRal6
+            [error] => 0
+            [size] => 866272
+        )
+
+)
+
+[10-Nov-2025 12:20:12 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => camera.jpeg
+            [full_path] => camera.jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpaxTYgb
+            [error] => 0
+            [size] => 6290
+        )
+
+    [bg] => Array
+        (
+            [name] => wallpaper.jp.jpg
+            [full_path] => wallpaper.jp.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpSRmyh9
+            [error] => 0
+            [size] => 2986201
+        )
+
+)
+
+[10-Nov-2025 12:47:05 UTC] Array
+(
+)
+
+[10-Nov-2025 13:21:20 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => camera.jpeg
+            [full_path] => camera.jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpt0iVUE
+            [error] => 0
+            [size] => 6290
+        )
+
+    [bg] => Array
+        (
+            [name] => wallpaper.jp.jpg
+            [full_path] => wallpaper.jp.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpP5GZ9O
+            [error] => 0
+            [size] => 2986201
+        )
+
+)
+
+[10-Nov-2025 13:22:45 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => camera.jpeg
+            [full_path] => camera.jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpfkpilE
+            [error] => 0
+            [size] => 6290
+        )
+
+    [bg] => Array
+        (
+            [name] => wallpaper.jp.jpg
+            [full_path] => wallpaper.jp.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpCkhlkV
+            [error] => 0
+            [size] => 2986201
+        )
+
+)
+
+[10-Nov-2025 13:25:53 UTC] Array
+(
+)
+
+[10-Nov-2025 13:26:12 UTC] Array
+(
+)
+
+[10-Nov-2025 14:46:14 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => camera.jpeg
+            [full_path] => camera.jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/php7Pb9JZ
+            [error] => 0
+            [size] => 6290
+        )
+
+    [bg] => Array
+        (
+            [name] => wallpaper.jp.jpg
+            [full_path] => wallpaper.jp.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpmkhlRS
+            [error] => 0
+            [size] => 2986201
+        )
+
+)
+
+[10-Nov-2025 19:41:27 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => _ (3).jpeg
+            [full_path] => _ (3).jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpdZRCIz
+            [error] => 0
+            [size] => 115496
+        )
+
+    [bg] => Array
+        (
+            [name] => _ (17).jpeg
+            [full_path] => _ (17).jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpqqV4AG
+            [error] => 0
+            [size] => 72514
+        )
+
+)
+
+[11-Nov-2025 12:48:22 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => Sticker.png
+            [full_path] => Sticker.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpTW6lEa
+            [error] => 0
+            [size] => 122666
+        )
+
+    [bg] => Array
+        (
+            [name] => IMG_0523.JPG
+            [full_path] => IMG_0523.JPG
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpnYCJDr
+            [error] => 0
+            [size] => 691109
+        )
+
+)
+
+[11-Nov-2025 12:48:36 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => Sticker.png
+            [full_path] => Sticker.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpaIbgcr
+            [error] => 0
+            [size] => 122666
+        )
+
+    [bg] => Array
+        (
+            [name] => IMG_0523.JPG
+            [full_path] => IMG_0523.JPG
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpvFXrrL
+            [error] => 0
+            [size] => 691109
+        )
+
+)
+
+[11-Nov-2025 12:48:59 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => Sticker.png
+            [full_path] => Sticker.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpXHad4k
+            [error] => 0
+            [size] => 122666
+        )
+
+    [bg] => Array
+        (
+            [name] => IMG_0523.JPG
+            [full_path] => IMG_0523.JPG
+            [type] => image/jpeg
+            [tmp_name] => /tmp/php3PVwVT
+            [error] => 0
+            [size] => 691109
+        )
+
+)
+
+[11-Nov-2025 12:49:10 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => Sticker.png
+            [full_path] => Sticker.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpMrBvGB
+            [error] => 0
+            [size] => 122666
+        )
+
+    [bg] => Array
+        (
+            [name] => IMG_0523.JPG
+            [full_path] => IMG_0523.JPG
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpxyA0f4
+            [error] => 0
+            [size] => 691109
+        )
+
+)
+
+[11-Nov-2025 13:20:40 UTC] Array
+(
+)
+
+[11-Nov-2025 13:20:41 UTC] PHP Warning:  Undefined array key "photo" in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 126
+[11-Nov-2025 13:20:41 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 44
+[11-Nov-2025 13:20:41 UTC] Upload error: 
+[11-Nov-2025 13:20:41 UTC] PHP Warning:  Undefined array key "bg" in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 127
+[11-Nov-2025 13:20:41 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 44
+[11-Nov-2025 13:20:41 UTC] Upload error: 
+[11-Nov-2025 13:21:53 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => Bank Card Document (2).jfif
+            [full_path] => Bank Card Document (2).jfif
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpsenXFo
+            [error] => 0
+            [size] => 162508
+        )
+
+    [bg] => Array
+        (
+            [name] => EVENTSY LOGO final files-02.jpg
+            [full_path] => EVENTSY LOGO final files-02.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phptFuL1Y
+            [error] => 0
+            [size] => 939294
+        )
+
+)
+
+[11-Nov-2025 13:22:11 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => Bank Card Document (2).jfif
+            [full_path] => Bank Card Document (2).jfif
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpExtlYS
+            [error] => 0
+            [size] => 162508
+        )
+
+    [bg] => Array
+        (
+            [name] => EVENTSY LOGO final files-02.jpg
+            [full_path] => EVENTSY LOGO final files-02.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpRKqSQj
+            [error] => 0
+            [size] => 939294
+        )
+
+)
+
+[11-Nov-2025 13:26:03 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => Bank Card Document (2).jfif
+            [full_path] => Bank Card Document (2).jfif
+            [type] => image/jpeg
+            [tmp_name] => /tmp/php611TVq
+            [error] => 0
+            [size] => 162508
+        )
+
+    [bg] => Array
+        (
+            [name] => EVENTSY LOGO final files-02.jpg
+            [full_path] => EVENTSY LOGO final files-02.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpaFR6kl
+            [error] => 0
+            [size] => 939294
+        )
+
+)
+
+[11-Nov-2025 13:26:41 UTC] Array
+(
+)
+
+[11-Nov-2025 13:26:52 UTC] Array
+(
+)
+
+[11-Nov-2025 13:26:52 UTC] PHP Warning:  Undefined array key "photo" in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 126
+[11-Nov-2025 13:26:52 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 44
+[11-Nov-2025 13:26:52 UTC] Upload error: 
+[11-Nov-2025 13:26:52 UTC] PHP Warning:  Undefined array key "bg" in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 127
+[11-Nov-2025 13:26:52 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 44
+[11-Nov-2025 13:26:52 UTC] Upload error: 
+[11-Nov-2025 13:28:07 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => Bank Card Document (2).jfif
+            [full_path] => Bank Card Document (2).jfif
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpqidOQR
+            [error] => 0
+            [size] => 162508
+        )
+
+    [bg] => Array
+        (
+            [name] => EVENTSY LOGO final files-02.jpg
+            [full_path] => EVENTSY LOGO final files-02.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpWUPZC8
+            [error] => 0
+            [size] => 939294
+        )
+
+)
+
+[11-Nov-2025 13:28:52 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => Bank Card Document (2).jfif
+            [full_path] => Bank Card Document (2).jfif
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpJczthi
+            [error] => 0
+            [size] => 162508
+        )
+
+    [bg] => Array
+        (
+            [name] => EVENTSY LOGO final files-02.jpg
+            [full_path] => EVENTSY LOGO final files-02.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/php43N3Wr
+            [error] => 0
+            [size] => 939294
+        )
+
+)
+
+[11-Nov-2025 13:35:13 UTC] Array
+(
+)
+
+[11-Nov-2025 13:35:13 UTC] PHP Warning:  Undefined array key "photo" in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 126
+[11-Nov-2025 13:35:13 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 44
+[11-Nov-2025 13:35:13 UTC] Upload error: 
+[11-Nov-2025 13:35:13 UTC] PHP Warning:  Undefined array key "bg" in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 127
+[11-Nov-2025 13:35:13 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/tneb2igty0t7/public_html/on10.io/arc/api/create_order.php on line 44
+[11-Nov-2025 13:35:13 UTC] Upload error: 
+[11-Nov-2025 13:40:47 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => user2.jpg
+            [full_path] => user2.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpmuZKSk
+            [error] => 0
+            [size] => 3982
+        )
+
+    [bg] => Array
+        (
+            [name] => WhatsApp Image 2025-11-03 at 9.27.19 PM (1).jpeg
+            [full_path] => WhatsApp Image 2025-11-03 at 9.27.19 PM (1).jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpfi94ke
+            [error] => 0
+            [size] => 111508
+        )
+
+)
+
+[11-Nov-2025 13:55:30 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => family-of-four-with-two-minors-and-two-adults.png
+            [full_path] => family-of-four-with-two-minors-and-two-adults.png
+            [type] => image/png
+            [tmp_name] => /tmp/php8IIOtp
+            [error] => 0
+            [size] => 12224
+        )
+
+    [bg] => Array
+        (
+            [name] => WhatsApp Image 2025-11-03 at 9.27.18 PM.jpeg
+            [full_path] => WhatsApp Image 2025-11-03 at 9.27.18 PM.jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpx1V0Uq
+            [error] => 0
+            [size] => 43487
+        )
+
+)
+
+[11-Nov-2025 14:34:48 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => WhatsApp Image 2025-11-03 at 9.27.19 PM (4).jpeg
+            [full_path] => WhatsApp Image 2025-11-03 at 9.27.19 PM (4).jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/php1HYdRm
+            [error] => 0
+            [size] => 210695
+        )
+
+    [bg] => Array
+        (
+            [name] => WhatsApp Image 2025-11-03 at 9.27.19 PM (3).jpeg
+            [full_path] => WhatsApp Image 2025-11-03 at 9.27.19 PM (3).jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/php3bdELd
+            [error] => 0
+            [size] => 157342
+        )
+
+)
+
+[11-Nov-2025 14:41:39 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => WhatsApp Image 2025-11-03 at 9.27.19 PM (4).jpeg
+            [full_path] => WhatsApp Image 2025-11-03 at 9.27.19 PM (4).jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpSqhbBO
+            [error] => 0
+            [size] => 210695
+        )
+
+    [bg] => Array
+        (
+            [name] => WhatsApp Image 2025-11-03 at 9.27.19 PM (2).jpeg
+            [full_path] => WhatsApp Image 2025-11-03 at 9.27.19 PM (2).jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpJ6yuW3
+            [error] => 0
+            [size] => 104428
+        )
+
+)
+
+[11-Nov-2025 15:06:00 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => call ui.PNG
+            [full_path] => call ui.PNG
+            [type] => image/png
+            [tmp_name] => /tmp/phpSg15PP
+            [error] => 0
+            [size] => 36054
+        )
+
+    [bg] => Array
+        (
+            [name] => call ui.PNG
+            [full_path] => call ui.PNG
+            [type] => image/png
+            [tmp_name] => /tmp/phppCSb7Z
+            [error] => 0
+            [size] => 36054
+        )
+
+)
+
+[11-Nov-2025 15:11:45 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => single-person.png
+            [full_path] => single-person.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpfSDZ6Q
+            [error] => 0
+            [size] => 9837
+        )
+
+    [bg] => Array
+        (
+            [name] => team.png
+            [full_path] => team.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpiVxJqW
+            [error] => 0
+            [size] => 36562
+        )
+
+)
+
+[11-Nov-2025 15:14:40 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => call ui.PNG
+            [full_path] => call ui.PNG
+            [type] => image/png
+            [tmp_name] => /tmp/phpgvLYo1
+            [error] => 0
+            [size] => 36054
+        )
+
+    [bg] => Array
+        (
+            [name] => call ui.PNG
+            [full_path] => call ui.PNG
+            [type] => image/png
+            [tmp_name] => /tmp/phpj7158J
+            [error] => 0
+            [size] => 36054
+        )
+
+)
+
+[11-Nov-2025 18:29:24 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => istockphoto-619636894-612x612.jpg
+            [full_path] => istockphoto-619636894-612x612.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/php52myd1
+            [error] => 0
+            [size] => 25017
+        )
+
+    [bg] => Array
+        (
+            [name] => istockphoto-619636894-612x612.jpg
+            [full_path] => istockphoto-619636894-612x612.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpdXADJb
+            [error] => 0
+            [size] => 25017
+        )
+
+)
+
+[11-Nov-2025 18:42:52 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => istockphoto-619636894-612x612.jpg
+            [full_path] => istockphoto-619636894-612x612.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpGJIHRB
+            [error] => 0
+            [size] => 25017
+        )
+
+    [bg] => Array
+        (
+            [name] => istockphoto-619636894-612x612.jpg
+            [full_path] => istockphoto-619636894-612x612.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpPDpLmW
+            [error] => 0
+            [size] => 25017
+        )
+
+)
+
+[11-Nov-2025 19:59:38 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => _ (3).jpeg
+            [full_path] => _ (3).jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpieiehN
+            [error] => 0
+            [size] => 115496
+        )
+
+)
+
+[11-Nov-2025 20:32:19 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => Screenshot 2025-09-09 at 7.56.16 PM.png
+            [full_path] => Screenshot 2025-09-09 at 7.56.16 PM.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpU10MW9
+            [error] => 0
+            [size] => 50471
+        )
+
+    [bg] => Array
+        (
+            [name] => Screenshot 2025-10-01 at 2.38.32 AM.png
+            [full_path] => Screenshot 2025-10-01 at 2.38.32 AM.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpu2vHgF
+            [error] => 0
+            [size] => 122428
+        )
+
+)
+
+[11-Nov-2025 20:32:24 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => Screenshot 2025-09-09 at 7.56.16 PM.png
+            [full_path] => Screenshot 2025-09-09 at 7.56.16 PM.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpwKSVot
+            [error] => 0
+            [size] => 50471
+        )
+
+    [bg] => Array
+        (
+            [name] => Screenshot 2025-10-01 at 2.38.32 AM.png
+            [full_path] => Screenshot 2025-10-01 at 2.38.32 AM.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpcYx9ym
+            [error] => 0
+            [size] => 122428
+        )
+
+)
+
+[11-Nov-2025 20:32:28 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => Screenshot 2025-09-09 at 7.56.16 PM.png
+            [full_path] => Screenshot 2025-09-09 at 7.56.16 PM.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpNEtE1j
+            [error] => 0
+            [size] => 50471
+        )
+
+    [bg] => Array
+        (
+            [name] => Screenshot 2025-10-01 at 2.38.32 AM.png
+            [full_path] => Screenshot 2025-10-01 at 2.38.32 AM.png
+            [type] => image/png
+            [tmp_name] => /tmp/phppgSCzK
+            [error] => 0
+            [size] => 122428
+        )
+
+)
+
+[12-Nov-2025 06:52:12 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => EVENTSY LOGO final files-02.png
+            [full_path] => EVENTSY LOGO final files-02.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpTylLpu
+            [error] => 0
+            [size] => 178434
+        )
+
+    [bg] => Array
+        (
+            [name] => WhatsApp Image 2025-11-03 at 9.27.19 PM (4).jpeg
+            [full_path] => WhatsApp Image 2025-11-03 at 9.27.19 PM (4).jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpsF6uLD
+            [error] => 0
+            [size] => 210695
+        )
+
+)
+
+[12-Nov-2025 07:14:44 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => EVENTSY LOGO final files-02.png
+            [full_path] => EVENTSY LOGO final files-02.png
+            [type] => image/png
+            [tmp_name] => /tmp/php4wuOXR
+            [error] => 0
+            [size] => 178434
+        )
+
+    [bg] => Array
+        (
+            [name] => WhatsApp Image 2025-11-03 at 9.27.19 PM (4).jpeg
+            [full_path] => WhatsApp Image 2025-11-03 at 9.27.19 PM (4).jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpAdmzgM
+            [error] => 0
+            [size] => 210695
+        )
+
+)
+
+[12-Nov-2025 07:27:28 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => screencapture-localhost-Reverse-Engineering-Admin-default-reports-analytics-php-2025-11-11-13_47_17.png
+            [full_path] => screencapture-localhost-Reverse-Engineering-Admin-default-reports-analytics-php-2025-11-11-13_47_17.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpMSCTsl
+            [error] => 0
+            [size] => 553265
+        )
+
+    [bg] => Array
+        (
+            [name] => WhatsApp Image 2025-11-03 at 9.27.19 PM (2).jpeg
+            [full_path] => WhatsApp Image 2025-11-03 at 9.27.19 PM (2).jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpYRsIx0
+            [error] => 0
+            [size] => 104428
+        )
+
+)
+
+[12-Nov-2025 11:56:45 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => camera.jpeg
+            [full_path] => camera.jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpPs7Vqk
+            [error] => 0
+            [size] => 6290
+        )
+
+    [bg] => Array
+        (
+            [name] => wallpaper.jpg
+            [full_path] => wallpaper.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/php5s5x8w
+            [error] => 0
+            [size] => 30350
+        )
+
+)
+
+[12-Nov-2025 11:56:58 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => camera.jpeg
+            [full_path] => camera.jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpZAaosm
+            [error] => 0
+            [size] => 6290
+        )
+
+    [bg] => Array
+        (
+            [name] => wallpaper.jpg
+            [full_path] => wallpaper.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/php2Y2ppp
+            [error] => 0
+            [size] => 30350
+        )
+
+)
+
+[12-Nov-2025 12:19:24 UTC] Array
+(
+    [photo] => Array
+        (
+            [name] => camera.jpeg
+            [full_path] => camera.jpeg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/php0QGfKn
+            [error] => 0
+            [size] => 6290
+        )
+
+    [bg] => Array
+        (
+            [name] => WhatsApp Image 2025-10-08 at 22.17.36_e7902e57.jpg
+            [full_path] => WhatsApp Image 2025-10-08 at 22.17.36_e7902e57.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpS742Jq
+            [error] => 0
+            [size] => 319816
+        )
+
+)
+
