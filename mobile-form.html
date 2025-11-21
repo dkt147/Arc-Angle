@@ -1849,7 +1849,7 @@ display: flex;
 
                               <div class="main-origin">
 
-                                <span id="backOrigin">—</span><span id="backValues">—</span>
+                                <span id="backOrigin">—</span><span id="backValues" style="padding-left: 5px;">—</span>
 
                               </div>
 
@@ -2414,7 +2414,9 @@ display: flex;
 
           document.getElementById("selectedLinePreview").textContent || "";
 
-        const origin = `My Name Is ${name}${values ? " • " + values : ""}`;
+        // const origin = `My Name Is ${name}${values ? " • " + values : ""}`;
+        // const origin = `My Name Is ${name}${values ? " • " + values : ""}`;
+        const origin = `My Name Is ${name}`;
 
         document.getElementById("backOrigin").textContent = origin;
 
@@ -2673,8 +2675,8 @@ display: flex;
 
     // Set both images
     Promise.all([
-        urlToFile(profileUrl, 'profile.jpg'),
-        urlToFile(bgUrl, 'background.jpg')
+        urlToFile(profileUrl, 'whiteGroupStatue.png'),
+        urlToFile(bgUrl, 'Capture.png')
     ]).then(([profileFile, bgFile]) => {
         // Set profile image and trigger change
         const profileDataTransfer = new DataTransfer();

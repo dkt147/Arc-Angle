@@ -2546,10 +2546,10 @@ section.second{
     background-size: 100%;
 }  
 img.wing.left{
-    width: 50% !important;
+    width: 100% !important;
 }
 img.wing.right{
-    width: 50%;
+    width: 100%;
 }
 .second-content h2{
     width: auto;
@@ -2738,9 +2738,9 @@ section.seven{
     justify-content: center;
     padding: 15px 0px;
 }
-.pricing-button {
+/* .pricing-button {
     display: none;
-}
+} */
 .pricing-main-content {
     margin-top: 50px;
 }
@@ -3072,4 +3072,127 @@ padding: 0px 20px;
     display: flex;
 }
 
+}
+
+/* Add these styles to your existing CSS */
+/* Base styles for all screens */
+.fourth-left {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    background-image: url("../../Assets/Media/Images/statue-bg-color.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+}
+
+img.statue {
+    width: 80%;
+    max-width: 500px;
+    height: auto;
+    z-index: 1;
+    object-fit: contain;
+}
+
+img.statue-bg {
+    position: absolute;
+    width: 90%;
+    max-width: 600px;
+    height: auto;
+    z-index: 0;
+    object-fit: contain;
+}
+
+/* Mobile styles (320px - 768px) */
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    .fourth-left {
+        width: 100%;
+        background-size: 100% 100%;
+        min-height: 300px; /* Reasonable height for mobile */
+    }
+    
+    img.statue {
+        width: 95%;
+        max-width: none; /* Remove max-width restriction on mobile */
+        padding-top: 40px;
+    }
+    
+    img.statue-bg {
+        width: 100%;
+        max-width: none; /* Remove max-width restriction on mobile */
+    }
+}
+
+/* Tablet styles (768px - 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .fourth-left {
+        background-size: 100% 100%;
+        min-height: 400px;
+    }
+    
+    img.statue {
+        width: 85%;
+    }
+}
+
+/* Desktop styles (1024px - 1300px) */
+@media screen and (min-width: 1024px) and (max-width: 1300px) {
+    .fourth-left {
+        background-size: 100% 100%;
+        min-height: 500px;
+    }
+    
+    img.statue {
+        width: 85%;
+    }
+}
+
+/* Large screen styles (1300px - 1500px) */
+@media screen and (min-width: 1300px) and (max-width: 1500px) {
+    .fourth-left {
+        min-height: 550px;
+    }
+}
+
+/* Extra large screens (1500px+) */
+@media screen and (min-width: 1500px) and (max-width: 1800px) {
+    .fourth-left {
+        min-height: 600px;
+    }
+    
+    img.statue {
+        max-width: 500px;
+    }
+}
+
+@media screen and (min-width: 1800px) {
+    .fourth-left {
+        min-height: 700px;
+    }
+    
+    img.statue {
+        max-width: 600px;
+    }
+    
+    img.statue-bg {
+        max-width: 700px;
+    }
+}
+
+@media screen and (min-width: 2200px) {
+    .fourth-left {
+        min-height: 800px;
+    }
+    
+    img.statue {
+        max-width: 700px;
+    }
+    
+    img.statue-bg {
+        max-width: 800px;
+    }
 }

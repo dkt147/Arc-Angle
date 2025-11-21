@@ -1864,7 +1864,7 @@ ease;
 
                               <div class="main-origin">
 
-                                <span id="backOrigin">—</span><span id="backValues">—</span>
+                                <span id="backOrigin">—</span><span id="backValues" style="padding-left: 5px;">—</span>
 
                               </div>
 
@@ -2432,7 +2432,8 @@ ease;
 
           document.getElementById("selectedLinePreview").textContent || "";
 
-        const origin = `My Name Is ${name}${values ? " • " + values : ""}`;
+        // const origin = `My Name Is ${name}${values ? " • " + values : ""}`;
+        const origin = `My Name Is ${name}`;
 
         document.getElementById("backOrigin").textContent = origin;
 

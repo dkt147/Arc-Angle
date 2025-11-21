@@ -60,7 +60,7 @@
 
       overflow: hidden;
 
-      background: rgba(163, 13, 219, 1);
+      /* background: rgba(163, 13, 219, 1); */
 
 
     }
@@ -322,12 +322,23 @@
         width: 564vw;
         height: 570vh;
       } */
-.bg {
+.background-video {
         width: 100%;
         height: 100%;
         background-image: url('Assets/Media/Videos/little-angle-mobile.gif');
     }
+    
+    .hide{
+    display:none;
     }
+    #cinematicToggle{
+         padding: 0.9rem 1rem !important;
+    }
+    .pricing-top{
+      justify-content: space-between !important;
+      padding: 15px 0px;
+    }
+  }
   </style>
 
 </head>
@@ -370,13 +381,13 @@
 
 
       <!-- Coin -->
+      <!-- use your coin.png or SVG -->
 
       <div class="coin" id="coin" aria-hidden="true">
 
-        <!-- use your coin.png or SVG -->
 
-        <img src="Assets/Media/Images/coin.png" alt="coin"
-          style="width:100%;height:100%;object-fit:contain;display:block;pointer-events:none;user-select:none;">
+        <!-- <img src="Assets/Media/Images/coin.png" alt="coin"
+          style="width:100%;height:100%;object-fit:contain;display:block;pointer-events:none;user-select:none;"> -->
 
       </div>
 
@@ -440,8 +451,10 @@
               <a href="#" class="btn-primary" id="opendropBtn">Live Drop</a>
             </div>
 
-            <div class="Mobile-button">
-              <a href="live-drop.html" class="btn-secondary">Live Drop</a>
+            <div class="hide">
+              <div class="Mobile-button">
+                <a href="live-drop.html" class="btn-secondary">Live Drop</a>
+              </div>
             </div>
           </div>
 
@@ -951,29 +964,20 @@
 
     function showGifThenRevealMain() {
 
-      gifWrap.style.visibility = 'visible';
+      // gifWrap.style.visibility = 'visible';
 
-      gsap.to(gifWrap, {
-        autoAlpha: 1, duration: 0.16, ease: 'power1.out', onComplete: () => {
+      // gsap.to(gifWrap, {
+      //   autoAlpha: 1, duration: 0.16, ease: 'power1.out', onComplete: () => {
 
-          gsap.delayedCall(GIF_SHOW_MS / 1000, () => {
+      //     gsap.delayedCall(GIF_SHOW_MS / 1000, () => {
 
-            gsap.to(gifWrap, { autoAlpha: 0, duration: 0.25, ease: 'power2.inOut', onComplete: revealMain });
+      //       gsap.to(gifWrap, { autoAlpha: 0, duration: 0.25, ease: 'power2.inOut', onComplete: revealMain });
 
-          });
+      //     });
 
-        }
-      });
-
-    }
-
-
-
-    /* Reveal main content with fade-in */
-
-    function revealMain() {
-
-      preloaderEl.style.display = 'none';
+      //   }
+      // });
+       preloaderEl.style.display = 'none';
 
       gifWrap.style.display = 'none';
 
@@ -982,6 +986,22 @@
       gsap.to(mainContent, { autoAlpha: 1, duration: 0.6, ease: 'power2.out' });
 
     }
+
+
+
+    /* Reveal main content with fade-in */
+
+    // function revealMain() {
+
+    //   preloaderEl.style.display = 'none';
+
+    //   gifWrap.style.display = 'none';
+
+    //   mainContent.setAttribute('aria-hidden', 'false');
+
+    //   gsap.to(mainContent, { autoAlpha: 1, duration: 0.6, ease: 'power2.out' });
+
+    // }
 
 
 
