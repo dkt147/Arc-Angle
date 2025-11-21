@@ -1,2 +1,5 @@
 api/create-checkout-session.php
+api/create_checkout_session.php
 api/stripe_webhook.php
+Assets/Media/Videos/Hero.mp4
+Assets/Media/Videos/wings.mov

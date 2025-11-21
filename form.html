@@ -28,6 +28,9 @@
   <!-- GSAP -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"></script> <!-- localstorage compress -->
 
   <style>
     :root {
@@ -573,7 +576,7 @@
 
       position: relative;
 
-      overflow: hidden;
+      /* overflow: hidden; */
 
 
 
@@ -626,7 +629,7 @@
       background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
       border-radius: 16px;
       transform-style: preserve-3d;
-
+box-shadow: -1px 1px 30px 8px #000000a6;
     }
 
     .card-photo {
@@ -787,6 +790,7 @@
       background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
       border-radius: 16px;
       transform-style: preserve-3d;
+      box-shadow: -1px 1px 30px 8px #000000a6;
 
     }
 
@@ -1050,7 +1054,7 @@
 
     .back-box-left img {
 
-      width: 100px;
+      width: 80px;
 
     }
 
@@ -1225,6 +1229,114 @@
       color: #666666;
 
     }
+
+    @media screen and (min-width: 320px) and (max-width: 768px) {
+      .desktop-button {
+        display: none;
+      }
+
+      .Mobile-button {
+        display: block;
+      }
+
+    }
+
+
+    @media screen and (min-width: 768px) and (max-width: 2500px) {
+      .Mobile-button {
+        display: none;
+      }
+
+      .desktop-button {
+        display: flex;
+      }
+
+    }
+
+
+        .xp-alert {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.35s ease;
+  z-index: 999999;
+}
+
+.xp-alert.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.xp-box {
+    background: #000000;
+    padding: 35px 38px;
+    border-radius: 16px;
+    width: 320px;
+    text-align: center;
+    border: 2px solid #F83A3A;
+    box-shadow: 0 0 35px #f83a3a70;
+    font-family: 'Orbitron', sans-serif;
+    animation: xpPop .35s 
+ease;
+}
+
+@keyframes xpPop {
+  0% { transform: scale(0.7); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.xp-box h2 {
+  font-size: 1.7rem;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.xp-box p {
+  font-size: 1.2rem;
+  color: #FF11CB;
+  margin-bottom: 18px;
+}
+
+.xp-box {
+  position: relative;
+  overflow: hidden;
+}
+
+    .card-side,
+    .card-back {
+      overflow: hidden;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgb(255 255 255 / 43%);
+      /* Light color overlay with opacity */
+      z-index: 1;
+      /* Places overlay below content but above the background */
+    }
+
+    .card-back .overlay {
+      z-index: 1;
+    }
+
+    .card-photo,
+    .back-box,
+    .card-body {
+      z-index: 2
+    }
+
+
+
   </style>
 
 </head>
@@ -1343,11 +1455,14 @@
 
             <div class="left-actions">
 
-              <button class="btn ghost" onclick="window.parent.closeFormModal()">
+              <div class="desktop-button">
+                <button class="btn ghost" onclick="window.parent.closeFormModal()">Cancel</button>
 
-                Cancel
+              </div>
 
-              </button>
+              <div class="Mobile-button">
+                <a href="Main.html" class="btn ghost">Cancel</a>
+              </div>
 
             </div>
 
@@ -1645,7 +1760,7 @@
 
               Your card is being forged. You are now an Arc Angel™.
 
-              Transmission #001 will arrive soon.
+              Transmission <span class="cardNumber">#001</span> will arrive soon.
 
             </h1>
 
@@ -1666,7 +1781,7 @@
                   <!-- FRONT -->
 
                   <div class="card-side card-front" id="cardFront">
-
+                    <div class="overlay"></div>
                     <div class="card-photo" id="photoBox">
 
                       <img id="photoImg" src="" alt="Profile" style="display: none" />
@@ -1693,13 +1808,13 @@
 
                         MEDALLION MAZE
 
-                        <span style="float: right; font-size: 12px; opacity: 0.9" id="cardNumber">#0001</span>
+                        <span style="float: right; font-size: 12px; opacity: 0.9" id="cardNumber" class="cardNumber">#0001</span>
 
                       </div>
 
                       <div class="card-name" id="cardName">Full Name</div>
 
-                      <div class="YourWorld">Your World</div>
+                      <div class="YourWorld" id="yourWorld">Your World</div>
 
                       <div class="card-role" id="cardRole">Photographer</div>
 
@@ -1718,14 +1833,16 @@
                   <!-- BACK -->
 
                   <div class="card-side card-back" id="cardBack">
-
+                    <div class="overlay"></div>
                     <div class="back-box">
 
                       <div class="back-box-child">
 
                         <div class="back-box-left">
-
-                          <img src="https://on10.io/arc/Assets/Media/Images/QR Code.png" alt="" />
+                          <!-- ---------- StaticUrl: HERE is Static Url in Last -----------  -->
+                          <img
+                            src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://on10.io/arc/Main.html"
+                            alt="" style=" border-radius: 8px; border:5px solid ;" />
 
                           <div class="Provenance">Provenance</div>
 
@@ -1793,7 +1910,7 @@
 
               <div class="flip-hint" id="flipBtn" title="Flip Card">
 
-                <img src="https://on10.io/arc/Assets/Media/Images/flip icon.png" alt="" />
+                <img src="Assets/Media/Images/flip icon.png" alt="" />
 
               </div>
 
@@ -1967,10 +2084,24 @@
 
     </div>
 
+    <div id="xpAlert" class="xp-alert">
+  <div class="xp-box">
+    <h2>Welcome, Arc Angel™</h2>
+    <p>+500 XP Unlocked</p>
+  </div>
+  </div>
   </div>
 
-  <script>
+  
 
+
+  <script>
+    var isLocal = window.location.hostname === "localhost";
+    var API_URL = isLocal
+      ? "api"
+      : "https://on10.io/arc/api";
+      
+      API_URL="https://on10.io/arc/api";
     /* ---------- Basic Step Logic & GSAP animations ---------- */
 
     (function () {
@@ -2062,6 +2193,22 @@
                 : "Your Card is being forged. Upload photo or background to preview.";
 
         }
+        if (n === 3) {
+
+            const xpAlert = document.getElementById("xpAlert");
+
+            xpAlert.classList.add("show");
+
+            startConfettiInBox();
+
+            setTimeout(() => {
+
+              xpAlert.classList.remove("show");
+
+            }, 2000);
+
+          }
+
 
       }
 
@@ -2079,7 +2226,11 @@
 
       $qs("#backBtn2").addEventListener("click", () => showStep(1));
 
-      $qs("#createCardBtn").addEventListener("click", () => showStep(3));
+      $qs("#createCardBtn").addEventListener("click", () => {
+    showStep(3);          
+    startConfettiInBox(); 
+});
+
 
       $qs("#backFrom3").addEventListener("click", () => showStep(2));
 
@@ -2191,7 +2342,7 @@
 
         // update back card's values line
 
-        backValues.textContent = text ? text : "—";
+        // backValues.textContent = text ? text : "—";
 
       }
 
@@ -2206,6 +2357,7 @@
       const fullName = document.getElementById("fullName");
 
       const cardName = document.getElementById("cardName");
+      const yourWorld = document.getElementById("yourWorld");
 
       const cardRole = document.getElementById("cardRole");
 
@@ -2220,6 +2372,9 @@
         cardName.textContent = name;
 
         document.getElementById("cardSignature").textContent = name;
+
+
+       yourWorld.innerText = document.getElementById("selectedLineStep1").innerText
 
         // if customSelectText has a value, use it as role
 
@@ -2432,11 +2587,13 @@
 
 
     /* ---------- Upload logic: profile & background (fills card background fully) ---------- */
+// Usage:
 
-    (function () {
 
-      const openUpload = document.getElementById("openUpload");
-
+(function () {
+  
+  const openUpload = document.getElementById("openUpload");
+  
       const modal = document.getElementById("modal");
 
       const modalClose = document.getElementById("modalClose");
@@ -2454,10 +2611,10 @@
       const photoBox = document.getElementById("photoBox");
 
       const cardBody = document.getElementById("cardBody");
-
+      
       const card = document.getElementById("cardElement");
-
-
+      
+      
 
       openUpload.addEventListener("click", () => modal.classList.add("open"));
 
@@ -2519,11 +2676,51 @@
         reader.readAsDataURL(f);
       });
 
-      const savedBG = localStorage.getItem("arc_card_bg");
+      // const savedBG = localStorage.getItem("arc_card_bg");
+      const savedBG = getFromLocalStorage("arc_card_bg");
       if (savedBG) {
         cardFront.style.background = `url('${savedBG}') no-repeat center center / cover`;
         cardBack.style.background = `url('${savedBG}') no-repeat center center / cover`;
       }
+
+      function setImageFromUrl(profileUrl, bgUrl) {
+    // Convert URLs to fake files to trigger your existing change handlers
+    async function urlToFile(url, filename) {
+        const response = await fetch(url);
+        const blob = await response.blob();
+        return new File([blob], filename, { type: blob.type });
+    }
+
+    // Set both images
+    Promise.all([
+        urlToFile(profileUrl, 'profile.jpg'),
+        urlToFile(bgUrl, 'background.jpg')
+    ]).then(([profileFile, bgFile]) => {
+        // Set profile image and trigger change
+        const profileDataTransfer = new DataTransfer();
+        profileDataTransfer.items.add(profileFile);
+        uploadProfile.files = profileDataTransfer.files;
+        
+        // Set background image and trigger change  
+        const bgDataTransfer = new DataTransfer();
+        bgDataTransfer.items.add(bgFile);
+        uploadBg.files = bgDataTransfer.files;
+        
+        // Trigger change events
+        uploadProfile.dispatchEvent(new Event('change'));
+        uploadBg.dispatchEvent(new Event('change'));
+        
+    }).catch(error => {
+        console.error('Error loading images:', error);
+    });
+}
+
+// Usage - call this on page load or when needed:
+setImageFromUrl(
+    'Assets/Media/Images/whiteGroupStatue.png',
+    'Assets/Media/Images/Capture.png'
+);
+
     })();
 
 
@@ -2630,7 +2827,7 @@
 
       const buyCardBtn = document.getElementById("buyCard");
 
-      const API_URL = "https://on10.io/arc/api/create_order.php";
+      // const API_URL = "https://on10.io/arc/api/create_order.php";
 
 
 
@@ -2757,7 +2954,7 @@
         // Handle background photo upload
 
         const bgFileInput = document.getElementById("uploadBg");
-
+        console.log(bgFileInput.files);  // Log the files to inspect
         if (bgFileInput.files && bgFileInput.files[0]) {
 
           formData.append("bg", bgFileInput.files[0]);
@@ -2806,7 +3003,8 @@
 
 
 
-          localStorage.setItem("arcUserData", JSON.stringify(userData));
+          // localStorage.setItem("arcUserData", JSON.stringify(userData));
+          saveToLocalStorage("arcUserData",userData);
 
 
 
@@ -2838,7 +3036,8 @@
 
           // Store in localStorage
 
-          localStorage.setItem("arcUserData", JSON.stringify(userData));
+          // localStorage.setItem("arcUserData", JSON.stringify(userData));
+          saveToLocalStorage("arcUserData", userData);
           saveCardImageToLocalStorage();
 
 
@@ -2860,21 +3059,41 @@
 
           // Make API call
 
-          const response = await fetch(API_URL, {
+          const response = await fetch(`${API_URL}/create_order.php`, {
 
             method: "POST",
 
             body: formData,
 
           });
+          console.log("this" + response)
 
-
-
+          if (response.status === 409) {
+            const result = await response.json();
+            alert(result.message); // "User with this email or name already exists"
+            return; // Stop further execution
+          }
           // Check if response is successful
 
           if (!response.ok) {
 
-            throw new Error(`HTTP error! status: ${response.status}`);
+            // Handle specific status codes
+        if (response.status === 409) {
+          throw new Error("An account with this email or name already exists. Please use different credentials.");
+        } else if (response.status === 400) {
+          throw new Error("Bad request: Please check all required fields are filled correctly.");
+        } else if (response.status === 500) {
+          throw new Error("Server error: Please try again later.");
+        } else {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+
+            var error = response.status
+            if (response.status == 409) {
+              error = "An account with this email or name already exists. Please use different credentials."
+            }
+            throw new Error(`HTTP error! status: ${error}`);
 
           }
 
@@ -2971,11 +3190,16 @@
 
     // Capture and save card image to localStorage
     function saveCardImageToLocalStorage() {
+
+      // Use the actual card element that contains both front and back
+      const cardElement = document.getElementById('cardElement');
+
       html2canvas(cardElement, { scale: 3 }).then(canvas => {
         const cardImage = canvas.toDataURL("image/png"); // Base64 image string
 
         // Save to localStorage
-        localStorage.setItem("arcCardImage", cardImage);
+        // localStorage.setItem("arcCardImage", cardImage);
+        saveToLocalStorage("arcCardImage", cardImage);
 
         console.log("✅ Card image saved to localStorage!");
       });
@@ -3014,6 +3238,134 @@
       });
     });
 
+    
+    // document.getElementsByClassName("cardNumber")[0].textContent = `#00${localStorage.getItem("cardNumber")}`
+    // document.getElementsByClassName("cardNumber")[1].textContent = `#00${localStorage.getItem("cardNumber")}`
+    document.getElementsByClassName("cardNumber")[0].textContent = `#00${getFromLocalStorage("cardNumber")}`
+    document.getElementsByClassName("cardNumber")[1].textContent = `#00${getFromLocalStorage("cardNumber")}`
+
+
+
+function startConfettiInBox() {
+    const box = document.querySelector(".xp-box");
+    if (!box) return;
+
+    const canvas = document.createElement("canvas");
+    canvas.style.position = "absolute";
+    canvas.style.top = "0";
+    canvas.style.left = "0";
+    canvas.style.width = "100%";
+    canvas.style.height = "100%";
+    canvas.style.pointerEvents = "none";
+    canvas.style.zIndex = "999";
+    box.appendChild(canvas);
+
+    const ctx = canvas.getContext("2d");
+
+    function setSize() {
+        canvas.width = box.clientWidth;
+        canvas.height = box.clientHeight;
+    }
+    setSize();
+
+    new ResizeObserver(setSize).observe(box);
+
+    const colors = ["#FFD166", "#06B6D4", "#EF476F", "#06D6A0"];
+    const confetti = [];
+
+    function newPiece() {
+        return {
+            x: Math.random() * canvas.width,
+            y: -10,
+            size: 5 + Math.random() * 5,
+            vx: -2 + Math.random() * 4,
+            vy: 2 + Math.random() * 4,
+            color: colors[Math.floor(Math.random() * colors.length)]
+        };
+    }
+
+    let frame;
+
+    function loop() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        if (confetti.length < 80) confetti.push(newPiece());
+
+        confetti.forEach((p, i) => {
+            p.x += p.vx;
+            p.y += p.vy;
+
+            ctx.fillStyle = p.color;
+            ctx.fillRect(p.x, p.y, p.size, p.size);
+
+            if (p.y > canvas.height) confetti.splice(i, 1);
+        });
+
+        frame = requestAnimationFrame(loop);
+    }
+
+    loop();
+
+    setTimeout(() => {
+        cancelAnimationFrame(frame);
+        canvas.remove();
+    }, 3000);
+}
+
+startConfettiInBox();
+
+// Simple get and set functions with auto compression
+function saveToLocalStorage(key, value) {
+    try {
+        // Convert to string if object/array
+        const dataString = typeof value === 'object' ? JSON.stringify(value) : String(value);
+        
+        // Compress and save
+        const compressed = LZString.compress(dataString);
+        localStorage.setItem(key, compressed);
+        
+        return true;
+    } catch (error) {
+        // Fallback: save without compression
+        try {
+            localStorage.setItem(key, typeof value === 'object' ? JSON.stringify(value) : value);
+            return true;
+        } catch (e) {
+            console.error('Storage failed:', e);
+            return false;
+        }
+    }
+}
+
+function getFromLocalStorage(key) {
+    try {
+        const compressed = localStorage.getItem(key);
+        if (compressed === null) return null;
+        
+        // Decompress
+        const decompressed = LZString.decompress(compressed);
+        
+        // Try to parse as JSON, return string if fails
+        try {
+            return JSON.parse(decompressed);
+        } catch {
+            return decompressed;
+        }
+    } catch (error) {
+        // Fallback: get without decompression
+        try {
+            const raw = localStorage.getItem(key);
+            try {
+                return JSON.parse(raw);
+            } catch {
+                return raw;
+            }
+        } catch (e) {
+            console.error('Storage read failed:', e);
+            return null;
+        }
+    }
+}
 
   </script>
 

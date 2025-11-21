@@ -1,113 +1,123 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>GSAP Preloader — Arc Angels Style (01→100 slider)</title>
+  <title>GSAP Preloader — Arc Angels Style (01→500 slider)</title>
 
   <!-- Orbitron font -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
-    :root{
+    :root {
       --bg-size: 160vmax;
     }
 
-    html,body{
-      height:100%;
-      margin:0;
+    html,
+    body {
+      height: 100%;
+      margin: 0;
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background:#0b0b0b;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+      background: #0b0b0b;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     /* FULLSCREEN PRELOADER */
     #preloader {
-      position:fixed;
-      inset:0;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      z-index:9999;
-      overflow:hidden;
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      overflow: hidden;
     }
 
     /* rotating gradient layer */
     .bg {
-      position:absolute;
-      width: 200vw;
-      height: 400vh;
-      background: conic-gradient(from 90deg at 50% 50%, rgba(0, 0, 0, 0.91), rgba(163, 13, 219, 1), rgba(0, 0, 0, 0.9));
-      filter: blur(60px) saturate(120%);
-      transform-origin:50% 50%;
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      /* background: conic-gradient(from 90deg at 50% 50%, rgba(0, 0, 0, 0.91), rgba(163, 13, 219, 1), rgba(0, 0, 0, 0.9));
+      filter: blur(60px) saturate(120%); */
+      background-image: url('Assets/Media/Videos/little-angle.gif');
+      background-size: cover;
+      /* Makes the background image cover the entire div */
+      background-position: center;
+      /* Centers the image in the div */
+      background-repeat: no-repeat;
+      /* Prevents the image from repeating */
+      transform-origin: 50% 50%;
       will-change: transform;
-      opacity:1;
+      opacity: 1;
     }
 
     /* subtle overlay to keep center in focus */
     .overlay {
-      position:absolute;
-      inset:0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.14), rgba(0,0,0,0.36));
-      pointer-events:none;
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0.36));
+      pointer-events: none;
     }
 
     .center {
-      position:relative;
-      z-index:10;
-      text-align:center;
-      color:white;
-      display:flex;
-      flex-direction:column;
-      gap:28px;
-      align-items:center;
-      justify-content:space-between;
-      padding:24px;
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px;
       height: 90vh;
     }
 
     /* coin wrapper */
     .coin {
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      transform-origin:center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform-origin: center;
       will-change: transform;
-      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.45));
-      user-select:none;
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.45));
+      user-select: none;
     }
 
     /* counter slider styles */
     .counter-slider {
       width: 100%;
-      height: 4rem; /* shows exactly one item */
+      height: 4rem;
+      /* shows exactly one item */
       overflow: hidden;
-      display:block;
-      margin-top:4px;
+      display: block;
+      margin-top: 4px;
     }
 
     .counter-list {
-      display:block;
+      display: block;
       will-change: transform;
     }
 
     .counter-item {
       font-family: 'Orbitron', sans-serif;
-      font-weight:400;
-      font-size:3.5rem;
-      height:4re;
-      line-height:4rem;
-      letter-spacing:2px;
+      font-weight: 400;
+      font-size: 3.5rem;
+      height: 4re;
+      line-height: 4rem;
+      letter-spacing: 2px;
       color: white;
     }
 
     .welcome {
       font-family: 'Orbitron', sans-serif;
-      font-size:3.5rem;
-      opacity:0;
+      font-size: 3.5rem;
+      opacity: 0;
       transform: translateY(8px);
-      letter-spacing:2px;
+      letter-spacing: 2px;
     }
 
     .loading-text {
@@ -121,66 +131,90 @@
 
     /* GIF container (hidden initially) */
     #gifWrap {
-      position:fixed;
-      inset:0;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      z-index:9998;
-      pointer-events:none;
-      opacity:0;
-      visibility:hidden;
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9998;
+      pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
     }
+
     #gifWrap img {
-      width:100%;
-      height:auto;
-      border-radius:12px;
-      box-shadow:0 12px 30px rgba(0,0,0,0.6);
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
     }
 
     /* Main content hidden behind preloader */
     #mainContent {
-      opacity:0;
-      min-height:100vh;
-      transition:opacity .4s ease;
-      padding:40px;
-      box-sizing:border-box;
+      opacity: 0;
+      min-height: 100vh;
+      transition: opacity .4s ease;
+      padding: 40px;
+      box-sizing: border-box;
     }
 
     .page {
-      max-width:1000px;
-      margin:80px auto;
-      color:#111;
-      background:linear-gradient(180deg,#fff,#f6f9fc);
-      border-radius:12px;
-      padding:40px;
-      box-shadow:0 10px 40px rgba(2,6,23,0.08);
-      text-align:center;
+      max-width: 1000px;
+      margin: 80px auto;
+      color: #111;
+      background: linear-gradient(180deg, #fff, #f6f9fc);
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(2, 6, 23, 0.08);
+      text-align: center;
     }
 
-    @media (max-width:480px){
-      .coin { width:90px; height:90px; }
-      .counter-slider { width: 110px; height:36px; }
-      .counter-item { font-size:28px; height:36px; line-height:36px; }
-      #gifWrap img { width:160px; }
+    @media (max-width:480px) {
+      .coin {
+        width: 90px;
+        height: 90px;
+      }
+
+      .counter-slider {
+        width: 110px;
+        height: 36px;
+      }
+
+      .counter-item {
+        font-size: 28px;
+        height: 36px;
+        line-height: 36px;
+      }
+
+      #gifWrap img {
+        width: 160px;
+      }
     }
+    @media only screen and (max-width: 768px) {
+    .bg {
+        width: 100%;
+        height: 100%;
+    }
+}
   </style>
 </head>
+
 <body>
 
   <!-- PRELOADER -->
   <div id="preloader" aria-hidden="true">
-    <div class="bg" id="rotatingBg"></div>
+    <div class="bg" id="rotatingBg" style="background-image: url(Assets/Media/Videos/little-angle.gif);"></div>
     <div class="overlay"></div>
 
     <div class="center">
       <!-- Welcome text -->
-      <div class="welcome" id="welcomeText">Welcome</div>
+      <div class="welcome" id="welcomeText">Welcome to Medallion Maze</div>
 
       <!-- Coin -->
       <div class="coin" id="coin" aria-hidden="true">
         <!-- use your coin.png or SVG -->
-        <img src="https://on10.io/arc/Assets/Media/Images/coin.png" alt="coin" style="width:100%;height:100%;object-fit:contain;display:block;pointer-events:none;user-select:none;">
+        <img src="Assets/Media/Images/coin.png" alt="coin"
+          style="width:100%;height:100%;object-fit:contain;display:block;pointer-events:none;user-select:none;">
       </div>
 
       <!-- Counter and Loading Container -->
@@ -201,14 +235,15 @@
   <!-- GIF placeholder -->
   <div id="gifWrap" aria-hidden="true">
     <!-- Replace the src with your GIF later. Using your Assets path as placeholder -->
-    <img id="preloaderGif" src="https://on10.io/arc/Assets/Media/Videos/preloader.gif" alt="placeholder gif"/>
+    <!-- <img id="preloaderGif" src="Assets/Media/Videos/preloader.gif" alt="placeholder gif"/> -->
   </div>
 
   <!-- MAIN PAGE (hidden until preloader finishes) -->
   <div id="mainContent" aria-hidden="true">
     <div class="page">
       <h1>Welcome to Your Site</h1>
-      <p>This is the main page content. The preloader animation has finished and the page has revealed with a fade-in effect.</p>
+      <p>This is the main page content. The preloader animation has finished and the page has revealed with a fade-in
+        effect.</p>
       <p>Replace this area with your real website content.</p>
     </div>
   </div>
@@ -234,10 +269,10 @@
     const mainContent = document.getElementById('mainContent');
 
     /* UTILS */
-    function pad(n){ return n < 10 ? '0' + n : String(n); }
+    function pad(n) { return n < 10 ? '0' + n : String(n); }
 
     /* 1) Generate numbers (01..100) as stacked items */
-    for(let i = START_NUM; i <= END_NUM; i++){
+    for (let i = START_NUM; i <= END_NUM; i++) {
       const el = document.createElement('div');
       el.className = 'counter-item';
       el.textContent = pad(i);
@@ -253,10 +288,10 @@
       const targetY = itemHeight * totalSteps;
 
       // 2) Background rotation (infinite)
-      gsap.to(rotatingBg, { rotation: 360, duration: 8, ease: 'none', repeat: -1, transformOrigin: '50% 50%' });
+      // gsap.to(rotatingBg, { rotation: 360, duration: 8, ease: 'none', repeat: -1, transformOrigin: '50% 50%' });
 
       // 3) Welcome text fade in
-      gsap.fromTo(welcomeEl, {opacity:0, y:8}, {opacity:1, y:0, duration:0.6, delay:0.08, ease:'power2.out'});
+      gsap.fromTo(welcomeEl, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.6, delay: 0.08, ease: 'power2.out' });
 
       // 4) Coin bounce during the duration
       // We'll make it bounce at 0.5s intervals roughly
@@ -280,7 +315,7 @@
     });
 
     /* When counter completes */
-    function preloaderFinish(){
+    function preloaderFinish() {
       // fade out preloader
       gsap.to(preloaderEl, {
         autoAlpha: 0,
@@ -291,17 +326,19 @@
     }
 
     /* Show GIF briefly, then reveal main content */
-    function showGifThenRevealMain(){
+    function showGifThenRevealMain() {
       gifWrap.style.visibility = 'visible';
-      gsap.to(gifWrap, {autoAlpha:1, duration:0.16, ease:'power1.out', onComplete: () => {
-        gsap.delayedCall(GIF_SHOW_MS/1000, () => {
-          gsap.to(gifWrap, {autoAlpha:0, duration:0.25, ease:'power2.inOut', onComplete: revealMain});
-        });
-      }});
+      gsap.to(gifWrap, {
+        autoAlpha: 1, duration: 0.16, ease: 'power1.out', onComplete: () => {
+          gsap.delayedCall(GIF_SHOW_MS / 1000, () => {
+            gsap.to(gifWrap, { autoAlpha: 0, duration: 0.25, ease: 'power2.inOut', onComplete: revealMain });
+          });
+        }
+      });
     }
 
     /* Reveal main content with fade-in */
-    function revealMain(){
+    function revealMain() {
       preloaderEl.style.display = 'none';
       gifWrap.style.display = 'none';
       // Redirect to Main.html after preloader
@@ -310,7 +347,7 @@
 
     /* Allow skipping with Space/Enter for testing */
     document.addEventListener('keydown', (e) => {
-      if(e.code === 'Space' || e.code === 'Enter'){
+      if (e.code === 'Space' || e.code === 'Enter') {
         // immediately jump to end state
         gsap.killTweensOf(counterList);
         // set last number visible by translating to target instantly
@@ -324,4 +361,5 @@
 
   </script>
 </body>
+
 </html>

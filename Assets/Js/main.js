@@ -395,33 +395,92 @@ if (typeof openFormModal !== 'undefined') {
 }
 
 
-
+    // ================= Asharib Code ===================
 // Cinematic mode toggle (only if element exists)
+// if (document.getElementById('cinematicToggle')) {
+//   const cinematicToggle = document.getElementById('cinematicToggle');
+//   let cinematicMode = false;
+//   let hue = 0;
+//   let interval = null;
+
+//   cinematicToggle.addEventListener('click', () => {
+//     cinematicMode = !cinematicMode;
+//     const root = document.documentElement;
+
+//     if (cinematicMode) {
+//       root.style.transition = 'filter 0.8s ease-in-out';
+//       interval = setInterval(() => {
+//         hue = (hue + 20) % 360; 
+//         root.style.filter = `hue-rotate(${hue}deg)`;
+//       }, 1200); 
+
+//       cinematicToggle.textContent = 'Cinematic Mode: On';
+//     } else {
+//       clearInterval(interval);
+//       root.style.filter = 'hue-rotate(0deg)';
+//       cinematicToggle.textContent = 'Cinematic Mode: Off';
+//     }
+//   });
+// }
+  // ================= Asharib code end ================
+  // Cinematic mode toggle (only if element exists)
+  
 if (document.getElementById('cinematicToggle')) {
   const cinematicToggle = document.getElementById('cinematicToggle');
   let cinematicMode = false;
   let hue = 0;
-  let interval = null;
+  let animationId = null; // Changed from interval to animationId
+  const targetHue = 186;
 
   cinematicToggle.addEventListener('click', () => {
+    const backgroundVideo = document.getElementsByClassName("background-video")[0];
     cinematicMode = !cinematicMode;
     const root = document.documentElement;
 
+    // Smooth transition for video change
+    backgroundVideo.style.transition = 'opacity 0.8s ease-in-out';
+    backgroundVideo.style.opacity = '0';
+    
     if (cinematicMode) {
-      root.style.transition = 'filter 0.8s ease-in-out';
-      interval = setInterval(() => {
-        hue = (hue + 20) % 360; 
-        root.style.filter = `hue-rotate(${hue}deg)`;
-      }, 1200); 
+      setTimeout(() => {
+        backgroundVideo.src = "Assets/Media/Videos/Hero1.gif";
+        backgroundVideo.style.opacity = '1';
+      }, 400);
 
+      root.style.transition = 'filter 0.8s ease-in-out';
+
+      function animateHue() {
+        // Smooth oscillation between 0 and targetHue
+        const time = Date.now() / 2000; // 2 second cycle
+        hue = (targetHue / 2) + (targetHue / 2) * Math.sin(time);
+        
+        root.style.filter = `hue-rotate(${hue}deg)`;
+        animationId = requestAnimationFrame(animateHue); // Store the animation frame ID
+      }
+      
+      animateHue();
       cinematicToggle.textContent = 'Cinematic Mode: On';
+      
     } else {
-      clearInterval(interval);
+      // Cancel the animation frame properly
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+        animationId = null;
+      }
+      
       root.style.filter = 'hue-rotate(0deg)';
+      hue = 0;
       cinematicToggle.textContent = 'Cinematic Mode: Off';
+
+      setTimeout(() => {
+        backgroundVideo.src = "Assets/Media/Videos/Hero.gif";
+        backgroundVideo.style.opacity = '1';
+      }, 400);
     }
   });
 }
+
+
 
 
 const box = document.getElementById("box");
@@ -444,7 +503,16 @@ box.addEventListener("mouseleave", () => {
   logo.style.transform = `translateZ(0px) rotateY(0deg) rotateX(0deg) scale(1)`;
 });
 
+// const video = document.getElementById('bgVideo');
 
+//     video.addEventListener('ended', () => {
+//         video.currentTime = 0;
+//         video.play();
+//     });
+
+//     window.addEventListener('load', () => {
+//         video.play().catch(() => {});
+//     });
 
 
 

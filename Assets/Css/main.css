@@ -257,7 +257,7 @@ a.btn-secondary {
 
     padding-bottom: 80px;
 
-    background-image: url("https://on10.io/arc/Assets/Media/Images/wing-background.png");
+    background-image: url("../../Assets/Media/Images/wing-background.png");
 
         background-repeat: no-repeat;
 
@@ -271,7 +271,7 @@ a.btn-secondary {
 
   .wing {
 
-    width: 500px;
+    width: 65%;
 
   }
 
@@ -647,7 +647,7 @@ img.statue {
 
     position: relative;
 
-    background-image: url(https://on10.io/arc/Assets/Media/Images/statue-bg-color.png);
+    background-image: url("../../Assets/Media/Images/statue-bg-color.png");
 
     background-size: cover;
 
@@ -789,7 +789,7 @@ img.icon {
 
     height: 800px;
 
-    background-image: url("https://on10.io/arc/Assets/Media/Images/six-bg.png");
+    background-image: url("../../Assets/Media/Images/six-bg.png");
 
     background-size: cover;
 
@@ -1339,7 +1339,7 @@ button#cinematicToggle {
 
     width: 100%;
 
-    background-image: url("https://on10.io/arc/Assets/Media/Images/pricing-main-bg.png");
+    background-image: url("../../Assets/Media/Images/pricing-main-bg.png");
 
     background-repeat: no-repeat;
 
@@ -1366,6 +1366,7 @@ button#cinematicToggle {
 .pricing-logo img {
 
     width: 110px;
+    margin-right: 93px !important;
 
 }
 
@@ -1642,7 +1643,7 @@ button#cinematicToggle {
 
     position: relative;
 
-    background-image: url(https://on10.io/arc/Assets/Media/Images/pricing-statue-color.png);
+    background-image: url("../../Assets/Media/Images/pricing-statue-color.png");
 
     background-size: cover;
 
@@ -1748,7 +1749,7 @@ img.call-statue-bg {
 
   justify-content: center;
 
-    background-image: url("https://on10.io/arc/Assets/Media/Images/movement-section-bg.png");
+    background-image: url("../../Assets/Media/Images/movement-section-bg.png");
 
     background-size: cover;
 
@@ -1878,8 +1879,8 @@ h1.neon-text {
     width: 940px;
 }
 .logo-wrap {
-    width: 220px !important;
-    height: 220px !important;
+    width: 500px !important;
+    height: 500px !important;
 }
 .hero-main-content p {
     font-size: 1.3rem;
@@ -2514,8 +2515,8 @@ section.seven {
     display: none;
 }
 .logo-wrap {
-    width: 150px !important;
-    height: 150px !important;
+    width: 400px !important;
+    height: 400px !important;
 }
 h1.neon-text {
     font-size: 1.2em;
@@ -2543,7 +2544,7 @@ section.second{
     background-repeat: no-repeat;
     background-position-y: 100%;
     background-size: 100%;
-}
+}  
 img.wing.left{
     width: 50% !important;
 }
@@ -2731,6 +2732,7 @@ section.seven{
 }
 .pricing-logo img {
     width: 100px;
+    margin-right: 0px !important;
 }
 .pricing-top {
     justify-content: center;
@@ -2841,8 +2843,8 @@ height: 320px;
     width: 100%;
 }
 .logo-wrap {
-    width: 180px !important;
-    height: 180px !important;
+    width: 500px !important;
+    height: 500px !important;
 }
     .pricing-main-content{
     padding: 0px 20px;
@@ -2918,8 +2920,8 @@ height: 420px;
     width: 100%;
 }
 .logo-wrap {
-    width: 200px !important;
-    height: 200px !important;
+    width: 500px !important;
+    height: 500px !important;
 }
 .the-call-section {
     padding: 40px 20px;
@@ -3027,8 +3029,8 @@ padding: 0px 20px;
 
 .logo-wrap {
   position:relative;
-  width:250px;
-  height:250px;
+  width:500px;
+  height:500px;
   perspective:1400px;
 }
 .layer {
@@ -3041,12 +3043,33 @@ padding: 0px 20px;
   transition:transform .18s ease-out;
 }
 .paint { z-index:1; }
-.logo { z-index:2; mix-blend-mode:screen; filter:drop-shadow(0 0 25px rgba(255,215,90,0.9)); }
-@keyframes pulse {
+.logo { z-index:2; mix-blend-mode:screen; }
+/* @keyframes pulse {
   0% { filter:drop-shadow(0 0 12px rgba(255,215,90,0.6)); }
   50% { filter:drop-shadow(0 0 45px rgba(255,215,90,1)); }
   100% { filter:drop-shadow(0 0 12px rgba(255,215,90,0.6)); }
-}
+} */
 .logo {
   animation:pulse 3s infinite ease-in-out;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) { 
+.desktop-button{
+    display: none;
+}
+.Mobile-button{
+    display: flex;
+}
+
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 2500px) { 
+.Mobile-button{
+    display: none;
+}
+.desktop-button{
+    display: flex;
+}
+
 }

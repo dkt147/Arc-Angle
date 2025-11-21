@@ -2,1259 +2,1334 @@
 
 <html lang="en">
 
-  <head>
+<head>
 
-    <meta charset="utf-8" />
+  <meta charset="utf-8" />
 
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-    <title>Arc Angel — Multi Step Form (GSAP)</title>
+  <title>Arc Angel — Multi Step Form (GSAP)</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 
-    <link
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet" />
 
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap"
+  <!-- Instrument Sans Font -->
 
-      rel="stylesheet"
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap"
+    rel="stylesheet" />
 
-    />
+  <link href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap" rel="stylesheet" />
 
-    <!-- Instrument Sans Font -->
+  <!-- GSAP -->
 
-    <link
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"></script> <!-- localStorage compress -->
 
-      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap"
+  <style>
+    :root {
 
-      rel="stylesheet"
+      --frame-radius: 22px;
 
-    />
+      --padding: 32px;
 
-    <link
+      --glass-border: 3px solid rgba(255, 255, 255, 0.2);
 
-      href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap"
+      --muted: rgba(255, 255, 255, 0.75);
 
-      rel="stylesheet"
 
-    />
 
-    <!-- GSAP -->
+      /* font variables */
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+      --primary-font: "Orbitron", sans-serif;
 
-    <style>
+      --secondary-font: "Instrument Sans", sans-serif;
 
-      :root {
+      --signature-font: "Lavishly Yours", cursive;
 
-        --frame-radius: 22px;
 
-        --padding: 32px;
 
-        --glass-border: 3px solid rgba(255, 255, 255, 0.2);
+      /* Color variables */
 
-        --muted: rgba(255, 255, 255, 0.75);
+      --yellow: #f2c202;
 
+      --Purple: #ff11cb;
 
+      --blue: #1956da;
 
-        /* font variables */
+      --purple-light: #f83acf;
 
-        --primary-font: "Orbitron", sans-serif;
+      --white: #ffffff;
 
-        --secondary-font: "Instrument Sans", sans-serif;
+      --black: #000000;
 
-        --signature-font: "Lavishly Yours", cursive;
+      --black-light: #1a1a1a;
 
+      --orange: #f83a3a;
 
+    }
 
-        /* Color variables */
 
-        --yellow: #f2c202;
 
-        --Purple: #ff11cb;
+    .form-main {
 
-        --blue: #1956da;
+      display: flex;
 
-        --purple-light: #f83acf;
+      align-items: center;
 
-        --white: #ffffff;
+      justify-content: center;
 
-        --black: #000000;
+      padding: 0px;
 
-        --black-light: #1a1a1a;
+      box-sizing: border-box;
 
-        --orange: #f83a3a;
+    }
 
-      }
 
 
+    /* frame */
 
-      .form-main {
+    .frame {
 
-        display: flex;
+      width: 100%;
 
-        align-items: center;
+      position: relative;
 
-        justify-content: center;
+      /*   overflow: hidden;*/
 
-        padding: 0px;
+    }
 
-        box-sizing: border-box;
 
-      }
 
+    .heading {
 
+      font-family: var(--primary-font);
 
-      /* frame */
+      color: var(--white);
 
-      .frame {
+      font-weight: 500;
 
-        width: 100%;
+      font-size: 3rem;
 
-        position: relative;
+      letter-spacing: 1px;
 
-       /*   overflow: hidden;*/
+      margin: 0 0 0px 0;
 
-      }
+      line-height: 3rem;
 
+      text-shadow: 0 4px 18px rgb(0 0 0 / 0%);
 
+    }
 
-      .heading {
+    .subheading {
 
-        font-family: var(--primary-font);
+      color: var(--white);
 
-        color: var(--white);
+      margin: 8px 0 15px 0;
 
-        font-weight: 500;
+      font-size: 16px;
 
-        font-size: 3rem;
+      font-family: var(--secondary-font);
 
-        letter-spacing: 1px;
+    }
 
-        margin: 0 0 0px 0;
 
-        line-height: 3rem;
 
-        text-shadow: 0 4px 18px rgb(0 0 0 / 0%);
+    .content {
 
-      }
+      display: grid;
 
-      .subheading {
+      grid-template-columns: 1fr;
 
-        color: var(--white);
+      gap: 18px;
 
-        margin: 8px 0 15px 0;
+    }
 
-        font-size: 16px;
 
-        font-family: var(--secondary-font);
 
-      }
+    /* step */
 
+    .step {
 
+      min-height: 360px;
 
-      .content {
+      position: relative;
 
-        display: grid;
+      padding: 0px;
 
-        grid-template-columns: 1fr;
+    }
 
-        gap: 18px;
 
-      }
+    .form-step {
 
+      display: none;
 
+      opacity: 0;
 
-      /* step */
+      transform: translateY(0px);
+      min-height: 100vh;
 
-      .step {
+    }
 
-        min-height: 360px;
+    .form-step.active {
 
-        position: relative;
+      display: block;
 
-        padding: 0px;
+    }
 
-      }
 
 
-      .form-step {
+    .field-row {
 
-        display: none;
+      display: flex;
 
-        opacity: 0;
+      gap: 25px;
 
-        transform: translateY(0px);
-        min-height: 100vh;
+      margin-bottom: 20px;
+      flex-direction: column;
 
-      }
+    }
 
-      .form-step.active {
+    .field {
 
-        display: block;
+      flex: 1;
 
-      }
+      display: flex;
 
+      flex-direction: column;
 
+    }
 
-      .field-row {
 
-        display: flex;
 
-        gap: 25px;
+    label {
 
-        margin-bottom: 20px;
-        flex-direction: column;
+      color: rgba(255, 255, 255, 0.85);
 
-      }
+      font-size: 13px;
 
-      .field {
+      margin-bottom: 10px;
 
-        flex: 1;
+      font-weight: 600;
 
-        display: flex;
+    }
 
-        flex-direction: column;
 
-      }
 
+    input[type="text"],
 
+    input[type="email"],
 
-      label {
+    input[type="number"],
 
-        color: rgba(255, 255, 255, 0.85);
+    select {
 
-        font-size: 13px;
+      background: transparent;
 
-        margin-bottom: 10px;
+      border: none;
 
-        font-weight: 600;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.28);
 
-      }
+      padding: 16px 0px;
 
+      color: #fff;
 
+      outline: none;
 
-      input[type="text"],
+      font-size: 14px;
 
-      input[type="email"],
+    }
 
-      input[type="number"],
+    input::placeholder {
 
-      select {
+      color: rgba(255, 255, 255, 0.32);
 
-        background: transparent;
+      font-weight: 600;
 
-        border: none;
+      font-family: "Orbitron", sans-serif;
 
-        border-bottom: 2px solid rgba(255, 255, 255, 0.28);
+    }
 
-        padding: 16px 0px;
+    select {
 
-        color: #fff;
+      appearance: none;
 
-        outline: none;
+      -webkit-appearance: none;
 
-        font-size: 14px;
+      color: #fff;
 
-      }
+      padding-right: 28px;
 
-      input::placeholder {
+      background: transparent;
 
-        color: rgba(255, 255, 255, 0.32);
+    }
 
-        font-weight: 600;
 
-        font-family: "Orbitron", sans-serif;
 
-      }
+    .select-wrap {
 
-      select {
+      position: relative;
 
-        appearance: none;
+      margin-top: 50px;
 
-        -webkit-appearance: none;
+    }
 
-        color: #fff;
+    .select-wrap:after {
 
-        padding-right: 28px;
+      content: "▾";
 
-        background: transparent;
+      position: absolute;
 
-      }
+      right: 8px;
 
+      top: 50%;
 
+      transform: translateY(-50%);
 
-      .select-wrap {
+      color: rgba(255, 255, 255, 0.6);
 
-        position: relative;
+    }
 
-        margin-top: 50px;
 
-      }
 
-      .select-wrap:after {
+    /* chips */
 
-        content: "▾";
+    .chips {
 
-        position: absolute;
+      display: flex;
 
-        right: 8px;
+      gap: 12px;
 
-        top: 50%;
+      flex-wrap: wrap;
 
-        transform: translateY(-50%);
+      padding-top: 20px;
 
-        color: rgba(255, 255, 255, 0.6);
+      padding-bottom: 60px;
 
-      }
+    }
 
 
 
-      /* chips */
+    .chip {
+      padding: 10px 15px;
+      border-radius: 24px;
+      border: 1px solid rgb(255, 255, 255);
+      color: #fff;
+      cursor: pointer;
+      user-select: none;
+      font-weight: 400;
+      font-size: 0.7rem;
+      font-family: var(--primary-font);
+      background: transparent;
+      opacity: 1;
+      transition: all 0.18s ease;
+    }
 
-      .chips {
+    .chip.selected {
 
-        display: flex;
+      transform: translateY(-3px) scale(1.02);
 
-        gap: 12px;
+      background: #ffffff21;
 
-        flex-wrap: wrap;
+      box-shadow: 0 6px 18px rgb(0 0 0 / 0%) inset;
 
-        padding-top: 20px;
+    }
 
-        padding-bottom: 60px;
 
-      }
 
+    /* selected line (shows comma-separated) */
 
+    .selected-line {
 
-.chip {
-    padding: 10px 15px;
-    border-radius: 24px;
-    border: 1px solid rgb(255, 255, 255);
-    color: #fff;
-    cursor: pointer;
-    user-select: none;
-    font-weight: 400;
-    font-size: 0.7rem;
-    font-family: var(--primary-font);
-    background: transparent;
-    opacity: 1;
-    transition: all 0.18s 
-ease;
-}
+      color: rgba(255, 255, 255, 0.9);
 
-      .chip.selected {
+      font-family: var(--primary-font);
 
-        transform: translateY(-3px) scale(1.02);
+      font-size: 14px;
 
-        background: #ffffff21;
+      margin: 30px 0 12px 0;
 
-        box-shadow: 0 6px 18px rgb(0 0 0 / 0%) inset;
+      min-height: 20px;
 
-      }
+      padding-bottom: 10px;
 
+      padding-top: 10px;
 
+      opacity: 1;
 
-      /* selected line (shows comma-separated) */
+      border-bottom: 2px solid rgba(255, 255, 255, 0.28);
 
-      .selected-line {
+    }
 
-        color: rgba(255, 255, 255, 0.9);
 
-        font-family: var(--primary-font);
 
-        font-size: 14px;
+    /* footer */
 
-        margin: 30px 0 12px 0;
+    .footer {
 
-        min-height: 20px;
+      display: flex;
 
-        padding-bottom: 10px;
+      align-items: center;
 
-        padding-top: 10px;
+      justify-content: space-between;
 
-        opacity: 1;
+      margin-top: 24px;
+      flex-direction: column;
 
-        border-bottom: 2px solid rgba(255, 255, 255, 0.28);
+    }
 
-      }
+    .footer-button {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 24px;
+    }
 
+    .left-actions,
 
+    .right-actions {
 
-      /* footer */
+      display: flex;
 
-      .footer {
+      gap: 14px;
 
-        display: flex;
+      align-items: center;
+      width: 100%;
 
-       align-items: center;
+    }
 
-        justify-content: space-between;
+    .right-actions {
+      justify-content: flex-end;
+    }
 
-        margin-top: 24px;
-        flex-direction: column;
 
-      }
-.footer-button {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-     margin-top: 24px;
-}
-      .left-actions,
 
-      .right-actions {
+    .btn {
 
-        display: flex;
+      padding: 12px 22px;
 
-        gap: 14px;
+      border-radius: 34px;
 
-        align-items: center;
-        width: 100%;
+      background: transparent;
 
-      }
+      border: 2px solid rgba(255, 255, 255, 0.45);
 
-      .right-actions{
-            justify-content: flex-end;
-      }
+      color: #fff;
 
+      cursor: pointer;
 
+      font-weight: 700;
 
-      .btn {
+      min-width: 100px;
 
-        padding: 12px 22px;
+    }
 
-        border-radius: 34px;
+    .btn.primary {
 
-        background: transparent;
+      background: linear-gradient(90deg, #ededed 0%, #999999 100%);
 
-        border: 2px solid rgba(255, 255, 255, 0.45);
+      color: #222;
 
-        color: #fff;
+      border: none;
 
-        cursor: pointer;
+      box-shadow: 0 6px 18px rgb(0 0 0 / 0%);
 
-        font-weight: 700;
+      font-size: 14px;
 
-        min-width: 100px;
+      font-weight: 500;
 
-      }
+      font-family: var(--secondary-font);
 
-      .btn.primary {
+      padding: 10px 20px;
 
-        background: linear-gradient(90deg, #ededed 0%, #999999 100%);
+    }
 
-        color: #222;
+    .btn.ghost {
 
-        border: none;
+      background: transparent;
 
-        box-shadow: 0 6px 18px rgb(0 0 0 / 0%);
+      border: 1px solid #ffffff;
 
-        font-size: 14px;
+      color: #fff;
 
-        font-weight: 500;
+      font-size: 14px;
 
-        font-family: var(--secondary-font);
+      font-weight: 500;
 
-        padding: 10px 20px;
+      font-family: var(--secondary-font);
 
-      }
+      padding: 10px 20px;
 
-      .btn.ghost {
+    }
 
-        background: transparent;
 
-        border: 1px solid #ffffff;
 
-        color: #fff;
+    .dots {
 
-        font-size: 14px;
+      display: flex;
 
-        font-weight: 500;
+      gap: 12px;
 
-        font-family: var(--secondary-font);
+      align-items: center;
 
-        padding: 10px 20px;
+    }
 
-      }
+    .dot {
 
+      width: 8px;
 
+      height: 8px;
 
-      .dots {
+      border-radius: 50%;
 
-        display: flex;
+      border: 2px solid rgba(255, 255, 255, 0.7);
 
-        gap: 12px;
+      background: transparent;
 
-        align-items: center;
+      cursor: pointer;
 
-      }
+    }
 
-      .dot {
+    .dot.active {
 
-        width: 8px;
+      background: #fff;
 
-        height: 8px;
+      border-color: transparent;
 
-        border-radius: 50%;
+      width: 10px;
 
-        border: 2px solid rgba(255, 255, 255, 0.7);
+      height: 10px;
 
-        background: transparent;
+    }
 
-        cursor: pointer;
 
-      }
 
-      .dot.active {
+    /* card preview area (step 3) */
 
-        background: #fff;
+    .preview-wrap {
 
-        border-color: transparent;
+      display: flex;
 
-        width: 10px;
+      flex-direction: column;
 
-        height: 10px;
+      align-items: center;
 
-      }
+      gap: 18px;
 
+      padding: 0px;
 
+      box-sizing: border-box;
 
-      /* card preview area (step 3) */
+    }
 
-      .preview-wrap {
+    .card-wrap {
 
-        display: flex;
+      perspective: 1400px;
 
-        flex-direction: column;
+      width: 90vw;
+      max-width: 100%;
 
-        align-items: center;
+      height: 350px;
 
-        gap: 18px;
+      position: relative;
 
-        padding: 0px;
+      display: flex;
 
-        box-sizing: border-box;
+      align-items: center;
 
-      }
+      justify-content: center;
 
-      .card-wrap {
+    }
 
-        perspective: 1400px;
+    .card {
 
-        width: 90vw;
-        max-width: 100%;
+      width: 100%;
 
-        height: 350px;
+      height: 90%;
 
-        position: relative;
+      position: relative;
 
-        display: flex;
+      /* overflow: hidden; */
 
-        align-items: center;
+      display: flex;
 
-        justify-content: center;
+      align-items: center;
 
-      }
+      justify-content: center;
 
-      .card {
+    }
 
-        width: 100%;
+    .card.flipped {
 
-        height: 90%;
+      transform: rotateY(180deg);
 
-        position: relative;
+    }
 
-        overflow: hidden;
+    .card-side {
 
-        display: flex;
+      position: absolute;
 
-        align-items: center;
+      inset: 0;
 
-        justify-content: center;
+      backface-visibility: hidden;
 
-      }
+      display: flex;
 
-      .card.flipped {
+      align-items: center;
 
-        transform: rotateY(180deg);
+      justify-content: center;
 
-      }
+      padding: 5px;
 
-      .card-side {
+      box-sizing: border-box;
 
-        position: absolute;
+    }
 
-        inset: 0;
+    .card-front {
 
-        backface-visibility: hidden;
+      z-index: 2;
 
-        display: flex;
+      display: flex;
 
-        align-items: center;
+      gap: 14px;
 
-        justify-content: center;
+      align-items: stretch;
 
-        padding: 5px;
+      transition: transform 0.9s cubic-bezier(0.2, 0.9, 0.3, 1);
+      border: 3px solid rgba(255, 255, 255, 0.18);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+      border-radius: 16px;
+      transform-style: preserve-3d;
+box-shadow: -1px 1px 30px 8px #000000a6;
+    }
 
-        box-sizing: border-box;
+    .card-photo {
 
-      }
+      width: 34%;
 
-      .card-front {
+      background: #22222200;
 
-        z-index: 2;
+      border-radius: 12px;
 
-        display: flex;
+      overflow: hidden;
 
-        gap: 14px;
+      display: flex;
 
-        align-items: stretch;
+      align-items: center;
 
-        transition: transform 0.9s cubic-bezier(0.2, 0.9, 0.3, 1);
-border: 3px solid rgba(255, 255, 255, 0.18);
-background: linear-gradient(135deg, rgba(255, 255, 255, 0.03),rgba(255, 255, 255, 0.01));
-border-radius: 16px;
- transform-style: preserve-3d;
+      justify-content: center;
 
-      }
+      border: 3px solid rgba(255, 255, 255, 0.12);
 
-      .card-photo {
+    }
 
-        width: 34%;
+    .card-photo img {
 
-        background: #22222200;
+      width: 100%;
 
-        border-radius: 12px;
+      height: 100%;
 
-        overflow: hidden;
+      object-fit: cover;
 
-        display: flex;
+      display: block;
 
-        align-items: center;
+    }
 
-        justify-content: center;
+    .card-body {
 
-        border: 3px solid rgba(255, 255, 255, 0.12);
+      flex: 1;
 
-      }
+      color: #fff;
 
-      .card-photo img {
+      display: flex;
 
-        width: 100%;
+      flex-direction: column;
 
-        height: 100%;
+      gap: 6px;
 
-        object-fit: cover;
+      padding: 8px 0px;
 
-        display: block;
+      background-size: cover;
 
-      }
+      background-position: center;
 
-      .card-body {
+      position: relative;
 
-        flex: 1;
+    }
 
-        color: #fff;
 
-        display: flex;
 
-        flex-direction: column;
+    .card-title {
 
-        gap: 6px;
+      font-family: "Orbitron", sans-serif;
 
-        padding: 8px 0px;
+      font-size: 10px;
 
-        background-size: cover;
+      letter-spacing: 1px;
 
-        background-position: center;
+      color: #000000;
 
-        position: relative;
+      opacity: 0.95;
 
-      }
+      margin-bottom: 20px;
 
+      border-bottom: 1px solid #000000;
 
+      padding-bottom: 10px;
 
-      .card-title {
+      font-weight: 600;
 
-        font-family: "Orbitron", sans-serif;
+    }
 
-        font-size: 10px;
 
-        letter-spacing: 1px;
 
-        color: #000000;
+    .card-name {
 
-        opacity: 0.95;
+      font-size: 16px;
 
-        margin-bottom: 20px;
+      font-weight: 600;
 
-        border-bottom: 1px solid #000000;
+      font-family: var(--primary-font);
 
-        padding-bottom: 10px;
+      color: black;
 
-        font-weight: 600;
+      padding-bottom: 15px;
 
-      }
+    }
 
 
 
-      .card-name {
+    .card-role {
 
-        font-size: 16px;
+      font-size: 16px;
 
-        font-weight: 600;
+      opacity: 1;
 
-        font-family: var(--primary-font);
+      margin-top: 0px;
 
-        color: black;
+      font-family: var(--primary-font);
 
-        padding-bottom: 15px;
+      color: black;
 
-      }
+      font-weight: 500;
 
+    }
 
 
-      .card-role {
 
-        font-size: 16px;
+    .card-meta {
 
-        opacity: 1;
+      margin-top: 14px;
 
-        margin-top: 0px;
+      font-size: 10px;
 
-        font-family: var(--primary-font);
+      opacity: 0.95;
 
-        color: black;
+      background: rgb(0 0 0);
 
-        font-weight: 500;
+      padding: 3px 10px;
 
-      }
+      border-radius: 18px;
 
+      display: inline-block;
 
+      color: #fff;
 
-      .card-meta {
+      width: fit-content;
 
-        margin-top: 14px;
+      font-family: var(--primary-font);
 
-        font-size: 10px;
+      letter-spacing: 1px;
 
-        opacity: 0.95;
+    }
 
-        background: rgb(0 0 0);
 
-        padding: 3px 10px;
 
-        border-radius: 18px;
+    .card-back {
 
-        display: inline-block;
+      transform: rotateY(180deg);
 
-        color: #fff;
+      display: flex;
 
-        width: fit-content;
+      align-items: center;
 
-        font-family: var(--primary-font);
+      justify-content: center;
 
-        letter-spacing: 1px;
+      color: #fff;
+      transition: transform 0.9s cubic-bezier(0.2, 0.9, 0.3, 1);
+      border: 3px solid rgba(255, 255, 255, 0.18);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+      border-radius: 16px;
+      transform-style: preserve-3d;
+      box-shadow: -1px 1px 30px 8px #000000a6;
 
-      }
+    }
 
+    .back-box {
 
+      width: 100%;
 
-      .card-back {
+      height: 100%;
 
-        transform: rotateY(180deg);
+      border-radius: 12px;
 
-        display: flex;
+      box-sizing: border-box;
 
-        align-items: center;
+      display: flex;
 
-        justify-content: center;
+      flex-direction: column;
 
-        color: #fff;
-        transition: transform 0.9s cubic-bezier(0.2, 0.9, 0.3, 1);
-border: 3px solid rgba(255, 255, 255, 0.18);
-background: linear-gradient(135deg, rgba(255, 255, 255, 0.03),rgba(255, 255, 255, 0.01));
-border-radius: 16px;
- transform-style: preserve-3d;
+      justify-content: flex-start;
 
-      }
+      gap: 8px;
 
-      .back-box {
-
-        width: 100%;
-
-        height: 100%;
-
-        border-radius: 12px;
-
-        box-sizing: border-box;
-
-        display: flex;
-
-        flex-direction: column;
-
-        justify-content: flex-start;
-
-        gap: 8px;
-
-        background: linear-gradient(
-
-          180deg,
+      background: linear-gradient(180deg,
 
           rgba(255, 255, 255, 0.02),
 
-          rgba(255, 255, 255, 0.01)
+          rgba(255, 255, 255, 0.01));
 
-        );
-
-      }
+    }
 
 
 
-      .back-title {
+    .back-title {
 
-        font-family: var(--primary-font);
+      font-family: var(--primary-font);
 
-        font-size: 12px;
+      font-size: 12px;
 
-        color: black;
+      color: black;
 
-        font-weight: 500;
+      font-weight: 500;
 
-        padding-bottom: 10px;
+      padding-bottom: 10px;
 
-      }
-
-
-
-      .back-line {
-
-        font-size: 12px;
-
-        opacity: 1;
-
-        font-family: var(--secondary-font);
-
-        color: black;
-
-        font-weight: 500;
-
-        display: flex;
-
-        flex-direction: column;
-
-        padding-top: 10px;
-
-        border-top: 1px solid #0000005c;
-
-        margin-top: 10px;
-
-      }
+    }
 
 
 
-      .flip-hint {
+    .back-line {
 
-        cursor: pointer;
+      font-size: 12px;
 
-      }
+      opacity: 1;
+
+      font-family: var(--secondary-font);
+
+      color: black;
+
+      font-weight: 500;
+
+      display: flex;
+
+      flex-direction: column;
+
+      padding-top: 10px;
+
+      border-top: 1px solid #0000005c;
+
+      margin-top: 10px;
+
+    }
 
 
 
-      /* small helper */
+    .flip-hint {
 
-      .centered {
+      cursor: pointer;
 
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-      }
+    }
 
 
 
-      /* modal */
+    /* small helper */
 
-      .modal {
+    .centered {
 
-        position: fixed;
+      display: flex;
 
-        left: 0;
+      align-items: center;
 
-        top: 0;
+      justify-content: center;
 
-        right: 0;
+    }
 
-        bottom: 0;
 
-        display: none;
 
-        align-items: center;
+    /* modal */
 
-        justify-content: center;
+    .modal {
 
-        background: rgba(0, 0, 0, 0.6);
+      position: fixed;
 
-        z-index: 9999;
+      left: 0;
 
-      }
+      top: 0;
 
-      .modal.open {
+      right: 0;
 
-        display: flex;
+      bottom: 0;
 
-      }
+      display: none;
 
-      .modal-card {
+      align-items: center;
 
-        background: radial-gradient(
+      justify-content: center;
 
-          circle at center,
+      background: rgba(0, 0, 0, 0.6);
+
+      z-index: 9999;
+
+    }
+
+    .modal.open {
+
+      display: flex;
+
+    }
+
+    .modal-card {
+
+      background: radial-gradient(circle at center,
 
           rgb(48, 184, 189) 20%,
 
-          rgb(177, 2, 204) 123%
+          rgb(177, 2, 204) 123%);
 
-        );
+      border-radius: 12px;
 
-        border-radius: 12px;
+      padding: 20px;
 
-        padding: 20px;
+      width: 520px;
 
-        width: 520px;
+      max-width: 92%;
 
-        max-width: 92%;
+      border: 2px solid rgba(255, 255, 255, 0.12);
 
-        border: 2px solid rgba(255, 255, 255, 0.12);
+      color: #fff;
 
-        color: #fff;
+    }
+
+
+
+    /* success */
+
+    .success {
+
+      text-align: center;
+
+      color: #fff;
+
+      display: none;
+
+      padding: 32px;
+
+    }
+
+    .success.active {
+
+      display: block;
+
+    }
+
+    .success h2 {
+
+      font-family: "Orbitron", sans-serif;
+
+      font-size: 34px;
+
+    }
+
+
+
+    @media (max-width: 1000px) {
+
+      .card-wrap {
+
+        height: 260px;
 
       }
 
+      .heading {
 
-
-      /* success */
-
-      .success {
-
-        text-align: center;
-
-        color: #fff;
-
-        display: none;
-
-        padding: 32px;
-
-      }
-
-      .success.active {
-
-        display: block;
-
-      }
-
-      .success h2 {
-
-        font-family: "Orbitron", sans-serif;
-
-        font-size: 34px;
-
-      }
-
-
-
-      @media (max-width: 1000px) {
-
-        .card-wrap {
-
-          height: 260px;
-
-        }
-
-        .heading {
-
-                  font-size: 18px;
+        font-size: 18px;
         line-height: 2rem;
 
-        }
-
       }
 
+    }
 
 
-      span#customSelectText {
 
-        color: white;
+    span#customSelectText {
 
-        font-family: var(--primary-font);
+      color: white;
 
-        font-size: 26px;
+      font-family: var(--primary-font);
 
+      font-size: 26px;
+
+    }
+
+    div#customOptions {
+
+      background: white !important;
+
+      border-radius: 0px 0px 10px 10px !important;
+      overflow-y: scroll;
+      height: 400px;
+
+    }
+
+    .option {
+
+      font-family: var(--primary-font);
+
+      font-size: 26px;
+
+      line-height: 45px;
+
+    }
+
+    div#photoPlaceholder {
+
+      font-family: var(--primary-font);
+
+      color: rgb(0, 0, 0) !important;
+
+      font-weight: 400;
+
+      letter-spacing: 1px;
+      font-size: 10px;
+
+    }
+
+    .YourWorld {
+
+      font-family: var(--secondary-font);
+
+      color: black;
+
+      font-size: 14px;
+
+      font-weight: 600;
+
+    }
+
+    .back-box-child {
+
+      display: flex;
+
+      gap: 20px;
+
+    }
+
+    .back-box-left img {
+
+      width: 50px;
+
+    }
+
+    .Provenance {
+
+      font-family: var(--secondary-font);
+
+      color: black;
+
+      font-weight: 500;
+
+      font-size: 12px;
+
+      padding-top: 5px;
+
+    }
+
+    .Scan-to-claim {
+
+      font-family: var(--secondary-font);
+
+      color: black;
+
+      font-weight: 400;
+
+      font-size: 10px;
+
+      padding-top: 5px;
+
+    }
+
+    .Signed-below {
+
+      font-family: var(--secondary-font);
+
+      color: black;
+
+      font-weight: 400;
+
+      font-size: 10px;
+
+    }
+
+    span.back-card-lable {
+
+      font-size: 12px;
+
+      padding-bottom: 5px;
+
+      font-weight: 600;
+
+    }
+
+    .back-box-right {
+
+      width: 80%;
+
+    }
+
+    .back-box-left {
+
+      width: 20%;
+
+    }
+
+
+
+    .modal-card h3 {
+
+      font-family: var(--primary-font);
+
+    }
+
+    .modal-card p {
+
+      font-family: var(--secondary-font);
+
+    }
+
+    .modal-card label {
+
+      font-family: var(--secondary-font);
+
+      font-weight: 400;
+
+    }
+
+    .modal-card input#uploadProfile {
+
+      font-family: var(--secondary-font);
+
+    }
+
+    .modal-card input#uploadBg {
+
+      font-family: var(--secondary-font);
+
+    }
+
+    .Signature {
+
+      font-family: var(--secondary-font);
+
+      color: black;
+
+      font-size: 12px;
+
+      font-weight: 500;
+
+    }
+
+    .card-Signature {
+
+      width: 100%;
+
+      border-bottom: 1px solid #0000005c;
+
+      color: black;
+
+      font-family: var(--signature-font);
+
+      font-size: 18px;
+
+      font-weight: 500;
+
+      line-height: 18px;
+
+    }
+
+    .Signature-main {
+
+      display: flex;
+
+      gap: 10px;
+
+      align-items: flex-end;
+
+    }
+
+    .success p {
+
+      font-family: "Instrument Sans";
+
+      color: white;
+
+      font-size: 18px;
+
+      line-height: 30px;
+
+      padding: 0px 90px;
+
+    }
+
+
+
+    .btn:disabled {
+
+      opacity: 0.6;
+
+      cursor: not-allowed;
+
+      pointer-events: none;
+
+    }
+
+
+
+    .btn.primary:disabled {
+
+      background: linear-gradient(90deg, #cccccc 0%, #999999 100%);
+
+      color: #666666;
+
+    }
+
+    @media screen and (min-width: 320px) and (max-width: 768px) {}
+
+    @media screen and (min-width: 320px) and (max-width: 768px) {
+      .desktop-button {
+        display: none;
       }
 
-      div#customOptions {
-
-        background: white !important;
-
-        border-radius: 0px 0px 10px 10px !important;
-    overflow-y: scroll;
-    height: 400px;
-
+      .Mobile-button {
+        display: block;
       }
 
-      .option {
+    }
 
-        font-family: var(--primary-font);
 
-        font-size: 26px;
-
-        line-height: 45px;
-
+    @media screen and (min-width: 768px) and (max-width: 2500px) {
+      .Mobile-button {
+        display: none;
       }
 
-      div#photoPlaceholder {
-
-        font-family: var(--primary-font);
-
-        color: rgb(0, 0, 0) !important;
-
-        font-weight: 400;
-
-        letter-spacing: 1px;
-        font-size: 10px;
-
-      }
-
-      .YourWorld {
-
-        font-family: var(--secondary-font);
-
-        color: black;
-
-        font-size: 14px;
-
-        font-weight: 600;
-
-      }
-
-      .back-box-child {
-
+      .desktop-button {
         display: flex;
-
-        gap: 20px;
-
       }
 
-      .back-box-left img {
-
-        width: 50px;
-
-      }
-
-      .Provenance {
-
-        font-family: var(--secondary-font);
-
-        color: black;
-
-        font-weight: 500;
-
-        font-size: 12px;
-
-        padding-top: 5px;
-
-      }
-
-      .Scan-to-claim {
-
-        font-family: var(--secondary-font);
-
-        color: black;
-
-        font-weight: 400;
-
-        font-size: 10px;
-
-        padding-top: 5px;
-
-      }
-
-      .Signed-below {
-
-        font-family: var(--secondary-font);
-
-        color: black;
-
-        font-weight: 400;
-
-        font-size: 10px;
-
-      }
-
-      span.back-card-lable {
-
-        font-size: 12px;
-
-        padding-bottom: 5px;
-
-        font-weight: 600;
-
-      }
-
-      .back-box-right {
-
-        width: 80%;
-
-      }
-
-      .back-box-left {
-
-        width: 20%;
-
-      }
-
-
-
-      .modal-card h3 {
-
-        font-family: var(--primary-font);
-
-      }
-
-      .modal-card p {
-
-        font-family: var(--secondary-font);
-
-      }
-
-      .modal-card label {
-
-        font-family: var(--secondary-font);
-
-        font-weight: 400;
-
-      }
-
-      .modal-card input#uploadProfile {
-
-        font-family: var(--secondary-font);
-
-      }
-
-      .modal-card input#uploadBg {
-
-        font-family: var(--secondary-font);
-
-      }
-
-      .Signature {
-
-        font-family: var(--secondary-font);
-
-        color: black;
-
-        font-size: 12px;
-
-        font-weight: 500;
-
-      }
-
-      .card-Signature {
-
-        width: 100%;
-
-        border-bottom: 1px solid #0000005c;
-
-        color: black;
-
-        font-family: var(--signature-font);
-
-        font-size: 18px;
-
-        font-weight: 500;
-
-        line-height: 18px;
-
-      }
-
-      .Signature-main {
-
-        display: flex;
-
-        gap: 10px;
-
-        align-items: flex-end;
-
-      }
-
-      .success p {
-
-        font-family: "Instrument Sans";
-
-        color: white;
-
-        font-size: 18px;
-
-        line-height: 30px;
-
-        padding: 0px 90px;
-
-      }
-
-
-
-      .btn:disabled {
-
-        opacity: 0.6;
-
-        cursor: not-allowed;
-
-        pointer-events: none;
-
-      }
-
-
-
-      .btn.primary:disabled {
-
-        background: linear-gradient(90deg, #cccccc 0%, #999999 100%);
-
-        color: #666666;
-
-      }
-
-      @media screen and (min-width: 320px) and (max-width: 768px) { 
-
-        
-      }
-    </style>
-
-  </head>
-
-  <body style="margin: 0;">
-
-    <div class="form-main">
-
-      <div class="frame" role="main" aria-labelledby="mainHeading">
-
-        <div class="content">
-
-          <!-- STEP 1 -->
-
-          <div
-
-            class="step form-step"
-
-            data-step="1"
-
-            style="
+    }
+
+    
+        .xp-alert {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.35s ease;
+  z-index: 999999;
+}
+
+.xp-alert.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.xp-box {
+    background: #000000;
+    padding: 35px 38px;
+    border-radius: 16px;
+    width: 320px;
+    text-align: center;
+    border: 2px solid #F83A3A;
+    box-shadow: 0 0 35px #f83a3a70;
+    font-family: 'Orbitron', sans-serif;
+    animation: xpPop .35s 
+ease;
+}
+
+@keyframes xpPop {
+  0% { transform: scale(0.7); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.xp-box h2 {
+  font-size: 1.7rem;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.xp-box p {
+  font-size: 1.2rem;
+  color: #FF11CB;
+  margin-bottom: 18px;
+}
+
+.xp-box {
+  position: relative;
+  overflow: hidden;
+}
+
+    
+    .card-side,
+    .card-back {
+      overflow: hidden;
+    }
+
+      .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgb(255 255 255 / 43%);
+      /* Light color overlay with opacity */
+      z-index: 1;
+      /* Places overlay below content but above the background */
+    }
+
+    .card-back .overlay {
+      z-index: 1;
+    }
+
+    .card-photo,
+    .back-box,
+    .card-body {
+      z-index: 2
+    }
+  </style>
+
+</head>
+
+<body style="margin: 0;">
+
+  <div class="form-main">
+
+    <div class="frame" role="main" aria-labelledby="mainHeading">
+
+      <div class="content">
+
+        <!-- STEP 1 -->
+
+        <div class="step form-step" data-step="1" style="
 
               background: linear-gradient(130deg, #f83a3a, #ff11cb);
 
@@ -1262,49 +1337,45 @@ border-radius: 16px;
 
 
 
-            "
+            ">
 
-          >
+          <div style="display: flex; gap: 22px; align-items: flex-start ">
 
-            <div style="display: flex; gap: 22px; align-items: flex-start ">
+            <div style="flex: 1">
 
-              <div style="flex: 1">
+              <h1 id="mainHeading" class="heading">
 
-                <h1 id="mainHeading" class="heading">
+                Every Arc Angel™ Leaves A Trace.
 
-                  Every Arc Angel™ Leaves A Trace.
+              </h1>
 
-                </h1>
+              <div id="subheading" class="subheading">
 
-                <div id="subheading" class="subheading">
+                Step forward and mark your path.
 
-                  Step forward and mark your path.
+              </div>
 
-                </div>
+              <div class="field-row">
 
-                <div class="field-row">
+                <div class="field">
 
-                  <div class="field">
-
-                    <input id="fullName" type="text" placeholder="Full Name" />
-
-                  </div>
-
-                  <div class="field">
-
-                    <input id="email" type="email" placeholder="Email" />
-
-                  </div>
+                  <input id="fullName" type="text" placeholder="Full Name" />
 
                 </div>
 
+                <div class="field">
+
+                  <input id="email" type="email" placeholder="Email" />
+
+                </div>
+
+              </div>
 
 
-                <div style="margin-top: 18px">
 
-                  <label
+              <div style="margin-top: 18px">
 
-                    style="
+                <label style="
 
                       color: rgba(255, 255, 255, 0.8);
 
@@ -1314,49 +1385,35 @@ border-radius: 16px;
 
                       font-weight: 400;
 
-                    "
+                    ">What Makes You Step Forward?</label>
 
-                    >What Makes You Step Forward?</label
+                <div style="margin-top: 10px" class="selected-line" id="selectedLineStep1"></div>
 
-                  >
+                <div class="chips" id="chips">
 
-                  <div
+                  <div class="chip" data-val="Courage">Courage</div>
 
-                    style="margin-top: 10px"
+                  <div class="chip" data-val="Community">Community</div>
 
-                    class="selected-line"
+                  <div class="chip" data-val="Play">Play</div>
 
-                    id="selectedLineStep1"
+                  <div class="chip" data-val="Discipline">Discipline</div>
 
-                  ></div>
+                  <div class="chip" data-val="Faith">Faith</div>
 
-                  <div class="chips" id="chips">
+                  <div class="chip" data-val="Curiosity">Curiosity</div>
 
-                    <div class="chip" data-val="Courage">Courage</div>
+                  <div class="chip" data-val="Family">Family</div>
 
-                    <div class="chip" data-val="Community">Community</div>
+                  <div class="chip" data-val="Redemption">Redemption</div>
 
-                    <div class="chip" data-val="Play">Play</div>
+                  <div class="chip" data-val="Legacy">Legacy</div>
 
-                    <div class="chip" data-val="Discipline">Discipline</div>
+                  <div class="chip" data-val="Justice">Justice</div>
 
-                    <div class="chip" data-val="Faith">Faith</div>
+                  <div class="chip" data-val="Creation">Creation</div>
 
-                    <div class="chip" data-val="Curiosity">Curiosity</div>
-
-                    <div class="chip" data-val="Family">Family</div>
-
-                    <div class="chip" data-val="Redemption">Redemption</div>
-
-                    <div class="chip" data-val="Legacy">Legacy</div>
-
-                    <div class="chip" data-val="Justice">Justice</div>
-
-                    <div class="chip" data-val="Creation">Creation</div>
-
-                    <div class="chip" data-val="Mastery">Mastery</div>
-
-                  </div>
+                  <div class="chip" data-val="Mastery">Mastery</div>
 
                 </div>
 
@@ -1364,43 +1421,42 @@ border-radius: 16px;
 
             </div>
 
+          </div>
 
 
-            <!-- footer (step) -->
 
-            <div class="footer" style="margin-top: 28px">
+          <!-- footer (step) -->
+
+          <div class="footer" style="margin-top: 28px">
 
 
-                
-              <div style="display: flex; gap: 16px; align-items: center">
 
-                <div class="dots" id="dots">
+            <div style="display: flex; gap: 16px; align-items: center">
 
-                  <div class="dot active" data-step="1"></div>
+              <div class="dots" id="dots">
 
-                  <div class="dot" data-step="2"></div>
+                <div class="dot active" data-step="1"></div>
 
-                  <div class="dot" data-step="3"></div>
+                <div class="dot" data-step="2"></div>
 
-                </div>
+                <div class="dot" data-step="3"></div>
 
               </div>
 
-              <div class="footer-button">
+            </div>
+
+            <div class="footer-button">
 
               <div class="left-actions">
 
-                <button
+                <div class="desktop-button">
+                  <button class="btn ghost" onclick="window.parent.closeFormModal()">Cancel</button>
 
-                  class="btn ghost"
+                </div>
 
-                  onclick="window.parent.closeFormModal()"
-
-                >
-
-                  Cancel
-
-                </button>
+                <div class="Mobile-button">
+                  <a href="Main.html" class="btn ghost">Cancel</a>
+                </div>
 
               </div>
 
@@ -1416,21 +1472,15 @@ border-radius: 16px;
               </div>
 
             </div>
+          </div>
+
         </div>
 
-      </div>
 
 
+        <!-- STEP 2 -->
 
-          <!-- STEP 2 -->
-
-          <div
-
-            class="step form-step"
-
-            data-step="2"
-
-            style="
+        <div class="step form-step" data-step="2" style="
 
               background: linear-gradient(130deg, #08b851, #de0aff);
 
@@ -1438,17 +1488,13 @@ border-radius: 16px;
 
 
 
-            "
+            ">
 
-          >
+          <div style="display: flex; gap: 22px; align-items: flex-start">
 
-            <div style="display: flex; gap: 22px; align-items: flex-start">
+            <div style="flex: 1">
 
-              <div style="flex: 1">
-
-                <label
-
-                  style="
+              <label style="
 
                     font-family: var(--primary-font);
 
@@ -1464,31 +1510,23 @@ border-radius: 16px;
 
                     line-height: 4rem;
 
-                  "
+                  ">Shipping</label>
 
-                  >Shipping</label
+              <div class="subheading" style="margin-top: 6px">
 
-                >
+                Choose your World
 
-                <div class="subheading" style="margin-top: 6px">
-
-                  Choose your World
-
-                </div>
+              </div>
 
 
 
-                <!-- full width dropdown -->
+              <!-- full width dropdown -->
 
-                <div style="margin-top: 18px">
+              <div style="margin-top: 18px">
 
-                  <div class="select-wrap">
+                <div class="select-wrap">
 
-                    <div
-
-                      id="customSelect"
-
-                      style="
+                  <div id="customSelect" style="
 
                         border-bottom: 2px solid rgba(255, 255, 255, 0.28);
 
@@ -1496,19 +1534,13 @@ border-radius: 16px;
 
                         cursor: pointer;
 
-                      "
+                      ">
 
-                    >
+                    <span id="customSelectText">Photographer</span>
 
-                      <span id="customSelectText">Photographer</span>
+                  </div>
 
-                    </div>
-
-                    <div
-
-                      id="customOptions"
-
-                      style="
+                  <div id="customOptions" style="
 
                         display: none;
 
@@ -1518,54 +1550,80 @@ border-radius: 16px;
 
                         gap: 8px;
 
-                      "
+                      ">
 
-                    >
-
-                  <div class="option" data-val="Creator" style="padding: 10px">Creator</div>
-<div class="option" data-val="Dreamer" style="padding: 10px">Dreamer</div>
-<div class="option" data-val="Athlete" style="padding: 10px">Athlete</div>
-<div class="option" data-val="Visionary" style="padding: 10px">Visionary</div>
-<div class="option" data-val="Rebel" style="padding: 10px">Rebel</div>
-<div class="option" data-val="Artist" style="padding: 10px">Artist</div>
-<div class="option" data-val="Musician" style="padding: 10px">Musician</div>
-<div class="option" data-val="Writer" style="padding: 10px">Writer</div>
-<div class="option" data-val="Filmmaker" style="padding: 10px">Filmmaker</div>
-<div class="option" data-val="Photographer" style="padding: 10px">Photographer</div>
-<div class="option" data-val="Designer" style="padding: 10px">Designer</div>
-<div class="option" data-val="Coder" style="padding: 10px">Coder</div>
-<div class="option" data-val="Engineer" style="padding: 10px">Engineer</div>
-<div class="option" data-val="Scientist" style="padding: 10px">Scientist</div>
-<div class="option" data-val="Gamer" style="padding: 10px">Gamer</div>
-<div class="option" data-val="Streamer" style="padding: 10px">Streamer</div>
-<div class="option" data-val="Entrepreneur" style="padding: 10px">Entrepreneur</div>
-<div class="option" data-val="Founder" style="padding: 10px">Founder</div>
-<div class="option" data-val="Leader" style="padding: 10px">Leader</div>
-<div class="option" data-val="Activist" style="padding: 10px">Activist</div>
-<div class="option" data-val="Healer" style="padding: 10px">Healer</div>
-<div class="option" data-val="Mentor" style="padding: 10px">Mentor</div>
-<div class="option" data-val="Teacher" style="padding: 10px">Teacher</div>
-<div class="option" data-val="Student" style="padding: 10px">Student</div>
-<div class="option" data-val="Explorer" style="padding: 10px">Explorer</div>
-<div class="option" data-val="Storyteller" style="padding: 10px">Storyteller</div>
-<div class="option" data-val="Performer" style="padding: 10px">Performer</div>
-<div class="option" data-val="Dancer" style="padding: 10px">Dancer</div>
-<div class="option" data-val="Producer" style="padding: 10px">Producer</div>
-<div class="option" data-val="DJ" style="padding: 10px">DJ</div>
-<div class="option" data-val="Skater" style="padding: 10px">Skater</div>
-<div class="option" data-val="Runner" style="padding: 10px">Runner</div>
-<div class="option" data-val="Hooper" style="padding: 10px">Hooper</div>
-<div class="option" data-val="Footballer" style="padding: 10px">Footballer</div>
-<div class="option" data-val="Chef" style="padding: 10px">Chef</div>
-<div class="option" data-val="Stylist" style="padding: 10px">Stylist</div>
-<div class="option" data-val="Model" style="padding: 10px">Model</div>
-<div class="option" data-val="Community Builder" style="padding: 10px">Community Builder</div>
-<div class="option" data-val="Parent" style="padding: 10px">Parent</div>
-<div class="option" data-val="Faith" style="padding: 10px">Faith</div>
-<div class="option" data-val="Other" style="padding: 10px">Other…</div>
+                    <div class="option" data-val="Creator" style="padding: 10px">Creator</div>
+                    <div class="option" data-val="Dreamer" style="padding: 10px">Dreamer</div>
+                    <div class="option" data-val="Athlete" style="padding: 10px">Athlete</div>
+                    <div class="option" data-val="Visionary" style="padding: 10px">Visionary</div>
+                    <div class="option" data-val="Rebel" style="padding: 10px">Rebel</div>
+                    <div class="option" data-val="Artist" style="padding: 10px">Artist</div>
+                    <div class="option" data-val="Musician" style="padding: 10px">Musician</div>
+                    <div class="option" data-val="Writer" style="padding: 10px">Writer</div>
+                    <div class="option" data-val="Filmmaker" style="padding: 10px">Filmmaker</div>
+                    <div class="option" data-val="Photographer" style="padding: 10px">Photographer</div>
+                    <div class="option" data-val="Designer" style="padding: 10px">Designer</div>
+                    <div class="option" data-val="Coder" style="padding: 10px">Coder</div>
+                    <div class="option" data-val="Engineer" style="padding: 10px">Engineer</div>
+                    <div class="option" data-val="Scientist" style="padding: 10px">Scientist</div>
+                    <div class="option" data-val="Gamer" style="padding: 10px">Gamer</div>
+                    <div class="option" data-val="Streamer" style="padding: 10px">Streamer</div>
+                    <div class="option" data-val="Entrepreneur" style="padding: 10px">Entrepreneur</div>
+                    <div class="option" data-val="Founder" style="padding: 10px">Founder</div>
+                    <div class="option" data-val="Leader" style="padding: 10px">Leader</div>
+                    <div class="option" data-val="Activist" style="padding: 10px">Activist</div>
+                    <div class="option" data-val="Healer" style="padding: 10px">Healer</div>
+                    <div class="option" data-val="Mentor" style="padding: 10px">Mentor</div>
+                    <div class="option" data-val="Teacher" style="padding: 10px">Teacher</div>
+                    <div class="option" data-val="Student" style="padding: 10px">Student</div>
+                    <div class="option" data-val="Explorer" style="padding: 10px">Explorer</div>
+                    <div class="option" data-val="Storyteller" style="padding: 10px">Storyteller</div>
+                    <div class="option" data-val="Performer" style="padding: 10px">Performer</div>
+                    <div class="option" data-val="Dancer" style="padding: 10px">Dancer</div>
+                    <div class="option" data-val="Producer" style="padding: 10px">Producer</div>
+                    <div class="option" data-val="DJ" style="padding: 10px">DJ</div>
+                    <div class="option" data-val="Skater" style="padding: 10px">Skater</div>
+                    <div class="option" data-val="Runner" style="padding: 10px">Runner</div>
+                    <div class="option" data-val="Hooper" style="padding: 10px">Hooper</div>
+                    <div class="option" data-val="Footballer" style="padding: 10px">Footballer</div>
+                    <div class="option" data-val="Chef" style="padding: 10px">Chef</div>
+                    <div class="option" data-val="Stylist" style="padding: 10px">Stylist</div>
+                    <div class="option" data-val="Model" style="padding: 10px">Model</div>
+                    <div class="option" data-val="Community Builder" style="padding: 10px">Community Builder</div>
+                    <div class="option" data-val="Parent" style="padding: 10px">Parent</div>
+                    <div class="option" data-val="Faith" style="padding: 10px">Faith</div>
+                    <div class="option" data-val="Other" style="padding: 10px">Other…</div>
 
 
-                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- placeholders (no labels visible) -->
+
+              <div style="margin-top: 28px">
+
+                <div class="field-row">
+
+                  <div class="field">
+
+                    <input id="addr1" type="text" placeholder="Address Line 1" />
+
+                  </div>
+
+                  <div class="field">
+
+                    <input id="addr2" type="text" placeholder="Address Line 2" />
+
+                  </div>
+
+                  <div class="field">
+
+                    <input id="city" type="text" placeholder="City" />
 
                   </div>
 
@@ -1573,85 +1631,23 @@ border-radius: 16px;
 
 
 
-                <!-- placeholders (no labels visible) -->
+                <div class="field-row">
 
-                <div style="margin-top: 28px">
+                  <div class="field">
 
-                  <div class="field-row">
-
-                    <div class="field">
-
-                      <input
-
-                        id="addr1"
-
-                        type="text"
-
-                        placeholder="Address Line 1"
-
-                      />
-
-                    </div>
-
-                    <div class="field">
-
-                      <input
-
-                        id="addr2"
-
-                        type="text"
-
-                        placeholder="Address Line 2"
-
-                      />
-
-                    </div>
-
-                    <div class="field">
-
-                      <input id="city" type="text" placeholder="City" />
-
-                    </div>
+                    <input id="state" type="text" placeholder="State / Region" />
 
                   </div>
 
+                  <div class="field">
 
+                    <input id="postal" type="text" placeholder="Postal Code" />
 
-                  <div class="field-row">
+                  </div>
 
-                    <div class="field">
+                  <div class="field">
 
-                      <input
-
-                        id="state"
-
-                        type="text"
-
-                        placeholder="State / Region"
-
-                      />
-
-                    </div>
-
-                    <div class="field">
-
-                      <input
-
-                        id="postal"
-
-                        type="text"
-
-                        placeholder="Postal Code"
-
-                      />
-
-                    </div>
-
-                    <div class="field">
-
-                      <input id="country" type="text" placeholder="Country" />
-
-                    </div>
+                    <input id="country" type="text" placeholder="Country" />
 
                   </div>
 
@@ -1661,27 +1657,29 @@ border-radius: 16px;
 
             </div>
 
+          </div>
 
 
-            <div class="footer" style="margin-top: 28px">
 
-              <div style="display: flex; gap: 16px; align-items: center">
+          <div class="footer" style="margin-top: 28px">
 
-                <div class="dots" id="dots2">
+            <div style="display: flex; gap: 16px; align-items: center">
 
-                  <div class="dot" data-step="1"></div>
+              <div class="dots" id="dots2">
 
-                  <div class="dot active" data-step="2"></div>
+                <div class="dot" data-step="1"></div>
 
-                  <div class="dot" data-step="3"></div>
+                <div class="dot active" data-step="2"></div>
 
-                </div>
+                <div class="dot" data-step="3"></div>
 
               </div>
 
+            </div>
 
-                <div class="footer-button">  
-                   <div class="left-actions">
+
+            <div class="footer-button">
+              <div class="left-actions">
 
                 <button class="btn ghost" id="backBtn2">Back</button>
 
@@ -1700,24 +1698,18 @@ border-radius: 16px;
                 </button>
 
               </div>
-              </div>
-
-
             </div>
+
 
           </div>
 
+        </div>
 
 
-          <!-- STEP 3 -->
 
-          <div
+        <!-- STEP 3 -->
 
-            class="step form-step"
-
-            data-step="3"
-
-            style="
+        <div class="step form-step" data-step="3" style="
 
               background: radial-gradient(
 
@@ -1734,13 +1726,9 @@ border-radius: 16px;
     flex-direction: column;
 display: flex;
 
-            "
+            ">
 
-          >
-
-            <div
-
-              style="
+          <div style="
 
                 display: flex;
 
@@ -1750,117 +1738,47 @@ display: flex;
 
                 flex-direction: column;
 
-              "
+              ">
 
-            >
+            <h1 id="mainHeading" class="heading">
 
-              <h1 id="mainHeading" class="heading">
+              Your card is being forged. You are now an Arc Angel™.
 
-                Your card is being forged. You are now an Arc Angel™.
+              Transmission <span class="cardNumber">#001</span> will arrive soon.
 
-                Transmission #001 will arrive soon.
+            </h1>
 
-              </h1>
+            <!-- show selected values line above card (comma separated) -->
 
-              <!-- show selected values line above card (comma separated) -->
-
-              <div
-
-                id="selectedLinePreview"
-
-                class="selected-line"
-
-                style="text-align: center; display: none"
-
-              ></div>
+            <div id="selectedLinePreview" class="selected-line" style="text-align: center; display: none"></div>
 
 
 
-              <!-- Card preview -->
+            <!-- Card preview -->
 
-              <div class="preview-wrap centered">
+            <div class="preview-wrap centered">
 
-                <div class="card-wrap" aria-hidden="false">
+              <div class="card-wrap" aria-hidden="false">
 
-                  <div class="card" id="cardElement">
+                <div class="card" id="cardElement">
 
-                    <!-- FRONT -->
+                  <!-- FRONT -->
 
-                    <div class="card-side card-front" id="cardFront">
+                  <div class="card-side card-front" id="cardFront">
+                    <div class="overlay"></div>
+                    <div class="card-photo" id="photoBox">
 
-                      <div class="card-photo" id="photoBox">
+                      <img id="photoImg" src="" alt="Profile" style="display: none" />
 
-                        <img
-
-                          id="photoImg"
-
-                          src=""
-
-                          alt="Profile"
-
-                          style="display: none"
-
-                        />
-
-                        <div
-
-                          id="photoPlaceholder"
-
-                          style="
+                      <div id="photoPlaceholder" style="
 
                             color: rgba(255, 255, 255, 0.6);
 
                             font-weight: 600;
 
-                          "
+                          ">
 
-                        >
-
-                          Upload Photo
-
-                        </div>
-
-                      </div>
-
-
-
-                      <div
-
-                        class="card-body"
-
-                        id="cardBody"
-
-                        style="background-image: none"
-
-                      >
-
-                        <div class="card-title">
-
-                          MEDALLION MAZE
-
-                          <span
-
-                            style="float: right; font-size: 12px; opacity: 0.9"
-
-                            id="cardNumber"
-
-                            >#0001</span
-
-                          >
-
-                        </div>
-
-                        <div class="card-name" id="cardName">Full Name</div>
-
-                        <div class="YourWorld">Your World</div>
-
-                        <div class="card-role" id="cardRole">Photographer</div>
-
-                        <div class="card-meta" id="cardMeta">
-
-                          Member Since 2025
-
-                        </div>
+                        Upload Photo
 
                       </div>
 
@@ -1868,71 +1786,98 @@ display: flex;
 
 
 
-                    <!-- BACK -->
+                    <div class="card-body" id="cardBody" style="background-image: none">
 
-                    <div class="card-side card-back" id="cardBack">
+                      <div class="card-title">
 
-                      <div class="back-box">
+                        MEDALLION MAZE
 
-                        <div class="back-box-child">
+                        <span style="float: right; font-size: 12px; opacity: 0.9" id="cardNumber" class="cardNumber">#0001</span>
 
-                          <div class="back-box-left">
+                      </div>
 
-                            <img src="https://on10.io/arc/Assets/Media/Images/QR Code.png" alt="" />
+                      <div class="card-name" id="cardName">Full Name</div>
 
-                            <div class="Provenance">Provenance</div>
+                      <div class="YourWorld" id="yourWorld">Your World</div>
 
-                            <div class="Scan-to-claim">Scan to claim •</div>
+                      <div class="card-role" id="cardRole">Photographer</div>
 
-                            <div class="Signed-below">Signed below</div>
+                      <div class="card-meta" id="cardMeta">
 
-                          </div>
+                        Member Since 2025
 
-                          <div class="back-box-right">
+                      </div>
 
-                            <div class="back-title">MEDALLION MAZE</div>
+                    </div>
 
-                            <div class="back-card-values">
+                  </div>
 
-                              <div class="back-line">
 
-                                <span class="back-card-lable">Origin:</span>
 
-                                <div class="main-origin">
+                  <!-- BACK -->
 
-                                  <span id="backOrigin">—</span
+                  <div class="card-side card-back" id="cardBack">
+                    <div class="overlay"></div>
+                    <div class="back-box">
 
-                                  ><span id="backValues">—</span>
+                      <div class="back-box-child">
 
-                                </div>
+                        <div class="back-box-left">
+
+                          <!-- ---------- StaticUrl: HERE is Static Url in Last -----------  -->
+                          <img
+                            src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://on10.io/arc/Main.html"
+                            alt="" style=" border-radius: 8px; border:5px solid ;" />
+
+                          <div class="Provenance">Provenance</div>
+
+                          <div class="Scan-to-claim">Scan to claim •</div>
+
+                          <div class="Signed-below">Signed below</div>
+
+                        </div>
+
+                        <div class="back-box-right">
+
+                          <div class="back-title">MEDALLION MAZE</div>
+
+                          <div class="back-card-values">
+
+                            <div class="back-line">
+
+                              <span class="back-card-lable">Origin:</span>
+
+                              <div class="main-origin">
+
+                                <span id="backOrigin">—</span><span id="backValues">—</span>
 
                               </div>
 
                             </div>
 
-                            <div class="back-line">
+                          </div>
 
-                              <span class="back-card-lable">Address:</span>
+                          <div class="back-line">
 
-                              <span id="backAddress">—</span>
+                            <span class="back-card-lable">Address:</span>
 
-                            </div>
+                            <span id="backAddress">—</span>
 
                           </div>
 
                         </div>
 
-                        <div style="flex: 1"></div>
+                      </div>
 
-                        <div class="Signature-main">
+                      <div style="flex: 1"></div>
 
-                          <div class="Signature">Signature:</div>
+                      <div class="Signature-main">
 
-                          <div class="card-Signature" id="cardSignature">
+                        <div class="Signature">Signature:</div>
 
-                            Full Name
+                        <div class="card-Signature" id="cardSignature">
 
-                          </div>
+                          Full Name
 
                         </div>
 
@@ -1944,39 +1889,41 @@ display: flex;
 
                 </div>
 
+              </div>
 
 
-                <div class="flip-hint" id="flipBtn" title="Flip Card">
 
-                  <img src="https://on10.io/arc/Assets/Media/Images/flip icon.png" alt="" />
+              <div class="flip-hint" id="flipBtn" title="Flip Card">
 
-                </div>
+                <img src="Assets/Media/Images/flip icon.png" alt="" />
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="footer" style="margin-top: 28px">
+
+            <div style="display: flex; gap: 16px; align-items: center">
+
+              <div class="dots" id="dots3">
+
+                <div class="dot" data-step="1"></div>
+
+                <div class="dot" data-step="2"></div>
+
+                <div class="dot active" data-step="3"></div>
 
               </div>
 
             </div>
 
 
-
-            <div class="footer" style="margin-top: 28px">
-
-    <div style="display: flex; gap: 16px; align-items: center">
-
-                <div class="dots" id="dots3">
-
-                  <div class="dot" data-step="1"></div>
-
-                  <div class="dot" data-step="2"></div>
-
-                  <div class="dot active" data-step="3"></div>
-
-                </div>
-
-              </div>
-
-                
-              <div class="left-actions">
-   <div class="footer-button">  
+            <div class="left-actions">
+              <div class="footer-button">
                 <button class="btn ghost" id="backFrom3">Back</button>
 
                 <button class="btn ghost" id="openUpload">Upload Photo</button>
@@ -1984,36 +1931,30 @@ display: flex;
 
               </div>
 
-  </div>
-
-          
+            </div>
 
 
 
-              <div class="right-actions">
- <div class="footer-button"> 
+
+
+            <div class="right-actions">
+              <div class="footer-button">
 
                 <button class="btn ghost" id="buyCard">Buy Card</button>
-                    <button class="btn ghost" id="downloadCard">Download</button>
+                <button class="btn ghost" id="downloadCard">Download</button>
                 <button class="btn primary" id="doneBtn">Done</button>
 
               </div>
-</div>
             </div>
-
           </div>
 
+        </div>
 
 
-          <!-- Success step (4) hidden, navigable by Done -->
 
-          <div
+        <!-- Success step (4) hidden, navigable by Done -->
 
-            class="step form-step success"
-
-            data-step="4"
-
-            style="
+        <div class="step form-step success" data-step="4" style="
 
               background: linear-gradient(130deg, #f83a3a, #ff11cb);
 
@@ -2023,123 +1964,31 @@ display: flex;
 
               border: 4px solid rgba(255, 255, 255, 0.35);
 
-            "
+            ">
 
-          >
+          <h2>"Thank you for showing interest in our design service!</h2>
 
-            <h2>"Thank you for showing interest in our design service!</h2>
+          <p>
 
-            <p>
+            We’ve received your submission, and our creative team is already
 
-              We’ve received your submission, and our creative team is already
+            reviewing your details. Our goal is to understand your vision and
 
-              reviewing your details. Our goal is to understand your vision and
+            craft something that truly aligns with your style and purpose.
 
-              craft something that truly aligns with your style and purpose.
+            We’ll be reaching out shortly to discuss the next steps and turn
 
-              We’ll be reaching out shortly to discuss the next steps and turn
+            your ideas into a meaningful design experience. Until then, relax
 
-              your ideas into a meaningful design experience. Until then, relax
+            and stay tuned — your journey towards a standout design has just
 
-              and stay tuned — your journey towards a standout design has just
-
-              begun."
-
-            </p>
-
-            <div style="margin-top: 18px">
-
-              <button class="btn primary" id="restartBtn">Make another</button>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- Modal for uploads -->
-
-      <div class="modal" id="modal">
-
-        <div class="modal-card">
-
-          <h3>Upload Images</h3>
-
-          <p style="opacity: 0.9; margin-top: 6px">
-
-            Choose profile picture or background for your card.
+            begun."
 
           </p>
 
+          <div style="margin-top: 18px">
 
-
-          <div
-
-            style="
-
-              display: flex;
-
-              gap: 12px;
-
-              margin-top: 12px;
-
-              align-items: center;
-
-            "
-
-          >
-
-            <div style="flex: 1">
-
-              <label style="display: block; margin-bottom: 6px; font-size: 13px"
-
-                >Upload Profile Picture</label
-
-              >
-
-              <input type="file" id="uploadProfile" accept="image/*" />
-
-            </div>
-
-            <div style="flex: 1">
-
-              <label style="display: block; margin-bottom: 6px; font-size: 13px"
-
-                >Upload Background Picture</label
-
-              >
-
-              <input type="file" id="uploadBg" accept="image/*" />
-
-            </div>
-
-          </div>
-
-
-
-          <div
-
-            style="
-
-              display: flex;
-
-              justify-content: flex-end;
-
-              gap: 10px;
-
-              margin-top: 14px;
-
-            "
-
-          >
-
-            <button class="btn ghost" id="modalClose">Close</button>
-
-            <button class="btn primary" id="modalDone">Done</button>
+            <button class="btn primary" id="restartBtn">Make another</button>
 
           </div>
 
@@ -2149,1048 +1998,1354 @@ display: flex;
 
     </div>
 
-    <script>
-
-      /* ---------- Basic Step Logic & GSAP animations ---------- */
-
-      (function () {
-
-        let current = 1;
-
-        const total = 4; // step 4 is success
-
-        const $qs = (s) => document.querySelector(s);
-
-        const $qa = (s) => Array.from(document.querySelectorAll(s));
 
 
+    <!-- Modal for uploads -->
 
-        function showStep(n) {
+    <div class="modal" id="modal">
 
-          // clamp
+      <div class="modal-card">
 
-          if (n < 1) n = 1;
+        <h3>Upload Images</h3>
 
-          // hide all
+        <p style="opacity: 0.9; margin-top: 6px">
 
-          $qa(".form-step").forEach((el) => {
+          Choose profile picture or background for your card.
 
-            // for animation, we'll fade old out and fade new in with GSAP
+        </p>
 
-            el.style.display = "none";
 
-            el.style.opacity = 0;
 
-            el.style.transform = "translateY(8px)";
+        <div style="
 
-          });
+              display: flex;
 
-          current = n;
+              gap: 12px;
 
-          const target = $qs('.form-step[data-step="' + n + '"]');
+              margin-top: 12px;
 
-          if (!target) return;
+              align-items: center;
 
-          target.style.display = "block";
+            ">
 
-          // animate in
+          <div style="flex: 1">
 
-          gsap.fromTo(
+            <label style="display: block; margin-bottom: 6px; font-size: 13px">Upload Profile Picture</label>
 
-            target,
+            <input type="file" id="uploadProfile" accept="image/*" />
 
-            { opacity: 0, y: 10 },
+          </div>
 
-            { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }
+          <div style="flex: 1">
+
+            <label style="display: block; margin-bottom: 6px; font-size: 13px">Upload Background Picture</label>
+
+            <input type="file" id="uploadBg" accept="image/*" />
+
+          </div>
+
+        </div>
+
+
+
+        <div style="
+
+              display: flex;
+
+              justify-content: flex-end;
+
+              gap: 10px;
+
+              margin-top: 14px;
+
+            ">
+
+          <button class="btn ghost" id="modalClose">Close</button>
+
+          <button class="btn primary" id="modalDone">Done</button>
+
+        </div>
+
+      </div>
+
+    </div>
+<div id="xpAlert" class="xp-alert">
+  <div class="xp-box">
+    <h2>Welcome, Arc Angel™</h2>
+    <p>+500 XP Unlocked</p>
+  </div>
+  </div>
+  </div>
+
+  <script>
+
+    var isLocal = window.location.hostname === "localhost";
+    var API_URL = isLocal
+      ? "api"
+      : "https://on10.io/arc/api";
+      API_URL="https://on10.io/arc/api";
+    /* ---------- Basic Step Logic & GSAP animations ---------- */
+
+    (function () {
+
+      let current = 1;
+
+      const total = 4; // step 4 is success
+
+      const $qs = (s) => document.querySelector(s);
+
+      const $qa = (s) => Array.from(document.querySelectorAll(s));
+
+
+
+      function showStep(n) {
+
+        // clamp
+
+        if (n < 1) n = 1;
+
+        // hide all
+
+        $qa(".form-step").forEach((el) => {
+
+          // for animation, we'll fade old out and fade new in with GSAP
+
+          el.style.display = "none";
+
+          el.style.opacity = 0;
+
+          el.style.transform = "translateY(8px)";
+
+        });
+
+        current = n;
+
+        const target = $qs('.form-step[data-step="' + n + '"]');
+
+        if (!target) return;
+
+        target.style.display = "block";
+
+        // animate in
+
+        gsap.fromTo(
+
+          target,
+
+          { opacity: 0, y: 10 },
+
+          { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }
+
+        );
+
+        // dots update
+
+        $qa(".dot").forEach((d) => {
+
+          d.classList.toggle(
+
+            "active",
+
+            parseInt(d.dataset.step || "0", 10) === n
 
           );
 
-          // dots update
+        });
 
-          $qa(".dot").forEach((d) => {
+        // heading/subheading adjust (optional: dynamic)
 
-            d.classList.toggle(
+        // hide cancel on final success
 
-              "active",
+        if (n === 4) {
 
-              parseInt(d.dataset.step || "0", 10) === n
+          $qs("#subheading").textContent = "";
 
-            );
+        } else {
 
-          });
+          $qs("#subheading").textContent =
 
-          // heading/subheading adjust (optional: dynamic)
+            n === 1
 
-          // hide cancel on final success
+              ? "Step forward and mark your path."
 
-          if (n === 4) {
-
-            $qs("#subheading").textContent = "";
-
-          } else {
-
-            $qs("#subheading").textContent =
-
-              n === 1
-
-                ? "Step forward and mark your path."
-
-                : n === 2
+              : n === 2
 
                 ? "Choose your World"
 
                 : "Your Card is being forged. Upload photo or background to preview.";
 
-          }
-
         }
+         if (n === 3) {
 
+            const xpAlert = document.getElementById("xpAlert");
 
+            xpAlert.classList.add("show");
 
-        // init
+            startConfettiInBox();
 
-        showStep(1);
+            setTimeout(() => {
 
+              xpAlert.classList.remove("show");
 
-
-        // navigation buttons
-
-        $qs("#nextBtn1").addEventListener("click", () => showStep(2));
-
-        $qs("#backBtn2").addEventListener("click", () => showStep(1));
-
-        $qs("#createCardBtn").addEventListener("click", () => showStep(3));
-
-        $qs("#backFrom3").addEventListener("click", () => showStep(2));
-
-        // $qs('#doneBtn').addEventListener('click', ()=> showStep(4));
-
-        $qs("#restartBtn").addEventListener("click", () => location.reload());
-
-
-
-        // clickable dots
-
-        $qa(".dot").forEach((d) =>
-
-          d.addEventListener("click", (e) => {
-
-            const s = parseInt(e.currentTarget.dataset.step || "1", 10);
-
-            showStep(s);
-
-          })
-
-        );
-
-      })();
-
-
-
-      /* ---------- Chips selection (multi-select) ---------- */
-
-      (function () {
-
-        const chips = document.getElementById("chips");
-
-        const selectedLineStep1 = document.getElementById("selectedLineStep1"); // show during step1
-
-        const selectedLinePreview = document.getElementById(
-
-          "selectedLinePreview"
-
-        ); // show in step3 preview
-
-        const backValues = document.getElementById("backValues"); // back card values
-
-        let selected = [];
-
-
-
-        chips.addEventListener("click", (e) => {
-
-          const chip = e.target.closest(".chip");
-
-          if (!chip) return;
-
-          const val = chip.dataset.val;
-
-          const idx = selected.indexOf(val);
-
-          if (idx === -1) {
-
-            if (selected.length >= 4) {
-
-              return;
-
-            }
-
-            selected.push(val);
-
-            chip.classList.add("selected");
-
-            // small pop animation via GSAP
-
-            gsap.fromTo(
-
-              chip,
-
-              { scale: 0.95, boxShadow: "0 0 0 rgba(0,0,0,0)" },
-
-              { scale: 1, duration: 0.22, ease: "back.out(1.4)" }
-
-            );
-
-          } else {
-
-            selected.splice(idx, 1);
-
-            chip.classList.remove("selected");
-
-            gsap.to(chip, { scale: 1, duration: 0.12 });
+            }, 2000);
 
           }
 
-          refreshLines();
+      }
 
-        });
 
 
+      // init
 
-        function refreshLines() {
+      showStep(1);
 
-          const text = selected.join(", ");
 
-          // update step1 small line
 
-          selectedLineStep1.textContent = text ? text : "";
+      // navigation buttons
 
-          // update preview line (step3)
+      $qs("#nextBtn1").addEventListener("click", () => showStep(2));
 
-          selectedLinePreview.textContent = text ? text : "";
+      $qs("#backBtn2").addEventListener("click", () => showStep(1));
 
-          // update back card's values line
-
-          backValues.textContent = text ? text : "—";
-
-        }
-
-      })();
-
-
-
-      /* ---------- Connect form fields to preview (live updates) ---------- */
-
-      (function () {
-
-        const fullName = document.getElementById("fullName");
-
-        const cardName = document.getElementById("cardName");
-
-        const cardRole = document.getElementById("cardRole");
-
-        const customSelectText = document.getElementById("customSelectText");
-
-
-
-        function applyAll() {
-
-          const name = fullName.value.trim() || "Full Name";
-
-          cardName.textContent = name;
-
-          document.getElementById("cardSignature").textContent = name;
-
-          // if customSelectText has a value, use it as role
-
-          if (customSelectText && customSelectText.textContent)
-
-            cardRole.textContent = customSelectText.textContent;
-
-          // refresh address on back
-
-          refreshBackAddress();
-
-          // refresh origin line on back
-
-          refreshBackOrigin();
-
-        }
-
-
-
-        function refreshBackAddress() {
-
-          const addr = [
-
-            document.getElementById("addr1").value || "",
-
-            document.getElementById("addr2").value || "",
-
-            document.getElementById("city").value || "",
-
-            document.getElementById("state").value || "",
-
-            document.getElementById("postal").value || "",
-
-            document.getElementById("country").value || "",
-
-          ]
-
-            .filter(Boolean)
-
-            .join(", ");
-
-          document.getElementById("backAddress").textContent = addr || "—";
-
-        }
-
-
-
-        function refreshBackOrigin() {
-
-          // origin can be "My Name Is {name} • {values}" (values come from chips)
-
-          const name = document.getElementById("fullName").value.trim() || "";
-
-          const values =
-
-            document.getElementById("selectedLinePreview").textContent || "";
-
-          const origin = `My Name Is ${name}${values ? " • " + values : ""}`;
-
-          document.getElementById("backOrigin").textContent = origin;
-
-        }
-
-
-
-        [
-
-          fullName,
-
-          document.getElementById("addr1"),
-
-          document.getElementById("addr2"),
-
-          document.getElementById("city"),
-
-          document.getElementById("state"),
-
-          document.getElementById("postal"),
-
-          document.getElementById("country"),
-
-        ].forEach((inp) => {
-
-          inp.addEventListener("input", applyAll);
-
-          inp.addEventListener("change", applyAll);
-
-        });
-
-
-
-        // also custom select updates role
-
-        document
-
-          .getElementById("customSelectText")
-
-          .addEventListener("DOMSubtreeModified", applyAll);
-
-
-
-        // initial
-
-        applyAll();
-
-      })();
-
-
-
-      /* ---------- Custom dropdown behavior ---------- */
-
-      (function () {
-
-        const selectBox = document.getElementById("customSelect");
-
-        const selectText = document.getElementById("customSelectText");
-
-        const options = document.getElementById("customOptions");
-
-
-
-        selectBox.addEventListener("click", (e) => {
-
-          const isOpen =
-
-            options.style.display === "flex" ||
-
-            options.style.display === "block";
-
-          if (isOpen) {
-
-            options.style.display = "none";
-
-          } else {
-
-            // show options box as a simple column
-
-            options.style.display = "block";
-
-            options.style.position = "absolute";
-
-            options.style.background = "rgba(0,0,0,0.06)";
-
-            options.style.border = "1px solid rgba(255,255,255,0.06)";
-
-            options.style.borderRadius = "10px";
-
-            options.style.width = "100%";
-
-            options.style.zIndex = 50;
-
-            options.style.boxShadow = "0 6px 24px rgba(0,0,0,0.6)";
-
-          }
-
-        });
-
-
-
-        Array.from(document.querySelectorAll("#customOptions .option")).forEach(
-
-          (opt) => {
-
-            opt.addEventListener("click", (e) => {
-
-              const v = e.currentTarget.dataset.val;
-
-              selectText.textContent = v;
-
-              options.style.display = "none";
-
-              // small highlight
-
-              gsap.fromTo(
-
-                selectBox,
-
-                { scale: 0.98 },
-
-                { scale: 1, duration: 0.18 }
-
-              );
-
-              // update card role via DOM modification (observer listening)
-
-              selectText.dispatchEvent(new Event("DOMSubtreeModified"));
-
-            });
-
-          }
-
-        );
-
-
-
-        // close dropdown when clicking outside
-
-        document.addEventListener("click", (e) => {
-
-          if (!selectBox.contains(e.target) && !options.contains(e.target)) {
-
-            options.style.display = "none";
-
-          }
-
-        });
-
-      })();
-
-
-
-      /* ---------- Upload logic: profile & background (fills card background fully) ---------- */
-
-      (function () {
-
-        const openUpload = document.getElementById("openUpload");
-
-        const modal = document.getElementById("modal");
-
-        const modalClose = document.getElementById("modalClose");
-
-        const modalDone = document.getElementById("modalDone");
-
-        const uploadProfile = document.getElementById("uploadProfile");
-
-        const uploadBg = document.getElementById("uploadBg");
-
-        const photoImg = document.getElementById("photoImg");
-
-        const photoPlaceholder = document.getElementById("photoPlaceholder");
-
-        const photoBox = document.getElementById("photoBox");
-
-        const cardBody = document.getElementById("cardBody");
-
-        const card = document.getElementById("cardElement");
-
-
-
-        openUpload.addEventListener("click", () => modal.classList.add("open"));
-
-        modalClose.addEventListener("click", () =>
-
-          modal.classList.remove("open")
-
-        );
-
-        modalDone.addEventListener("click", () =>
-
-          modal.classList.remove("open")
-
-        );
-
-
-
-uploadProfile.addEventListener("change", function () {
-  const f = this.files && this.files[0];
-  if (!f) return;
-
-
-  if (!f.type.startsWith("image/")) {
-    alert("Please upload a JPG, PNG, or other image file only.");
-    this.value = "";
-    return;
-  }
-
-  const reader = new FileReader();
-  reader.onload = (e) => {
-    photoImg.src = e.target.result;
-    photoImg.style.display = "block";
-    photoPlaceholder.style.display = "none";
-  };
-  reader.readAsDataURL(f);
+      $qs("#createCardBtn").addEventListener("click", () => {
+    showStep(3);          
+    startConfettiInBox(); 
 });
 
 
+      $qs("#backFrom3").addEventListener("click", () => showStep(2));
 
+      // $qs('#doneBtn').addEventListener('click', ()=> showStep(4));
 
-uploadBg.addEventListener("change", function () {
-  const f = this.files && this.files[0];
-  if (!f) return;
+      $qs("#restartBtn").addEventListener("click", () => location.reload());
 
 
-  if (!f.type.startsWith("image/")) {
-    alert("Please upload a JPG, PNG, or other image file only.");
-    this.value = "";
-    return;
-  }
 
-  const reader = new FileReader();
-  reader.onload = (e) => {
+      // clickable dots
 
-    cardFront.style.background = `url('${e.target.result}') no-repeat center center / cover`;
-    cardBack.style.background = `url('${e.target.result}') no-repeat center center / cover`;
+      $qa(".dot").forEach((d) =>
 
-  };
-  reader.readAsDataURL(f);
-});
+        d.addEventListener("click", (e) => {
 
-const savedBG = localStorage.getItem("arc_card_bg");
-if (savedBG) {
-  cardFront.style.background = `url('${savedBG}') no-repeat center center / cover`;
-  cardBack.style.background = `url('${savedBG}') no-repeat center center / cover`;
-}
+          const s = parseInt(e.currentTarget.dataset.step || "1", 10);
 
-      })();
+          showStep(s);
 
+        })
 
+      );
 
-      /* ---------- Card flip logic (GSAP 3D) ---------- */
+    })();
 
-      /* ---------- Realistic GSAP Flip Animation ---------- */
 
-      (function () {
 
-        const flipBtn = document.getElementById("flipBtn");
+    /* ---------- Chips selection (multi-select) ---------- */
 
-        const cardFront = document.querySelector(".card-front");
+    (function () {
 
-        const cardBack = document.querySelector(".card-back");
+      const chips = document.getElementById("chips");
 
-        let flipped = false;
+      const selectedLineStep1 = document.getElementById("selectedLineStep1"); // show during step1
 
+      const selectedLinePreview = document.getElementById(
 
+        "selectedLinePreview"
 
-        // Initial GSAP state
+      ); // show in step3 preview
 
-        gsap.set(cardBack, { rotationY: -180, opacity: 0 });
+      const backValues = document.getElementById("backValues"); // back card values
 
+      let selected = [];
 
 
-        flipBtn.addEventListener("click", () => {
 
-          flipped = !flipped;
+      chips.addEventListener("click", (e) => {
 
+        const chip = e.target.closest(".chip");
 
+        if (!chip) return;
 
-          if (flipped) {
+        const val = chip.dataset.val;
 
-            // Flip to back
+        const idx = selected.indexOf(val);
 
-            const tl = gsap.timeline({
+        if (idx === -1) {
 
-              defaults: { duration: 0.6, ease: "power3.inOut" },
-
-            });
-
-            tl.to(cardFront, { rotationY: 180, opacity: 0 }, 0).to(
-
-              cardBack,
-
-              { rotationY: 0, opacity: 1 },
-
-              0
-
-            );
-
-          } else {
-
-            // Flip to front
-
-            const tl = gsap.timeline({
-
-              defaults: { duration: 0.6, ease: "power3.inOut" },
-
-            });
-
-            tl.to(cardBack, { rotationY: -180, opacity: 0 }, 0).to(
-
-              cardFront,
-
-              { rotationY: 0, opacity: 1 },
-
-              0
-
-            );
-
-          }
-
-        });
-
-      })();
-
-
-
-      /* ---------- small UX touches ---------- */
-
-      (function () {
-
-        // prefill some values to look like screenshot
-
-        document.getElementById("fullName").value = "";
-
-        document.getElementById("customSelectText").textContent =
-
-          "Choose your World";
-
-      })();
-
-
-
-      /* ---------- Navigation for Done and Buy Card buttons ---------- */
-
-      /* ---------- API Integration for Done and Buy Card buttons ---------- */
-
-      (function () {
-
-        const doneBtn = document.getElementById("doneBtn");
-
-        const buyCardBtn = document.getElementById("buyCard");
-
-        const API_URL = "https://on10.io/arc/api/create_order.php";
-
-
-
-        async function submitFormData(actionType = "done") {
-
-          // Validate required fields first
-
-          const fullName = document.getElementById("fullName").value.trim();
-
-          const email = document.getElementById("email").value.trim();
-
-
-
-          if (!fullName || !email) {
-
-            alert("Please fill in all required fields (Name and Email)");
+          if (selected.length >= 4) {
 
             return;
 
           }
 
+          selected.push(val);
 
+          chip.classList.add("selected");
 
-          // Collect all form data
+          // small pop animation via GSAP
 
-          const formData = new FormData();
+          gsap.fromTo(
 
+            chip,
 
+            { scale: 0.95, boxShadow: "0 0 0 rgba(0,0,0,0)" },
 
-          // Basic information from step 1
-
-          formData.append("full_name", fullName);
-
-          formData.append("email", email);
-
-
-
-          // Selected chips (reasons)
-
-          const selectedChips = Array.from(
-
-            document.querySelectorAll(".chip.selected")
-
-          )
-
-            .map((chip) => chip.dataset.val)
-
-            .join(",");
-
-          formData.append("reason", selectedChips);
-
-
-
-          // Creator type from step 2
-
-          formData.append(
-
-            "creator_type",
-
-            document.getElementById("customSelectText").textContent
+            { scale: 1, duration: 0.22, ease: "back.out(1.4)" }
 
           );
 
+        } else {
 
+          selected.splice(idx, 1);
 
-          // Address information from step 2
+          chip.classList.remove("selected");
 
-          formData.append(
-
-            "address_1",
-
-            document.getElementById("addr1").value.trim()
-
-          );
-
-          formData.append(
-
-            "address_2",
-
-            document.getElementById("addr2").value.trim()
-
-          );
-
-          formData.append("city", document.getElementById("city").value.trim());
-
-          formData.append(
-
-            "state",
-
-            document.getElementById("state").value.trim()
-
-          );
-
-          formData.append(
-
-            "postal_code",
-
-            document.getElementById("postal").value.trim()
-
-          );
-
-          formData.append(
-
-            "country",
-
-            document.getElementById("country").value.trim()
-
-          );
-
-
-
-          // Handle profile photo upload
-
-          const profileFileInput = document.getElementById("uploadProfile");
-
-          if (profileFileInput.files && profileFileInput.files[0]) {
-
-            formData.append("photo", profileFileInput.files[0]);
-
-          }
-
-
-
-          // Handle background photo upload
-
-          const bgFileInput = document.getElementById("uploadBg");
-
-          if (bgFileInput.files && bgFileInput.files[0]) {
-
-            formData.append("bg", bgFileInput.files[0]);
-
-          }
-
-
-
-          try {
-
-            // Show loading state
-
-            const originalBuyText = buyCardBtn.textContent;
-
-            const originalDoneText = doneBtn.textContent;
-
-
-
-            // Save form data to localStorage
-
-            const userData = {
-
-              full_name: fullName,
-
-              email: email,
-
-              reason: selectedChips,
-
-              creator_type:
-
-                document.getElementById("customSelectText").textContent,
-
-              address_1: document.getElementById("addr1").value.trim(),
-
-              address_2: document.getElementById("addr2").value.trim(),
-
-              city: document.getElementById("city").value.trim(),
-
-              state: document.getElementById("state").value.trim(),
-
-              postal_code: document.getElementById("postal").value.trim(),
-
-              country: document.getElementById("country").value.trim(),
-
-            };
-
-
-
-            localStorage.setItem("arcUserData", JSON.stringify(userData));
-
-
-
-            // If photo and bg images are uploaded, save their base64 previews too
-
-            if (document.getElementById("photoImg").src) {
-
-              userData.photo = document.getElementById("photoImg").src;
-
-            }
-
-            if (
-
-              document
-
-                .getElementById("cardElement")
-
-                .style.background.includes("url")
-
-            ) {
-
-              userData.bg =
-
-                document.getElementById("cardElement").style.background;
-
-            }
-
-
-
-            // Store in localStorage
-
-            localStorage.setItem("arcUserData", JSON.stringify(userData));
-
-
-
-            if (actionType === "buy") {
-
-              buyCardBtn.textContent = "Processing...";
-
-              buyCardBtn.disabled = true;
-
-            } else {
-
-              doneBtn.textContent = "Processing...";
-
-              doneBtn.disabled = true;
-
-            }
-
-
-
-            // Make API call
-
-            const response = await fetch(API_URL, {
-
-              method: "POST",
-
-              body: formData,
-
-            });
-
-
-
-            // Check if response is successful
-
-            if (!response.ok) {
-
-              throw new Error(`HTTP error! status: ${response.status}`);
-
-            }
-
-
-
-            const result = await response.json();
-
-
-
-            // Handle response based on the message
-
-            if (result.message === "Order created successfully") {
-
-              // Success! Order was created
-
-              console.log("Order created:", result.order);
-
-              console.log("User ID:", result.user_id);
-
-              console.log("Email sent:", result.email_sent);
-
-
-
-              // if (actionType === 'buy') {
-
-              // Initiate Stripe payment
-
-              window.location.href = "pricing.html";
-
-
-
-              // } else {
-
-              //   // Show success step for "Done" button
-
-              //   showStep(4);
-
-              // }
-
-            } else if (
-
-              result.message === "User with this email or name already exists"
-
-            ) {
-
-              // Handle duplicate user error
-
-              alert(
-
-                "An account with this email or name already exists. Please use different credentials."
-
-              );
-
-            } else {
-
-              // Handle other error messages from backend
-
-              throw new Error(result.message || "Unknown response from server");
-
-            }
-
-          } catch (error) {
-
-            console.error("API Error:", error);
-
-            alert(`Failed to submit form: ${error.message}`);
-
-          } finally {
-
-            // Reset button states
-
-            buyCardBtn.textContent = "Buy Card";
-
-            buyCardBtn.disabled = false;
-
-            doneBtn.textContent = "Done";
-
-            doneBtn.disabled = false;
-
-          }
+          gsap.to(chip, { scale: 1, duration: 0.12 });
 
         }
 
-        // Add event listeners to buttons
+        refreshLines();
 
-        doneBtn.addEventListener("click", () => submitFormData("done"));
-
-        buyCardBtn.addEventListener("click", () => submitFormData("buy"));
-
-      })();
+      });
 
 
 
+      function refreshLines() {
 
-      const downloadBtn = document.getElementById("downloadCard");
-const shareBtn = document.getElementById("shareCard");
-const cardPreview = document.querySelector(".card-wrap"); 
+        const text = selected.join(", ");
+
+        // update step1 small line
+
+        selectedLineStep1.textContent = text ? text : "";
+
+        // update preview line (step3)
+
+        selectedLinePreview.textContent = text ? text : "";
+
+        // update back card's values line
+
+        backValues.textContent = text ? text : "—";
+
+      }
+
+    })();
 
 
-downloadBtn.addEventListener("click", () => {
-  html2canvas(cardPreview, { scale: 3 }).then(canvas => {
-    const link = document.createElement("a");
-    link.download = "ArcAngel-Card.png";
-    link.href = canvas.toDataURL("image/png");
-    link.click();
-  });
-});
+
+    /* ---------- Connect form fields to preview (live updates) ---------- */
+
+    (function () {
+
+      const fullName = document.getElementById("fullName");
+
+      const cardName = document.getElementById("cardName");
+      const yourWorld = document.getElementById("yourWorld");
+
+      const cardRole = document.getElementById("cardRole");
+
+      const customSelectText = document.getElementById("customSelectText");
 
 
-shareBtn.addEventListener("click", () => {
-  html2canvas(cardPreview, { scale: 3 }).then(canvas => {
-    canvas.toBlob(async (blob) => {
-      const file = new File([blob], "ArcAngel-Card.png", { type: "image/png" });
+
+      function applyAll() {
+
+        const name = fullName.value.trim() || "Full Name";
+
+        cardName.textContent = name;
+        document.getElementById("cardSignature").textContent = name;
 
 
-      if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
-        await navigator.share({
-          title: "My Arc Angel Card",
-          text: "Check out my Arc Angel identity card.",
-          files: [file]
-        });
-      } else {
-        alert("Your device does not support direct sharing. Image downloaded instead.");
+       yourWorld.innerText = document.getElementById("selectedLineStep1").innerText
+
+        document.getElementById("cardSignature").textContent = name;
+
+        // if customSelectText has a value, use it as role
+
+        if (customSelectText && customSelectText.textContent)
+
+          cardRole.textContent = customSelectText.textContent;
+
+        // refresh address on back
+
+        refreshBackAddress();
+
+        // refresh origin line on back
+
+        refreshBackOrigin();
+
+      }
+
+
+
+      function refreshBackAddress() {
+
+        const addr = [
+
+          document.getElementById("addr1").value || "",
+
+          document.getElementById("addr2").value || "",
+
+          document.getElementById("city").value || "",
+
+          document.getElementById("state").value || "",
+
+          document.getElementById("postal").value || "",
+
+          document.getElementById("country").value || "",
+
+        ]
+
+          .filter(Boolean)
+
+          .join(", ");
+
+        document.getElementById("backAddress").textContent = addr || "—";
+
+      }
+
+
+
+      function refreshBackOrigin() {
+
+        // origin can be "My Name Is {name} • {values}" (values come from chips)
+
+        const name = document.getElementById("fullName").value.trim() || "";
+
+        const values =
+
+          document.getElementById("selectedLinePreview").textContent || "";
+
+        const origin = `My Name Is ${name}${values ? " • " + values : ""}`;
+
+        document.getElementById("backOrigin").textContent = origin;
+
+      }
+
+
+
+      [
+
+        fullName,
+
+        document.getElementById("addr1"),
+
+        document.getElementById("addr2"),
+
+        document.getElementById("city"),
+
+        document.getElementById("state"),
+
+        document.getElementById("postal"),
+
+        document.getElementById("country"),
+
+      ].forEach((inp) => {
+
+        inp.addEventListener("input", applyAll);
+
+        inp.addEventListener("change", applyAll);
+
+      });
+
+
+
+      // also custom select updates role
+
+      document
+
+        .getElementById("customSelectText")
+
+        .addEventListener("DOMSubtreeModified", applyAll);
+
+
+
+      // initial
+
+      applyAll();
+
+    })();
+
+
+
+    /* ---------- Custom dropdown behavior ---------- */
+
+    (function () {
+
+      const selectBox = document.getElementById("customSelect");
+
+      const selectText = document.getElementById("customSelectText");
+
+      const options = document.getElementById("customOptions");
+
+
+
+      selectBox.addEventListener("click", (e) => {
+
+        const isOpen =
+
+          options.style.display === "flex" ||
+
+          options.style.display === "block";
+
+        if (isOpen) {
+
+          options.style.display = "none";
+
+        } else {
+
+          // show options box as a simple column
+
+          options.style.display = "block";
+
+          options.style.position = "absolute";
+
+          options.style.background = "rgba(0,0,0,0.06)";
+
+          options.style.border = "1px solid rgba(255,255,255,0.06)";
+
+          options.style.borderRadius = "10px";
+
+          options.style.width = "100%";
+
+          options.style.zIndex = 50;
+
+          options.style.boxShadow = "0 6px 24px rgba(0,0,0,0.6)";
+
+        }
+
+      });
+
+
+
+      Array.from(document.querySelectorAll("#customOptions .option")).forEach(
+
+        (opt) => {
+
+          opt.addEventListener("click", (e) => {
+
+            const v = e.currentTarget.dataset.val;
+
+            selectText.textContent = v;
+
+            options.style.display = "none";
+
+            // small highlight
+
+            gsap.fromTo(
+
+              selectBox,
+
+              { scale: 0.98 },
+
+              { scale: 1, duration: 0.18 }
+
+            );
+
+            // update card role via DOM modification (observer listening)
+
+            selectText.dispatchEvent(new Event("DOMSubtreeModified"));
+
+          });
+
+        }
+
+      );
+
+
+
+      // close dropdown when clicking outside
+
+      document.addEventListener("click", (e) => {
+
+        if (!selectBox.contains(e.target) && !options.contains(e.target)) {
+
+          options.style.display = "none";
+
+        }
+
+      });
+
+    })();
+
+
+
+    /* ---------- Upload logic: profile & background (fills card background fully) ---------- */
+
+    (function () {
+
+      const openUpload = document.getElementById("openUpload");
+
+      const modal = document.getElementById("modal");
+
+      const modalClose = document.getElementById("modalClose");
+
+      const modalDone = document.getElementById("modalDone");
+
+      const uploadProfile = document.getElementById("uploadProfile");
+
+      const uploadBg = document.getElementById("uploadBg");
+
+      const photoImg = document.getElementById("photoImg");
+
+      const photoPlaceholder = document.getElementById("photoPlaceholder");
+
+      const photoBox = document.getElementById("photoBox");
+
+      const cardBody = document.getElementById("cardBody");
+
+      const card = document.getElementById("cardElement");
+
+
+
+      openUpload.addEventListener("click", () => modal.classList.add("open"));
+
+      modalClose.addEventListener("click", () =>
+
+        modal.classList.remove("open")
+
+      );
+
+      modalDone.addEventListener("click", () =>
+
+        modal.classList.remove("open")
+
+      );
+
+
+
+      uploadProfile.addEventListener("change", function () {
+        const f = this.files && this.files[0];
+        if (!f) return;
+
+
+        if (!f.type.startsWith("image/")) {
+          alert("Please upload a JPG, PNG, or other image file only.");
+          this.value = "";
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          photoImg.src = e.target.result;
+          photoImg.style.display = "block";
+          photoPlaceholder.style.display = "none";
+        };
+        reader.readAsDataURL(f);
+      });
+
+
+
+
+      uploadBg.addEventListener("change", function () {
+        const f = this.files && this.files[0];
+        if (!f) return;
+
+
+        if (!f.type.startsWith("image/")) {
+          alert("Please upload a JPG, PNG, or other image file only.");
+          this.value = "";
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+
+          cardFront.style.background = `url('${e.target.result}') no-repeat center center / cover`;
+          cardBack.style.background = `url('${e.target.result}') no-repeat center center / cover`;
+
+        };
+        reader.readAsDataURL(f);
+      });
+
+      // const savedBG = localStorage.getItem("arc_card_bg");
+      const savedBG =getFromLocalStorage("arc_card_bg");
+      if (savedBG) {
+        cardFront.style.background = `url('${savedBG}') no-repeat center center / cover`;
+        cardBack.style.background = `url('${savedBG}') no-repeat center center / cover`;
+      }
+
+            function setImageFromUrl(profileUrl, bgUrl) {
+    // Convert URLs to fake files to trigger your existing change handlers
+    async function urlToFile(url, filename) {
+        const response = await fetch(url);
+        const blob = await response.blob();
+        return new File([blob], filename, { type: blob.type });
+    }
+
+    // Set both images
+    Promise.all([
+        urlToFile(profileUrl, 'profile.jpg'),
+        urlToFile(bgUrl, 'background.jpg')
+    ]).then(([profileFile, bgFile]) => {
+        // Set profile image and trigger change
+        const profileDataTransfer = new DataTransfer();
+        profileDataTransfer.items.add(profileFile);
+        uploadProfile.files = profileDataTransfer.files;
+        
+        // Set background image and trigger change  
+        const bgDataTransfer = new DataTransfer();
+        bgDataTransfer.items.add(bgFile);
+        uploadBg.files = bgDataTransfer.files;
+        
+        // Trigger change events
+        uploadProfile.dispatchEvent(new Event('change'));
+        uploadBg.dispatchEvent(new Event('change'));
+        
+    }).catch(error => {
+        console.error('Error loading images:', error);
+    });
+}
+
+// Usage - call this on page load or when needed:
+setImageFromUrl(
+    'Assets/Media/Images/whiteGroupStatue.png',
+    'Assets/Media/Images/Capture.png'
+);
+
+    })();
+
+
+
+    /* ---------- Card flip logic (GSAP 3D) ---------- */
+
+    /* ---------- Realistic GSAP Flip Animation ---------- */
+
+    (function () {
+
+      const flipBtn = document.getElementById("flipBtn");
+
+      const cardFront = document.querySelector(".card-front");
+
+      const cardBack = document.querySelector(".card-back");
+
+      let flipped = false;
+
+
+
+      // Initial GSAP state
+
+      gsap.set(cardBack, { rotationY: -180, opacity: 0 });
+
+
+
+      flipBtn.addEventListener("click", () => {
+
+        flipped = !flipped;
+
+
+
+        if (flipped) {
+
+          // Flip to back
+
+          const tl = gsap.timeline({
+
+            defaults: { duration: 0.6, ease: "power3.inOut" },
+
+          });
+
+          tl.to(cardFront, { rotationY: 180, opacity: 0 }, 0).to(
+
+            cardBack,
+
+            { rotationY: 0, opacity: 1 },
+
+            0
+
+          );
+
+        } else {
+
+          // Flip to front
+
+          const tl = gsap.timeline({
+
+            defaults: { duration: 0.6, ease: "power3.inOut" },
+
+          });
+
+          tl.to(cardBack, { rotationY: -180, opacity: 0 }, 0).to(
+
+            cardFront,
+
+            { rotationY: 0, opacity: 1 },
+
+            0
+
+          );
+
+        }
+
+      });
+
+    })();
+
+
+
+    /* ---------- small UX touches ---------- */
+
+    (function () {
+
+      // prefill some values to look like screenshot
+
+      document.getElementById("fullName").value = "";
+
+      document.getElementById("customSelectText").textContent =
+
+        "Choose your World";
+
+    })();
+
+
+
+    /* ---------- Navigation for Done and Buy Card buttons ---------- */
+
+    /* ---------- API Integration for Done and Buy Card buttons ---------- */
+
+    (function () {
+
+      const doneBtn = document.getElementById("doneBtn");
+
+      const buyCardBtn = document.getElementById("buyCard");
+
+      // const API_URL = "https://on10.io/arc/api/create_order.php";
+
+
+
+      async function submitFormData(actionType = "done") {
+
+        // Validate required fields first
+
+        const fullName = document.getElementById("fullName").value.trim();
+
+        const email = document.getElementById("email").value.trim();
+
+
+
+        if (!fullName || !email) {
+
+          alert("Please fill in all required fields (Name and Email)");
+
+          return;
+
+        }
+
+
+
+        // Collect all form data
+
+        const formData = new FormData();
+
+
+
+        // Basic information from step 1
+
+        formData.append("full_name", fullName);
+
+        formData.append("email", email);
+
+
+
+        // Selected chips (reasons)
+
+        const selectedChips = Array.from(
+
+          document.querySelectorAll(".chip.selected")
+
+        )
+
+          .map((chip) => chip.dataset.val)
+
+          .join(",");
+
+        formData.append("reason", selectedChips);
+
+
+
+        // Creator type from step 2
+
+        formData.append(
+
+          "creator_type",
+
+          document.getElementById("customSelectText").textContent
+
+        );
+
+
+
+        // Address information from step 2
+
+        formData.append(
+
+          "address_1",
+
+          document.getElementById("addr1").value.trim()
+
+        );
+
+        formData.append(
+
+          "address_2",
+
+          document.getElementById("addr2").value.trim()
+
+        );
+
+        formData.append("city", document.getElementById("city").value.trim());
+
+        formData.append(
+
+          "state",
+
+          document.getElementById("state").value.trim()
+
+        );
+
+        formData.append(
+
+          "postal_code",
+
+          document.getElementById("postal").value.trim()
+
+        );
+
+        formData.append(
+
+          "country",
+
+          document.getElementById("country").value.trim()
+
+        );
+
+
+
+        // Handle profile photo upload
+
+        const profileFileInput = document.getElementById("uploadProfile");
+
+        if (profileFileInput.files && profileFileInput.files[0]) {
+
+          formData.append("photo", profileFileInput.files[0]);
+
+        }
+
+
+
+        // Handle background photo upload
+
+        const bgFileInput = document.getElementById("uploadBg");
+
+        if (bgFileInput.files && bgFileInput.files[0]) {
+
+          formData.append("bg", bgFileInput.files[0]);
+
+        }
+
+
+
+        try {
+
+          // Show loading state
+
+          const originalBuyText = buyCardBtn.textContent;
+
+          const originalDoneText = doneBtn.textContent;
+
+
+
+          // Save form data to localStorage
+
+          const userData = {
+
+            full_name: fullName,
+
+            email: email,
+
+            reason: selectedChips,
+
+            creator_type:
+
+              document.getElementById("customSelectText").textContent,
+
+            address_1: document.getElementById("addr1").value.trim(),
+
+            address_2: document.getElementById("addr2").value.trim(),
+
+            city: document.getElementById("city").value.trim(),
+
+            state: document.getElementById("state").value.trim(),
+
+            postal_code: document.getElementById("postal").value.trim(),
+
+            country: document.getElementById("country").value.trim(),
+
+          };
+
+
+
+          // localStorage.setItem("arcUserData", JSON.stringify(userData));
+          saveToLocalStorage("arcUserData", userData);
+
+
+
+          // If photo and bg images are uploaded, save their base64 previews too
+
+          if (document.getElementById("photoImg").src) {
+
+            userData.photo = document.getElementById("photoImg").src;
+
+          }
+
+          if (
+
+            document
+
+              .getElementById("cardElement")
+
+              .style.background.includes("url")
+
+          ) {
+
+            userData.bg =
+
+              document.getElementById("cardElement").style.background;
+
+          }
+
+
+
+          // Store in localStorage
+
+          // localStorage.setItem("arcUserData", JSON.stringify(userData));
+          saveToLocalStorage("arcUserData", userData);
+          saveCardImageToLocalStorage();
+
+
+          if (actionType === "buy") {
+
+            buyCardBtn.textContent = "Processing...";
+
+            buyCardBtn.disabled = true;
+
+          } else {
+
+            doneBtn.textContent = "Processing...";
+
+            doneBtn.disabled = true;
+
+          }
+
+
+
+          // Make API call
+
+          const response = await fetch(`${API_URL}/create_order.php`, {
+
+            method: "POST",
+
+            body: formData,
+
+          });
+          console.log(response)
+          if (response.status === 409) {
+            const result = await response.json();
+            alert(result.message); // "User with this email or name already exists"
+            return; // Stop further execution
+          }
+
+          // Check if response is successful
+
+          if (!response.ok) {
+
+            
+            // Handle specific status codes
+        if (response.status === 409) {
+          throw new Error("An account with this email or name already exists. Please use different credentials.");
+        } else if (response.status === 400) {
+          throw new Error("Bad request: Please check all required fields are filled correctly.");
+        } else if (response.status === 500) {
+          throw new Error("Server error: Please try again later.");
+        } else {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+            var error = response.status
+            if (response.status == 409) {
+              error = "An account with this email or name already exists. Please use different credentials."
+            }
+            throw new Error(`HTTP error! status: ${error}`);
+
+          }
+
+
+
+          const result = await response.json();
+
+
+
+          // Handle response based on the message
+
+          if (result.message === "Order created successfully") {
+
+            // Success! Order was created
+
+            console.log("Order created:", result.order);
+
+            console.log("User ID:", result.user_id);
+
+            console.log("Email sent:", result.email_sent);
+
+
+
+            // if (actionType === 'buy') {
+
+            // Initiate Stripe payment
+
+            window.location.href = "pricing.html";
+
+
+
+            // } else {
+
+            //   // Show success step for "Done" button
+
+            //   showStep(4);
+
+            // }
+
+          } else if (
+
+            result.message === "User with this email or name already exists"
+
+          ) {
+
+            // Handle duplicate user error
+
+            alert(
+
+              "An account with this email or name already exists. Please use different credentials."
+
+            );
+
+          } else {
+
+            // Handle other error messages from backend
+
+            throw new Error(result.message || "Unknown response from server");
+
+          }
+
+        } catch (error) {
+
+          console.error("API Error:", error);
+
+          alert(`Failed to submit form: ${error.message}`);
+
+        } finally {
+
+          // Reset button states
+
+          buyCardBtn.textContent = "Buy Card";
+
+          buyCardBtn.disabled = false;
+
+          doneBtn.textContent = "Done";
+
+          doneBtn.disabled = false;
+
+        }
+
+      }
+
+      // Add event listeners to buttons
+
+      doneBtn.addEventListener("click", () => submitFormData("done"));
+
+      buyCardBtn.addEventListener("click", () => submitFormData("buy"));
+
+    })();
+
+
+
+
+    const downloadBtn = document.getElementById("downloadCard");
+    const shareBtn = document.getElementById("shareCard");
+    const cardPreview = document.querySelector(".card-wrap");
+
+
+    // Capture and save card image to localStorage
+    function saveCardImageToLocalStorage() {
+      html2canvas(cardElement, { scale: 3 }).then(canvas => {
+        const cardImage = canvas.toDataURL("image/png"); // Base64 image string
+
+        // Save to localStorage
+        // localStorage.setItem("arcCardImage", cardImage);
+        saveToLocalStorage("arcCardImage", cardImage);
+
+        console.log("✅ Card image saved to localStorage!");
+      });
+    }
+
+    downloadBtn.addEventListener("click", () => {
+      html2canvas(cardPreview, { scale: 3 }).then(canvas => {
         const link = document.createElement("a");
         link.download = "ArcAngel-Card.png";
-        link.href = URL.createObjectURL(blob);
+        link.href = canvas.toDataURL("image/png");
         link.click();
-      }
+      });
     });
-  });
-});
 
-    </script>
 
-  </body>
+    shareBtn.addEventListener("click", () => {
+      html2canvas(cardPreview, { scale: 3 }).then(canvas => {
+        canvas.toBlob(async (blob) => {
+          const file = new File([blob], "ArcAngel-Card.png", { type: "image/png" });
+
+
+          if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+            await navigator.share({
+              title: "My Arc Angel Card",
+              text: "Check out my Arc Angel identity card.",
+              files: [file]
+            });
+          } else {
+            alert("Your device does not support direct sharing. Image downloaded instead.");
+            const link = document.createElement("a");
+            link.download = "ArcAngel-Card.png";
+            link.href = URL.createObjectURL(blob);
+            link.click();
+          }
+        });
+      });
+    });
+    // document.getElementsByClassName("cardNumber")[0].textContent = `#00${localStorage.getItem("cardNumber")}`
+    // document.getElementsByClassName("cardNumber")[1].textContent = `#00${localStorage.getItem("cardNumber")}`
+    document.getElementsByClassName("cardNumber")[0].textContent = `#00${getFromLocalStorage("cardNumber")}`
+    document.getElementsByClassName("cardNumber")[1].textContent = `#00${getFromLocalStorage("cardNumber")}`
+
+    
+
+function startConfettiInBox() {
+    const box = document.querySelector(".xp-box");
+    if (!box) return;
+
+    const canvas = document.createElement("canvas");
+    canvas.style.position = "absolute";
+    canvas.style.top = "0";
+    canvas.style.left = "0";
+    canvas.style.width = "100%";
+    canvas.style.height = "100%";
+    canvas.style.pointerEvents = "none";
+    canvas.style.zIndex = "999";
+    box.appendChild(canvas);
+
+    const ctx = canvas.getContext("2d");
+
+    function setSize() {
+        canvas.width = box.clientWidth;
+        canvas.height = box.clientHeight;
+    }
+    setSize();
+
+    new ResizeObserver(setSize).observe(box);
+
+    const colors = ["#FFD166", "#06B6D4", "#EF476F", "#06D6A0"];
+    const confetti = [];
+
+    function newPiece() {
+        return {
+            x: Math.random() * canvas.width,
+            y: -10,
+            size: 5 + Math.random() * 5,
+            vx: -2 + Math.random() * 4,
+            vy: 2 + Math.random() * 4,
+            color: colors[Math.floor(Math.random() * colors.length)]
+        };
+    }
+
+    let frame;
+
+    function loop() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        if (confetti.length < 80) confetti.push(newPiece());
+
+        confetti.forEach((p, i) => {
+            p.x += p.vx;
+            p.y += p.vy;
+
+            ctx.fillStyle = p.color;
+            ctx.fillRect(p.x, p.y, p.size, p.size);
+
+            if (p.y > canvas.height) confetti.splice(i, 1);
+        });
+
+        frame = requestAnimationFrame(loop);
+    }
+
+    loop();
+
+    setTimeout(() => {
+        cancelAnimationFrame(frame);
+        canvas.remove();
+    }, 3000);
+}
+
+startConfettiInBox();
+// Simple get and set functions with auto compression
+function saveToLocalStorage(key, value) {
+    try {
+        // Convert to string if object/array
+        const dataString = typeof value === 'object' ? JSON.stringify(value) : String(value);
+        
+        // Compress and save
+        const compressed = LZString.compress(dataString);
+        localStorage.setItem(key, compressed);
+        
+        return true;
+    } catch (error) {
+        // Fallback: save without compression
+        try {
+            localStorage.setItem(key, typeof value === 'object' ? JSON.stringify(value) : value);
+            return true;
+        } catch (e) {
+            console.error('Storage failed:', e);
+            return false;
+        }
+    }
+}
+
+function getFromLocalStorage(key) {
+    try {
+        const compressed = localStorage.getItem(key);
+        if (compressed === null) return null;
+        
+        // Decompress
+        const decompressed = LZString.decompress(compressed);
+        
+        // Try to parse as JSON, return string if fails
+        try {
+            return JSON.parse(decompressed);
+        } catch {
+            return decompressed;
+        }
+    } catch (error) {
+        // Fallback: get without decompression
+        try {
+            const raw = localStorage.getItem(key);
+            try {
+                return JSON.parse(raw);
+            } catch {
+                return raw;
+            }
+        } catch (e) {
+            console.error('Storage read failed:', e);
+            return null;
+        }
+    }
+}
+  </script>
+
+</body>
 
 </html>
-
