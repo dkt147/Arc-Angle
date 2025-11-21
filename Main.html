@@ -24,6 +24,8 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap"
     rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"></script>
+  <!-- localStorage compress -->
 
   <!-- CSS file connect -->
 
@@ -71,13 +73,18 @@
 
       position: absolute;
 
-      width: 200vw;
+      width: 100vw;
 
-      height: 400vh;
+      height: 100vh;
 
-      background: conic-gradient(from 90deg at 50% 50%, rgb(0, 0, 0), rgba(163, 13, 219, 1), rgb(0, 0, 0));
+      /* background: conic-gradient(from 90deg at 50% 50%, rgb(0, 0, 0), rgba(163, 13, 219, 1), rgb(0, 0, 0));
 
-      filter: blur(60px) saturate(120%);
+      filter: blur(60px) saturate(120%); */
+
+       background-image: url('Assets/Media/Videos/little-angle.gif');
+    background-size: cover;    /* Makes the background image cover the entire div */
+    background-position: center; /* Centers the image in the div */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
 
       transform-origin: 50% 50%;
 
@@ -311,11 +318,15 @@
         padding: 20px;
       }
 
-      .bg {
+      /* .bg {
         width: 564vw;
         height: 570vh;
-      }
-
+      } */
+.bg {
+        width: 100%;
+        height: 100%;
+        background-image: url('Assets/Media/Videos/little-angle-mobile.gif');
+    }
     }
   </style>
 
@@ -325,11 +336,12 @@
 
   <!-- Background Video -->
 
-  <video autoplay loop muted playsinline class="background-video">
+  <!-- <video autoplay loop muted playsinline class="background-video">
 
-    <source src="https://on10.io/arc/Assets/Media/Videos/Hero.mp4" type="video/mp4">
+    <source src="Assets/Media/Videos/Hero.gif" type="video/gif">
 
-  </video>
+  </video> -->
+  <img src="Assets/Media/Videos/Hero.gif" class="background-video" alt="">
 
 
 
@@ -353,7 +365,7 @@
 
       <!-- Welcome text -->
 
-      <div class="welcome" id="welcomeText">Welcome</div>
+      <div class="welcome" id="welcomeText">Welcome to Medallion Maze</div>
 
 
 
@@ -363,7 +375,7 @@
 
         <!-- use your coin.png or SVG -->
 
-        <img src="https://on10.io/arc/Assets/Media/Images/coin.png" alt="coin"
+        <img src="Assets/Media/Images/coin.png" alt="coin"
           style="width:100%;height:100%;object-fit:contain;display:block;pointer-events:none;user-select:none;">
 
       </div>
@@ -392,11 +404,11 @@
 
   <!-- GIF placeholder -->
 
+  <!-- Replace the src with your GIF later. Using your Assets path as placeholder -->
   <div id="gifWrap" aria-hidden="true">
 
-    <!-- Replace the src with your GIF later. Using your Assets path as placeholder -->
 
-    <img id="preloaderGif" src="https://on10.io/arc/Assets/Media/Videos/preloader.gif" alt="placeholder gif" />
+    <!-- <img id="preloaderGif" src="Assets/Media/Videos/preloader.gif" alt="placeholder gif" /> -->
 
   </div>
 
@@ -410,19 +422,36 @@
 
       <div class="hero-content">
 
-        <div class="hero-buttons">
+        <div class="pricing-top">
 
-          <button id="cinematicToggle" class="btn-primary">Cinematic Mode: Off</button>
+          <div class="pricing-button">
+            <button id="cinematicToggle" class="btn-primary">Cinematic Mode: Off</button>
+          </div>
 
-          <a href="#" class="btn-primary" id="opendropBtn">Live Drop</a>
+          <div class="pricing-logo">
+
+            <img src="Assets/Media/Images/logo.png" alt="image" onclick="goToHome()" />
+
+          </div>
+
+          <div class="pricing-button">
+
+            <div class="desktop-button">
+              <a href="#" class="btn-primary" id="opendropBtn">Live Drop</a>
+            </div>
+
+            <div class="Mobile-button">
+              <a href="live-drop.html" class="btn-secondary">Live Drop</a>
+            </div>
+          </div>
 
         </div>
 
         <div class="hero-main-content">
 
           <div class="logo-wrap" id="box">
-            <img src="https://on10.io/arc/Assets/Media/Images/logo-background.png" class="layer paint" id="paint">
-            <img src="https://on10.io/arc/Assets/Media/Images/logo-arcangle.png" class="layer logo" id="logo">
+            <img src="Assets/Media/Images/logo-background.png" class="layer paint" id="paint">
+            <img src="Assets/Media/Images/logo-arcangle-old.png" class="layer logo" id="logo">
           </div>
 
           <h1 class="neon-text">Every Arc Angel™ leaves a trace through the Maze</h1>
@@ -430,12 +459,18 @@
           <p>For those who keep moving when it hurts. For those who dream louder than doubt. For those who turn scars
             into strength and silence into song. If this is you, the Maze already knows your name.</p>
 
-          <p>Your name + clip are immortalized in the <strong>Genesis Trailer</strong>
+          <p>Your name is immortalized in the <strong>Genesis Trailer</strong>
             you receive a <strong> custom metal Transmission Card</strong> engraved with your name, World, and
             Transmission #.</p>
 
-          <a href="#" class="btn-secondary" onclick="document.getElementById('opendropBtn').click()">Live Drop</a>
+          <!-- <div class="desktop-button">
+            <a href="#" class="btn-secondary" onclick="document.getElementById('opendropBtn').click()">Live Drop</a>
 
+          </div> -->
+
+          <div class="Mobile-button">
+            <a href="live-drop.html" class="btn-secondary">Live Drop</a>
+          </div>
           <div id="dropModal" class="drop-modal">
 
             <div class="drop-modal-content">
@@ -458,17 +493,25 @@
 
       <div class="wing-container">
 
-        <img src="https://on10.io/arc/Assets/Media/Images/left wing.png" class="wing left">
+        <img src="Assets/Media/Images/Wings-4k.gif" class="wing left">
+        <!-- <img src="Assets/Media/Images/left wing.png" class="wing left">
 
-        <img src="https://on10.io/arc/Assets/Media/Images/right wing.png" class="wing right">
+        <img src="Assets/Media/Images/right wing.png" class="wing right"> -->
 
       </div>
 
       <div class="second-content">
 
-        <h2>Promise: Trailer publishes on date December 12th 3PM PST or you’re refunded. Guaranteed.</h2>
+        <h2>Promise: Trailer publishes on date December 19th 3PM PST or you’re refunded. Guaranteed.</h2>
 
-        <a href="#" class="btn-secondary" id="openFormBtn">Claim Your Medallion</a>
+        <div class="desktop-button">
+          <a href="#" class="btn-secondary" id="openFormBtn">Claim Your Medallion</a>
+
+        </div>
+
+        <div class="Mobile-button">
+          <a href="mobile-form.html" class="btn-secondary">Claim Your Medallion</a>
+        </div>
         <!-- Modal -->
         <div id="formModal" class="modal">
 
@@ -490,9 +533,9 @@
 
       <div class="third-content">
 
-        <h2>ARC FIRST SIGNAL FOUNDING 100</h2>
+        <h2>ARC FIRST SIGNAL FOUNDING 500</h2>
 
-        <p>100 people. 24 hours. Be in the film. Be remembered forever.</p>
+        <p>500 people. Be in the film. Be remembered forever.</p>
 
         <div class="progress-containers">
 
@@ -506,7 +549,7 @@
 
         </div>
 
-        <h6>23 / 100 claimed • 1,242 watching • Locks at 100</h6>
+        <h6>23 / 500 claimed • 1,242 watching • Locks at 500</h6>
 
       </div>
 
@@ -514,9 +557,9 @@
 
       <div class="card-container">
 
-        <img src="https://on10.io/arc/Assets/Media/Images/top.png" class="card top">
+        <img src="Assets/Media/Images/top.png" class="card top">
 
-        <img src="https://on10.io/arc/Assets/Media/Images/bottom.png" class="card bottom">
+        <img src="Assets/Media/Images/bottom.png" class="card bottom">
 
       </div>
 
@@ -534,9 +577,9 @@
 
     <div class="fourth-left">
 
-      <img class="statue" src="https://on10.io/arc/Assets/Media/Images/Group2.png" alt="">
+      <img class="statue" src="Assets/Media/Images/whiteGroupStatue.png" alt="">
 
-      <img class="statue-bg" src="https://on10.io/arc/Assets/Media/Images/statue bg.png" alt="">
+      <img class="statue-bg" src="Assets/Media/Images/statue bg.png" alt="">
 
     </div>
 
@@ -547,7 +590,7 @@
       <h2>The Call</h2>
 
       <p>Arc Angel™ is a title you claim, a presence you live. Step across the threshold and leave your trace. The first
-        100 receive a custom metal card, engraved with your name.</p>
+        500 receive a custom metal card, engraved with your name.</p>
 
       <div class="neon-bar-wrapper">
 
@@ -557,7 +600,7 @@
 
           <div class="neon-bar-handle"></div>
 
-          <div class="neon-bar-text">19 / 100 claimed</div>
+          <div class="neon-bar-text">19 / 500 claimed</div>
 
         </div>
 
@@ -577,11 +620,11 @@
 
       <div class="icon-card">
 
-        <img class="icon" src="https://on10.io/arc/Assets/Media/Images/icon-1.png" alt="">
+        <img class="icon" src="Assets/Media/Images/icon-1.png" alt="">
 
         <h3 class="icon-heading">GENESIS TRAILER <br>FRAME</h3>
 
-        <p class="icon-text">Your name + clip appear in the first cinematic cut. Publishing across TikTok, IG, YouTube.
+        <p class="icon-text">Your name appear in the first cinematic cut. Publishing across TikTok, IG, YouTube.
         </p>
 
       </div>
@@ -590,7 +633,7 @@
 
       <div class="icon-card2">
 
-        <img class="icon" src="https://on10.io/arc/Assets/Media/Images/icon-2.png" alt="">
+        <img class="icon" src="Assets/Media/Images/icon-2.png" alt="">
 
         <h3 class="icon-heading">TRANSMISSION CARD<br>ENGRAVING</h3>
 
@@ -602,9 +645,9 @@
 
       <div class="icon-card">
 
-        <img class="icon" src="https://on10.io/arc/Assets/Media/Images/icon-3.png" alt="">
+        <img class="icon" src="Assets/Media/Images/icon-3.png" alt="">
 
-        <h3 class="icon-heading">100 XP · MEMBER<br> SINCE 2025</h3>
+        <h3 class="icon-heading">500 XP · MEMBER<br> SINCE 2025</h3>
 
         <p class="icon-text">Instant XP toast and Founder status visible on profile in the ARC ecosystem.</p>
 
@@ -624,7 +667,7 @@
 
       <h2>Roadmap</h2>
 
-      <p>Founding 100 hold priority for the first 3 Medallion Maze drops. The Genesis Arc can never be repeated. Wave 2
+      <p>Founding 500 hold priority for the first 3 Medallion Maze drops. The Genesis Arc can never be repeated. Wave 2
         opens soon.</p>
 
     </div>
@@ -641,9 +684,9 @@
 
       <div class="seven-left">
 
-        <h2>ARC FIRST SIGNAL<br>FOUNDING 100</h2>
+        <h2>ARC FIRST SIGNAL<br>FOUNDING 500</h2>
 
-        <p>100 people. 24 hours. Be in the film.</p>
+        <p>500 people. Be in the film.</p>
 
         <div class="seven-content-main">
 
@@ -655,7 +698,7 @@
 
               <ul>
 
-                <li>In the trailer: your name + Photo/Clip + World in the official cut.</li>
+                <li>In the trailer: your name + Photo + World in the official cut.</li>
 
                 <li>Day‑one access: two founder sessions; priority on first two drops.</li>
 
@@ -677,7 +720,7 @@
 
                 <li>Pick your World → Step In.</li>
 
-                <li>Upload one photo/clip (auto overlay).</li>
+                <li>Upload one photo(auto overlay).</li>
 
                 <li>Tap once in 72h to activate + lock your credit.</li>
 
@@ -689,7 +732,14 @@
 
         </div>
 
-        <a href="#" class="btn-primary" id="openFormBtn" onclick="window.parent.openFormModal()">Step in</a>
+        <div class="desktop-button">
+          <a href="#" class="btn-primary" id="openFormBtn" onclick="window.parent.openFormModal()">Step in</a>
+
+        </div>
+
+        <div class="Mobile-button">
+          <a href="mobile-form.html" class="btn-primary">Step in</a>
+        </div>
 
       </div>
 
@@ -703,7 +753,7 @@
 
           <div class="upload-text" id="uploadText">
 
-            <h3>Upload <span class="highlight">photo/clip</span></h3>
+            <h3>Upload <span class="highlight">photo</span></h3>
 
             <p>Auto overlays your World.</p>
 
@@ -721,11 +771,11 @@
 
       <div class="social-icon">
 
-        <a href="#"> <img class="social" src="https://on10.io/arc/Assets/Media/Images/facebook.png" alt=""></a>
+        <a href="#"> <img class="social" src="Assets/Media/Images/facebook.png" alt=""></a>
 
-        <a href=""><img class="social" src="https://on10.io/arc/Assets/Media/Images/instagram.png" alt=""></a>
+        <a href=""><img class="social" src="Assets/Media/Images/instagram.png" alt=""></a>
 
-        <a href=""> <img class="social" src="https://on10.io/arc/Assets/Media/Images/linkdlen.png" alt=""></a>
+        <a href=""> <img class="social" src="Assets/Media/Images/linkdlen.png" alt=""></a>
 
       </div>
 
@@ -745,7 +795,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-  <script src="https://on10.io/arc/Assets/Js/main.js"></script>
+  <script src="Assets/Js/main.js"></script>
 
 
 
@@ -823,7 +873,7 @@
 
       // 2) Background rotation (infinite)
 
-      gsap.to(rotatingBg, { rotation: 360, duration: 8, ease: 'none', repeat: -1, transformOrigin: '50% 50%' });
+      // gsap.to(rotatingBg, { rotation: 360, duration: 8, ease: 'none', repeat: -1, transformOrigin: '50% 50%' });
 
 
 
@@ -985,12 +1035,93 @@
         uploadText.style.display = "none";
 
         // ✅ Save background image in localStorage
-        localStorage.setItem("arc_card_bg", imgURL);
+        // localStorage.setItem("arc_card_bg", imgURL);
+        saveToLocalStorage("arc_card_bg", imgURL);
 
       };
 
       reader.readAsDataURL(file);
     });
+
+
+    const joinList = document.getElementById('joinList');
+    var isLocal = window.location.hostname === "localhost";
+    var API_URL = isLocal
+      ? "api"
+      : "https://on10.io/arc/api";
+      
+      API_URL = "https://on10.io/arc/api";
+
+      function goToHome(){
+       window.location.assign(isLocal ? 'Main.html': 'https://on10.io/arc/Main.html')
+      }
+
+    // Fetch API data
+
+    fetch(`${API_URL}/get_orders.php`)
+
+      .then(response => response.json())
+
+      .then(data => {
+        const orders = data.orders;
+        // localStorage.setItem("cardNumber", JSON.stringify( (orders.length + 1) ))
+        saveToLocalStorage("cardNumber", (orders.length + 1))
+      })
+
+
+    // Simple get and set functions with auto compression
+    function saveToLocalStorage(key, value) {
+      try {
+        // Convert to string if object/array
+        const dataString = typeof value === 'object' ? JSON.stringify(value) : String(value);
+
+        // Compress and save
+        const compressed = LZString.compress(dataString);
+        localStorage.setItem(key, compressed);
+
+        return true;
+      } catch (error) {
+        // Fallback: save without compression
+        try {
+          localStorage.setItem(key, typeof value === 'object' ? JSON.stringify(value) : value);
+          return true;
+        } catch (e) {
+          console.error('Storage failed:', e);
+          return false;
+        }
+      }
+    }
+
+    function getFromLocalStorage(key) {
+      try {
+        const compressed = localStorage.getItem(key);
+        if (compressed === null) return null;
+
+        // Decompress
+        const decompressed = LZString.decompress(compressed);
+
+        // Try to parse as JSON, return string if fails
+        try {
+          return JSON.parse(decompressed);
+        } catch {
+          return decompressed;
+        }
+      } catch (error) {
+        // Fallback: get without decompression
+        try {
+          const raw = localStorage.getItem(key);
+          try {
+            return JSON.parse(raw);
+          } catch {
+            return raw;
+          }
+        } catch (e) {
+          console.error('Storage read failed:', e);
+          return null;
+        }
+      }
+    }
+
 
 
   </script>

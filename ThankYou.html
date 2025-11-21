@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Thank You</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Orbitron Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+
+    <!-- Instrument Sans Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#ffd166;
+      --muted:#a3b1c2;
+      --btn-bg:#06b6d4;
+      --btn-text:#021126;
+      --radius:14px;
+      --max-width:900px;
+                --yellow: #F2C202;
+
+    --Purple: #FF11CB;
+
+    --blue: #1956DA;
+
+    --purple-light: #F83ACF;
+
+    --white: #FFFFFF;
+
+    --black: #000000;
+
+    --black-light: #1A1A1A;
+
+    --orange: #F83A3A;
+
+    
+
+          --primary-font: 'Orbitron', sans-serif;
+
+    --secondary-font: 'Instrument Sans', sans-serif;
+    }
+
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
+    body{
+      background: linear-gradient(299deg, #a30ddb 0%, #000000 100%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      color:#e6eef8;
+    }
+
+    .card{
+      position:relative;
+      width:100%;
+      max-width:var(--max-width);
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border-radius:var(--radius);
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+      padding:48px;
+      text-align:center;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.04);
+    }
+
+
+    h1{
+      margin:0 0 12px 0;
+      font-size:clamp(22px, 3.6vw, 40px);
+      letter-spacing:0.4px;
+      font-family: var(--primary-font);
+      color: white;
+    }
+
+    p{
+      margin:0 0 20px 0;
+      color: white;
+      font-size:clamp(14px, 1.6vw, 18px);
+      line-height:1.6;
+      font-family: var(--secondary-font);
+    }
+
+    .actions{
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+    background: linear-gradient(90deg, var(--blue), var(--purple-light));
+
+    color: var(--white);
+
+    font-family: var(--secondary-font);
+
+    padding: 0.9rem 2.8rem;
+
+    border-radius: 50px;
+
+    font-size: 1rem;
+    border: none;
+    text-decoration: none;
+  }
+    .btn:active{ transform:translateY(1px) scale(.997); }
+    .btn.secondary{
+      background:transparent;
+      color:var(--accent);
+      border:1px solid rgba(255,209,102,0.12);
+      box-shadow:none;
+    }
+
+    canvas.confetti {
+      position:absolute;
+      left:0;
+      top:0;
+      width:100%;
+      height:100%;
+      pointer-events:none;
+      z-index:3;
+    }
+
+    .badge{
+      width:96px;
+      height:96px;
+      margin:0 auto 18px auto;
+      border-radius:50%;
+      background:radial-gradient(circle at 30% 20%, rgba(255,255,255,0.06), transparent 30%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border:1px solid rgba(255,255,255,0.04);
+      box-shadow: 0 6px 22px rgba(2,6,23,0.6);
+      z-index:4;
+    }
+    .badge svg{ width:56px; height:56px; display:block; }
+
+    @media (max-width:520px){
+      .card{ padding:28px; }
+      .badge{ width:78px;height:78px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      canvas.confetti { display:none; }
+    }
+    .btn.secondary {
+    display: none;
+}
+  </style>
+</head>
+<body>
+  <main class="card" role="main" aria-labelledby="thank-heading">
+    <canvas class="confetti" aria-hidden="true"></canvas>
+
+    <div class="badge" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="11" stroke="rgba(255,255,255,0.08)" stroke-width="1"></circle>
+        <path d="M7.5 12.5l2.5 2.5L16.5 9" stroke="url(#g)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <defs>
+          <linearGradient id="g" x1="0" x2="1">
+            <stop offset="0" stop-color="#ffd166"></stop>
+            <stop offset="1" stop-color="#06b6d4"></stop>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <!-- UPDATED HEADING -->
+    <h1 id="thank-heading">Thank You for Buying the Card!</h1>
+
+    <!-- UPDATED PARAGRAPH -->
+    <p>
+      Thank you for your purchase! Your order has been successfully received. Our team will process it shortly and send you the details. If you need any help, feel free to contact our support team anytime.
+    </p>
+
+    <!-- SECOND SHORT PARAGRAPH -->
+    <p>
+      Your trust means a lot to us. We hope this card brings value and a great experience your way.
+    </p>
+
+    <div class="actions">
+      <!-- UPDATED BUTTON -->
+      <a class="btn" href="Main.html" id="homeBtn">Back to Home</a>
+      <button class="btn secondary" id="replayBtn"></button>
+    </div>
+  </main>
+
+  <script>
+  (function(){
+    const canvas = document.querySelector('canvas.confetti');
+    const ctx = canvas.getContext('2d');
+    let W, H, particles = [], rafId = null;
+
+    function resize(){
+      const ratio = window.devicePixelRatio || 1;
+      W = canvas.width = Math.floor(canvas.clientWidth * ratio);
+      H = canvas.height = Math.floor(canvas.clientHeight * ratio);
+      ctx.setTransform(ratio,0,0,ratio,0,0);
+    }
+    resize();
+    new ResizeObserver(resize).observe(canvas);
+
+    function rand(min, max){ return Math.random() * (max - min) + min; }
+
+    const COLORS = [
+      '#ffd166', '#06b6d4', '#ef476f', '#06d6a0', '#8ecae6', '#ffd6a5', '#c084fc'
+    ];
+
+    function Confetto(x,y, vx, vy, size, color, rot, rotSpeed, shapeType){
+      this.x = x; this.y = y;
+      this.vx = vx; this.vy = vy;
+      this.size = size; this.color = color;
+      this.rotation = rot; this.rotSpeed = rotSpeed;
+      this.shape = shapeType;
+      this.lifetime = 0;
+      this.ttl = rand(2.2, 4.0);
+      this.tilt = rand(-0.5, 0.5);
+    }
+
+    Confetto.prototype.update = function(dt){
+      this.lifetime += dt;
+      this.vy += 120 * dt;
+      this.vx *= 0.995;
+      this.x += this.vx * dt;
+      this.y += this.vy * dt;
+      this.rotation += this.rotSpeed * dt;
+      this.tilt += Math.sin(this.lifetime * 10) * 0.02;
+    };
+
+    Confetto.prototype.draw = function(ctx){
+      ctx.save();
+      ctx.translate(this.x, this.y);
+      ctx.rotate(this.rotation);
+      ctx.translate(Math.sin(this.lifetime*5)*this.size*0.15, this.tilt * this.size*0.2);
+      ctx.fillStyle = this.color;
+      if (this.shape === 'rect') {
+        ctx.fillRect(-this.size/2, -this.size/2, this.size, this.size * 0.6);
+      } else {
+        ctx.beginPath();
+        ctx.ellipse(0,0,this.size*0.6, this.size*0.4, 0, 0, Math.PI*2);
+        ctx.fill();
+      }
+      ctx.restore();
+    };
+
+    function spawnBurst(centerXRatio = 0.5){
+      const cx = canvas.clientWidth * centerXRatio;
+      const cy = canvas.clientHeight * 0.18;
+      const count = Math.floor(rand(22, 36));
+      for(let i=0;i<count;i++){
+        const angle = rand(-Math.PI*0.9, Math.PI*0.9);
+        const speed = rand(80, 420);
+        const vx = Math.cos(angle)*speed;
+        const vy = Math.sin(angle)*speed * 0.6 - rand(40,160);
+        const size = rand(6, 14);
+        const color = COLORS[Math.floor(rand(0, COLORS.length))];
+        const rot = rand(0, Math.PI*2);
+        const rotSpeed = rand(-6,6);
+        const shape = Math.random() > 0.45 ? 'rect' : 'ellipse';
+        particles.push(new Confetto(cx + rand(-20,20), cy + rand(-10,10), vx, vy, size, color, rot, rotSpeed, shape));
+      }
+      startLoop();
+    }
+
+    let ambientTimer = 0;
+    function spawnAmbient(dt){
+      ambientTimer += dt;
+      if (ambientTimer > 0.12) {
+        ambientTimer = 0;
+        const x = rand(0, canvas.clientWidth);
+        const size = rand(4,9);
+        const vx = rand(-20, 20);
+        const vy = rand(30, 80);
+        const color = COLORS[Math.floor(rand(0, COLORS.length))];
+        particles.push(new Confetto(x, -10, vx, vy, size, color, rand(0,Math.PI*2), rand(-2,2), 'rect'));
+      }
+    }
+
+    let last = performance.now();
+    function loop(now){
+      const dt = Math.min(0.05, (now - last) / 1000);
+      last = now;
+
+      ctx.clearRect(0,0,canvas.clientWidth, canvas.clientHeight);
+      spawnAmbient(dt);
+
+      for(let i = particles.length - 1; i >= 0; i--){
+        const p = particles[i];
+        p.update(dt);
+        if (p.y - p.size > canvas.clientHeight || p.lifetime > p.ttl + 1) {
+          particles.splice(i,1);
+          continue;
+        }
+        p.draw(ctx);
+      }
+
+      if (particles.length === 0) {
+        stopLoop();
+        return;
+      }
+      rafId = requestAnimationFrame(loop);
+    }
+
+    function startLoop(){
+      if (!rafId) {
+        last = performance.now();
+        rafId = requestAnimationFrame(loop);
+      }
+    }
+    function stopLoop(){
+      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+    }
+
+    function celebrate(){
+      spawnBurst(0.25);
+      setTimeout(()=> spawnBurst(0.5), 120);
+      setTimeout(()=> spawnBurst(0.78), 240);
+    }
+
+    document.getElementById('replayBtn').addEventListener('click', function(){
+      celebrate();
+    });
+
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce) {
+      setTimeout(celebrate, 350);
+    }
+
+    window.addEventListener('pagehide', stopLoop);
+    window.addEventListener('beforeunload', stopLoop);
+
+    document.querySelector('.card').addEventListener('click', function(e){
+      const tag = e.target.tagName.toLowerCase();
+      if (tag === 'a' || tag === 'button' || e.target.closest('a') || e.target.closest('button')) return;
+      celebrate();
+    });
+
+  })();
+  </script>
+</body>
+</html>
